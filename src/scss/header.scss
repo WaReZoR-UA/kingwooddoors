@@ -1,47 +1,505 @@
-//====================================================================================================
+//=======================================HEADER=============================================================
 
-//====================================================================================================
+.header {
+	&__top {
+		padding: rem(7) 0px;
+		background-color: #131313;
+		@media (max-width:$mobile){
+			display: none;
+		}
+	}
+	&__logo {
+		background-color: $mainBackground;
+		padding: rem(50) 0 ;
+		display: flex;
+		justify-content: center;
+		@media (max-width:$mobile){
+			background-color: #fff;
+			padding: rem(36) 0 rem(17) 0;
+			z-index: 100;
+			position: relative;
+			img{
+				width: 223px;
+			}
+		}
+	}
+	&__menu {
+	}
+	&__container {
+		@media (max-width:$mobile){
+		background-color: #fff;
+		}
+	}
+}
+//==========СТИЛИ ВЕРХНЕЙ ЧЕРНОЙ ПЛАШКИ ХЕДЕРА========TOP-HEADER==================================
+.top-header {
+	&__container {
+	display: flex;
+	justify-content: space-between;
+	}
+
+	&__socials {
+	}
+
+	&__actions {
+	}
+}
+.socials-header {
+	color: #fff;
+	display: flex;
+	column-gap: rem(12);
+	//===============СТИЛИ ИКОНОК СОЦ.СЕТЕЙ=======================================================
+	&__icon{
+		position: relative;
+		background-color: $orange;
+		width: rem(31);
+		height: rem(31);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&:before{
+			content: '';
+			position: absolute;
+			top: -14px;
+			left: -6px;
+			background-color:transparent;
+			width: 43px;
+			height: 52px;
+		}
+	}
+	&__subtitle{
+		color: $mainColor;
+		opacity: 0;
+		position: absolute;
+		top: 38px;
+		left:0;
+		font-size: rem(0);
+		transition: all 0.4s ease 0s;
+		background-color: $orange;
+		padding:rem(2) rem(4);
+		border-radius: 3px;
+		white-space: nowrap;
+		&:before{
+			position: absolute;
+			content: '';
+			top: -10px;
+			left: 5px;
+			width: 10px;
+			height: 10px;
+			background-color:$orange;
+			transform: rotate(45deg) translate(7px);
+			z-index: -2;
+		}
+	}
+	//============ХОВЕР НА ИКОНКАХ СОЦ-СЕТЕЙ=============================================================
+	&__item{
+		position: relative;
+		transition: all 0.4s ease 0s;
+		@media (any-hover: hover){
+			&:hover{
+				position: relative;
+				transform: translate(0, 7px);
+				.socials-header__subtitle{
+					opacity: 1;
+					left:0;
+					top:38px;
+					font-size: rem(16);
+					cursor: default;
+				}
+				.socials-header__icon{
+					background-color: $mainBackground;
+				}
+				color:$orange;
+			}
+		}
+		&_facebook{
+			@media (any-hover: hover){
+				&:hover{
+					transform: translate(0, 7px);
+					.socials-header__icon{
+						background-color: $mainBackground;
+					}
+					color:$orange;
+				}
+			}
+		}
+		&_instagram{
+			@media (any-hover: hover){
+				&:hover{
+					transform: translate(0, 7px);
+					.socials-header__icon{
+						background-color: $mainBackground;
+					}
+					color:$orange;
+				}
+			}
+		}
+	}
+	//============ХОВЕР НА ИКОНКАХ СОЦ-СЕТЕЙ=============================================================
+
+
+	&__phone {
+		@extend %ic;
+		@extend ._icon-phone;
+		font-size: rem(18);
+	}
+	&__viber {
+		@extend %ic;
+		@extend ._icon-viber;
+		font-size: rem(17);
+	}
+	&__mail {
+		@extend %ic;
+		@extend ._icon-mail;
+		font-size: rem(13);
+	}
+
+	&__telegram {
+		@extend %ic;
+		@extend ._icon-telegram;
+		font-size: rem(15);
+	}
+
+	&__facebook {
+		@extend %ic;
+		@extend ._icon-facebook;
+		font-size: rem(21);
+	}
+
+	&__instagram {
+		@extend %ic;
+		@extend ._icon-instagram;
+		font-size: rem(19);
+	}
+
+}
+
+//==========СТИЛИ КНОПОК ХЕДЕРА=================================
+.actions-header {
+	color: $orange;
+	border: 2px solid $orange;
+	border-radius: 3px;
+	display: inline-flex;
+	@media (max-width:$mobile){
+		border: 0px solid $orange;
+	}
+
+//==========СТИЛИ КНОПКИ И ПОЛЯ ПОИСКА============================
+	&__search{
+		display: flex;
+	}
+	&__search-input{
+		background-color: #fff;
+		font-size: rem(14);
+		color: $mainColor;
+		width: 0px;
+		transition: all 0.3s ease 0s;
+		&:focus{
+			outline:0px solid $orange ;
+			background-color: #cecece;
+		}
+		&._search-active{
+			width: 200px;
+			padding: 0px rem(15);
+		}
+	}
+	&__search-button {
+		@extend %ic;
+		@extend ._icon-search;
+		font-size: rem(20);
+		align-self: center;
+		display: flex;
+		align-items: center;
+		column-gap: rem(4);
+
+		padding: 0px rem(4) 0px rem(11);
+		height: 100%;
+		transition: all 0.3s ease 0s;
+		@media (max-width:$mobile){
+			color:$mainBackground;
+			background-color: $orange;
+			font-size: rem(13);
+			padding: rem(6);
+			border-radius: 2px;
+		}
+		span{
+		@extend %ic;
+		@extend ._icon-arrow-down;
+		font-size: rem(4);
+		@media (max-width:$mobile){
+			display: none;
+		}
+		}
+		@media (any-hover: hover){
+			&:hover{
+				background-color: $orange;
+				color: #fff;
+			}
+		}
+	}
+//==========СТИЛИ КНОПКИ И ПОЛЯ ПОИСКА============================
+
+
+//===========СТИЛИ КНОПОК ЯЗЬІКОВ=================================
+	&__language{
+		position: relative;
+		
+	}
+	&__english {
+		font-weight: 700;
+		font-size: rem(16);
+		line-height: math.div(20 ,17 );
+		text-transform: uppercase;
+		border-left: 2px solid $orange;
+		display: flex;
+		align-items: center;
+		column-gap: rem(4);
+		padding-left: rem(6);
+		padding-right: rem(4);
+		height: 100%;
+		transition: all 0.3s ease 0s;
+		@media (max-width:$mobile){
+			border-left: 0px solid $orange;
+			font-size: rem(13);
+		}
+		@media (any-hover: hover){
+			&:hover{
+				background-color: $orange;
+				color: #fff;
+			}
+		}
+		span:first-child{
+			width: rem(32);
+			text-align: left;
+		}
+		span.arrow-down{
+			@extend %ic;
+			@extend ._icon-arrow-down;
+			font-size: rem(4);
+			@media (max-width:$mobile){
+				display: none;
+			}
+		}
+	}
+	&__russian{
+		font-weight: 700;
+		font-size: rem(17);
+		line-height: math.div(20 ,17 );
+		text-transform: uppercase;
+		padding-left: rem(8);
+		position: absolute;
+		top: rem(38);
+		left: 0;
+		font-size: rem(0);
+		transition: all 0.3s ease 0s;
+		opacity: 0;
+		._search-active &{
+			left: 0;
+			opacity: 1;
+			z-index: 2;
+			cursor: pointer;
+			font-size: rem(16);
+			@media (max-width:$mobile){
+				display: none;
+			}
+			&:before{
+				content: '';
+				position: absolute;
+				top: -10px;
+				right: -20vw;
+				width:100vw;
+				height: 130%;
+				background-color: transparent;
+				cursor: default;
+				z-index: -1;
+			}
+		}
+	}
+//===========СТИЛИ КНОПОК ЯЗЬІКОВ=================================
+}
+//===========СТИЛИ КНОПОК ХЕДЕРА=================================
+
+
+//================(=========================HEADER_TOP===========================================================
+
+
+
+
+
+
+
+
+.menu-header {
+	position: relative;
+	&__icon {
+	}
+	&__burger-header{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: rem(10);
+		position: relative;
+		z-index: 2;
+	}
+
+	&__body {
+		margin: 0px rem(-10);
+		@media (max-width:$mobile){
+			margin: 0;
+			position: fixed;
+			left: -120%;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			transition: all 0.3s ease 0s;
+			z-index: 1;
+			display: flex;
+			flex-direction: column;
+			padding-top: rem(200);
+			.menu-open & {
+				left: 0;
+				background-color:#fff;
+				flex:1 1 auto;
+			}
+		}
+	}
+
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: rem(20);
+		border-bottom: rem(4) solid $orange;
+		@media (max-width: em(1023.98)){
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			padding-bottom: rem(0);
+			border-bottom: 0px solid $orange;
+			//justify-items: center;
+			gap:20px;
+		}
+		@media (max-width:$mobile){
+			display: flex;
+			flex-direction: column;
+			justify-content: start;
+			row-gap: rem(16);
+			background-color: $lightGrey;
+			border-radius: 2px;
+			margin-bottom: rem(15);
+			margin: 10px;
+			flex:1 1 auto;
+		}
+	}
+
+	&__item {
+		padding: 0px rem(10);
+		&.active-link{
+			color:$orange;
+		}
+	}
+
+	&__link {
+		position: relative;
+		font-size: 30px;
+		line-height: math.div(35 ,30);
+		font-variant: small-caps;
+		transition: color 0.3s ease 0s, border-bottom 0.3s ease 0s, padding-bottom 0.3s ease 0s;
+		white-space: nowrap;
+		border-bottom: 0px solid transparent;
+		padding-bottom: rem(0);
+		@media (max-width: em(1023.98)){
+			&:hover{
+				border-bottom: 8px solid $orange;
+				padding-bottom: rem(10);
+			}
+		}
+		@media (max-width:$mobile){
+			font-weight: 300;
+			font-size: rem(24);
+			line-height: math.div(28 ,24 );
+		}
+	}
+}
+
+
+
+
+
+
+
+
+#border {
+	height:8px;
+	background-color: $orange;
+	position:absolute;
+	@media (max-width: em(1024)){
+		display: none;
+	}
+}
+
+
+
+
+
+
+
+
+
+
 
 //Burger
-/*
+.menu-word{
+	padding-left: 38px;
+	font-weight: 700;
+	font-size: rem(18);
+	text-transform: uppercase;
+	color: $orange;
+}
 .icon-menu {
 	display: none;
+
 	@media (max-width: $mobile) {
 		display: block;
 		position: relative;
-		width: rem(30);
-		height: rem(18);
+		width: rem(42);
+		height: rem(42);
 		cursor: pointer;
 		z-index: 5;
-		span,
+		padding: 13px 12px 14px 12px ;
+		background-color: $lightGrey;
+		border-radius: 2px;
+		span.burger-span,
 		&::before,
 		&::after {
 			content: "";
 			transition: all 0.3s ease 0s;
-			right: 0;
+			left: 12px;
 			position: absolute;
-			width: 100%;
-			height: rem(2);
-			background-color: #000;
+			width: rem(18);
+			height: rem(3);
+			background-color: $orange;
+			border-radius: 4px;
 		}
 		&::before {
-			top: 0;
+			top: 13px;
 		}
 		&::after {
-			bottom: 0;
+			bottom: 14px;
 		}
-		span {
-			top: calc(50% - rem(1));
+		span.burger-span {
+			top: calc(50% - rem(2));
 		}
 		.menu-open & {
-			span {
+			span.burger-span {
 				width: 0;
 			}
 			&::before,
 			&::after {
+				width: 24px;
+				left: 9px;
 			}
 			&::before {
-				top: calc(50% - rem(1));
+				top: calc(50% - rem(2));
 				transform: rotate(-45deg);
 			}
 			&::after {
@@ -51,4 +509,4 @@
 		}
 	}
 }
-*/
+
