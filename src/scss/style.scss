@@ -4,8 +4,9 @@
 @import "base/mixins";
 
 // Подключение шрифтов ===========================================================================================================================================================================================================================================================================
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300italic,regular,500,700,900');
 //&display=swap - добавить при подключении через плагин
 
 // Подключить если есть локальные файлы шрифтов
@@ -25,6 +26,7 @@ $mainBackground: #F2F2F2;
 $orange: #FF8A00;
 $darkGrey: #414141;
 $lightGrey: #F1F1F1;
+$white: #fff;
 
 // НАСТРОЙКИ ===============================================================================================================================================================================================================================================================================================
 // Минимальная ширина страницы
@@ -140,3 +142,4 @@ body {
 
 // Подключение стилей отдельных страниц
 @import "home";
+@import "main_page/gallery";
