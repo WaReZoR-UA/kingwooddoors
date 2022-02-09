@@ -4,28 +4,28 @@
 		$(document).ready(function () {
 				var style = 'easeOutExpo';
 				var default_left = Math.round($('.menu-header ul li.active-link').offset().left - $('.menu-header ul').offset().left);
-				var default_top = $('.menu-header ul li.active-link').height()+28; /* 28 - отступ от пункта меню */
+				var default_top = $('.menu-header ul li.active-link').height()+18; /* 18 - отступ от пункта меню */
 				var default_width = $('.menu-header ul li.active-link').width();
 				$('#border').css({left: default_left, top: default_top, width: default_width});
 				$('.menu-header ul li').hover(function () {
 					left = Math.round($(this).offset().left - $('.menu-header ul').offset().left);
 					width = $(this).width();
 					$('#border').stop(false, true).animate({left: left, width: width},{duration:700, easing: style});
-					$(this).addClass('active-link');
-					$(this).addClass('hover-link');
-					$('.menu-header ul li.active-link').css({color: "#000"});
-					$('.menu-header ul li.hover-link').css({color: "#FF8A00"});
+					//$(this).addClass('active-link');
+					//$(this).addClass('hover-link');
+					//$('.menu-header ul li.active-link').css({color: "#000"});
+					//$('.menu-header ul li.hover-link').css({color: "#FF8A00"});
 				}).click(function () {
 					$('.menu-header ul li').removeClass('active-link');
 					$(this).addClass('active-link');
 				});
-				$('.menu-header ul li').mouseleave(function () {
-					$(this).removeClass('active-link');
-					$(this).removeClass('hover-link');
-					$('.menu-header ul li').css({color: "#000"});
-					$('.menu-header ul li.active-link').css({color: "#FF8A00"});
+				//$('.menu-header ul li').mouseleave(function () {
+					//$(this).removeClass('active-link');
+					//$(this).removeClass('hover-link');
+					//$('.menu-header ul li').css({color: "#000"});
+					//$('.menu-header ul li.active-link').css({color: "#FF8A00"});
 					
-				});
+				//});
 				$('.menu-header ul').mouseleave(function () {
 					default_left = Math.round($('.menu-header ul li.active-link').offset().left - $('.menu-header ul').offset().left);
 					default_width = $('.menu-header ul li.active-link').width();
