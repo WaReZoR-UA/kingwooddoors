@@ -7,7 +7,7 @@
 // Подключаем слайдер Swiper из node_modules
 // При необходимости подключаем дополнительные модули слайдера, указывая их в {} через запятую
 // Пример: { Navigation, Autoplay }
-import Swiper, { Navigation } from 'swiper';
+import Swiper, { Navigation, Thumbs, Lazy } from 'swiper';
 /*
 Основниые модули слайдера:
 Navigation, Pagination, Autoplay, 
@@ -27,57 +27,21 @@ import "../../scss/base/swiper.scss";
 function initSliders() {
 	// Перечень слайдеров
 	// Проверяем, есть ли слайдер на стронице
-	if (document.querySelector('.swiper')) { // Указываем скласс нужного слайдера
+	if (document.querySelector('.gallery-slider__tumbs')) { // Указываем скласс нужного слайдера
 		// Создаем слайдер
-		new Swiper('.swiper', { // Указываем скласс нужного слайдера
+		var swiperTumbs = new Swiper('.gallery-slider__tumbs', { // Указываем скласс нужного слайдера
 			// Подключаем модули слайдера
 			// для конкретного случая
-			modules: [Navigation],
+			modules: [Lazy],
 			observer: true,
 			observeParents: true,
-			slidesPerView: 1,
-			spaceBetween: 0,
-			autoHeight: true,
-			speed: 800,
-
-			//touchRatio: 0,
-			//simulateTouch: false,
-			//loop: true,
-			//preloadImages: false,
-			//lazy: true,
-
-			/*
-			// Эффекты
-			effect: 'fade',
-			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
-			},
-			*/
-
-			// Пагинация
-			/*
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
-			},
-			*/
-
-			// Скроллбар
-			/*
-			scrollbar: {
-				el: '.swiper-scrollbar',
-				draggable: true,
-			},
-			*/
-
-			// Кнопки "влево/вправо"
-			navigation: {
-				prevEl: '.swiper-button-prev',
-				nextEl: '.swiper-button-next',
-			},
-
-			// Брейкпоинты
+			slidesPerView: 5,
+			simulateTouch: true,
+			freeMode: true,
+			loop: true,
+			lazy: true,
+			centeredSlides: true,
+			watchSlidesProgress: true,
 			/*
 			breakpoints: {
 				320: {
@@ -102,6 +66,53 @@ function initSliders() {
 			// События
 			on: {
 
+			}
+		});
+	}
+	if (document.querySelector('.gallery-slider__images')) { // Указываем скласс нужного слайдера
+		// Создаем слайдер
+		new Swiper('.gallery-slider__images', { // Указываем скласс нужного слайдера
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Lazy, Thumbs],
+			observer: true,
+			observeParents: true,
+			simulateTouch: true,
+			slidesPerView: "auto",
+			freeMode: true,
+			centeredSlides: true,
+			loop: true,
+			lazy: true,
+			navigation: {
+				prevEl: '.gallery-slider__prev',
+				nextEl: '.gallery-slider__next',
+			},
+			thumbs: {
+				swiper: swiperTumbs,
+			},
+			/*
+			breakpoints: {
+				320: {
+					slidesPerView: 1,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
+				768: {
+					slidesPerView: 2,
+					spaceBetween: 20,
+				},
+				992: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1268: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
+			},
+			*/
+			// События
+			on: {
 			}
 		});
 	}
