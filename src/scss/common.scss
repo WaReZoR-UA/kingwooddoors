@@ -1,4 +1,10 @@
 // Заголовки, общие БЄМ блоки и проче...
+.page{
+	@media (max-width:$mobile){
+		background-color:#fff;
+	}
+}
+
 .title {
 	font-weight: 300;
 	font-size: 48px;
