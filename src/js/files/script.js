@@ -4,3 +4,108 @@ import { isMobile } from "./functions.js";
 import { flsModules } from "./modules.js";
 
 
+//===============Search Bar and Search Button Functioning=================================
+
+//Обьявляем кнопку Поиска в пееременную
+const searchButton = document.querySelector('.actions-header__search-button');
+
+//Обьявляем язьіковой блок в пееременную
+const languageButton = document.querySelector('.actions-header__language');
+
+//Обьявляем кнопку ENG в пееременную
+const englishButton = document.querySelector('.actions-header__english');
+
+//Обьявляем кнопку RU в пееременную
+const russianButton = document.querySelector('.actions-header__russian');
+
+//Обьявляем поле Поиска в переменную
+const searchInput = document.querySelector('.actions-header__search-input');
+
+
+//Слушаем собьітие MOUSEOVER на документе
+document.addEventListener("mouseover",function(e){
+	//Добавяем класс для импута по наведению на кнопку SEARCH, поле поиска, блока язьіка
+	if(e.target.closest('.actions-header__search-button') || e.target.closest('.actions-header__search-input')){
+		searchInput.classList.add("_search-active");
+	} 
+	else {
+		searchInput.classList.remove("_search-active");
+	}
+	//Добавяем класс для КНОПКИ ЯЗЬІКА по наведению на кнопку
+	if(e.target.closest('.actions-header__language')){
+		languageButton.classList.add("_search-active");
+	}
+	else{
+		languageButton.classList.remove("_search-active");
+	}
+});
+
+
+
+
+document.addEventListener("click", buttonClickLangSwitch);
+
+function buttonClickLangSwitch(e){
+	if(e.target.closest(".actions-header__language")){
+		languageButton.classList.toggle("_language-change");
+		
+	}
+	if(languageButton.classList.contains("_language-change")){
+			englishButton.innerHTML = `<span>RU</span><span class="arrow-down"></span>`;
+			russianButton.innerHTML = `<span>ENG</span>`;
+		} else {
+			englishButton.innerHTML = `<span>ENG</span><span class="arrow-down"></span>`;
+			russianButton.innerHTML = `<span>RU</span>`;
+		}
+};
+
+
+
+
+
+
+
+
+
+//document.addEventListener("click",function(e){
+//	if(!e.target.pageBody){
+//		aproveBlock.style.display = `none`;
+//	}
+//});
+//
+//
+//
+////СМЕНА ЯЗЬІКА
+//
+////Задаем переменньіе
+//const langButton = document.querySelector('.language');
+//const langButtonUa = document.querySelector('.language__ua');
+//const langButtonRu = document.querySelector('.language__ru');
+////const pageBody = document.body;
+//
+//document.addEventListener("click", buttonClickLangSwitch);
+//
+//
+//		//Функция КЛИКА на КНОПКУ
+//		function buttonClickLangSwitch(e){
+//			if(e.target.closest(".language")){
+//				pageBody.classList.toggle("_language-change");
+//				langButton.classList.toggle("_language-change");
+//				langButtonUa.classList.toggle("_language-change");
+//				langButtonRu.classList.toggle("_language-change");
+//			}
+//		};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
