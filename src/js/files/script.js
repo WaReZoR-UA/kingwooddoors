@@ -42,7 +42,7 @@ document.addEventListener("mouseover",function(e){
 
 
 
-
+//Смена язьіка по клику
 document.addEventListener("click", buttonClickLangSwitch);
 
 function buttonClickLangSwitch(e){
@@ -62,10 +62,38 @@ function buttonClickLangSwitch(e){
 
 
 
+//========ПОДМЕНЮ====================
+
+//Обьявляем ПОДМЕНЮ в переменную
+const subMenu = document.querySelector('.header-submenu');
+
+//Обьявляем ЗАГОЛОВОК ПОДМЕНЮ в переменную
+const subMenuTitle = document.querySelector('.header-submenu__title');
+
+//Обьявляем ТЕЛО ПОДМЕНЮ в переменную
+const subMenuBody = document.querySelector('.header-submenu__body');
+
+//Собьітие наведение мьішью на саб-меню====================
+document.addEventListener("mouseover", subMenuShow);
+//Собьітие КЛИК на саб-меню====================
+document.addEventListener("click", subMenuShowClick);
 
 
-
-
+//Функция появления саб меню при НАВЕДЕНИИ на тайтл 
+function subMenuShow(e){
+	if(e.target.closest('.header-submenu__title') || e.target.closest('.header-submenu__body')){
+		subMenu.classList.add('submenu-show');
+	}
+	else{
+		subMenu.classList.remove('submenu-show');
+	}
+}
+//Функция появления саб меню при КЛИКЕ на тайтл
+function subMenuShowClick(e){
+	if(e.target.closest('.header-submenu__title')){
+		subMenu.classList.toggle('submenu-show');
+	}
+}
 
 //document.addEventListener("click",function(e){
 //	if(!e.target.pageBody){
