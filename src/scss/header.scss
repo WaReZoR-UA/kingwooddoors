@@ -41,14 +41,11 @@
 	&__menu {
 		padding-bottom: 50px;
 		background-color: $mainBackground;
-<<<<<<< HEAD
-=======
 		z-index: 98;
 		position: relative;
 		@media (max-width:$mobile){
 			background-color: $white;
 			}
->>>>>>> rancour
 	}
 	&__container {
 		@media (max-width:$mobile){
@@ -369,11 +366,7 @@
 			padding-bottom: rem(10);
 			position: relative;
 			z-index: 2;
-<<<<<<< HEAD
-			background-color: #fff;
-=======
 			background-color: $white;
->>>>>>> rancour
 		}
 		@media (orientation:landscape){
 			padding: rem(10);
@@ -449,19 +442,11 @@
 		&.active-link{
 			color:$orange;
 		}
-<<<<<<< HEAD
-		//@media (any-hover: hover){
-		//	&:hover{
-		//		color:$orange;
-		//	}
-		//}
-=======
 		@media (any-hover: hover){
 			&:hover{
 				color:$orange;
 			}
 		}
->>>>>>> rancour
 	}
 
 	&__link {
