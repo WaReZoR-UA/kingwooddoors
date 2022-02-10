@@ -7,6 +7,30 @@
 		<div class="wrapper">
 			@@include('html/_header.htm',{})
 			<main class="page">
+				<section class="collections">
+					<div class="collections__container">
+						<h2 class="collections__title title">Collections</h2>
+						<div data-tabs class="collection">
+							<nav data-tabs-titles class="collection__navigation">
+								<h3 class="collection__title">Serial</h3>
+								<button type="button" class="collection__title _tab-active">Lyra</button>
+								<button type="button" class="collection__title">Garcia</button>
+								<button type="button" class="collection__title">Verona </button>
+							</nav>
+							<div data-tabs-body class="collection__content">
+								<div class="collection__body">
+									<img src="@img" alt="">
+								</div>
+								<div class="collection__body">
+									Содержимое второго таба
+								</div>
+								<div class="collection__body">
+									Содержимое третьего таба
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 				<section class="gallery">
 					<div class="gallery__container">
 						<h2 class="gallery__title title">Gallery</h2>
