@@ -1,0 +1,104 @@
+.collections {
+
+	// .collections__container
+	&__container {}
+
+	// .collections__title
+	&__title {}
+}
+
+.collection {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	@include adaptiveValue("column-gap", 46, 8);
+	// .collection__wrapper
+	&__wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		column-gap: 30px;
+	}
+	// .collection__navigation
+	&__navigation {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		*:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 31, 10);
+		}
+	}
+	
+	// .collection__title
+	&__title {
+		position: relative;
+		@include adaptiveValue("font-size", 36, 24);
+		line-height: math.div(42 , 36);
+		color: $mainColor;
+		@include adaptiveValue("padding-bottom", 31, 10);
+		&::after{
+			content:'';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			@include adaptiveValue("width", 103, 59);
+			height: 8px;
+			background: $orange;
+		}
+	}
+	
+	// .collection__name
+	&__name {
+		position: relative;
+		font-weight: 300;
+		@include adaptiveValue("font-size", 24, 18);
+		line-height: math.div(28 , 24);
+		color: $mainColor;
+		@include adaptiveValue("padding-bottom", 31, 10);
+
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			@include adaptiveValue("width", 103, 59);
+			height: 2px;
+			background: $darkGrey;
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 0;
+			height: 2px;
+			background: $orange;
+			transition: width 0.5s ease 0s;
+		}
+		// ._tab-active
+		&_tab-active {
+			&::after {
+				@include adaptiveValue("width", 103, 59);
+			}
+		}
+	}
+
+	// .collection__content
+	&__content {}
+
+	// .collection__body
+	&__body {
+		display: flex;
+		canvas {
+			flex: 0 1 328px;
+			@include adaptiveValue("height", 702, 401);
+		}
+		&_show {
+			display: block;
+			animation: slit-in-vertical 0.7s ease-out both;
+		}
+		&_hide {
+			display: none;
+		}
+	}
+}
