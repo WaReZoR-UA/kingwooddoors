@@ -60,8 +60,11 @@ body {
 	background-color: $mainBackground;
 	// Скролл заблокирован
 	.lock & {
-		overflow: hidden;
-		touch-action: none;
+		@media (max-width:$mobile){
+			overflow: hidden;
+			touch-action: none;
+		}
+		
 	}
 	// Сайт загружен
 	.loaded & {
