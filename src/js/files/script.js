@@ -24,13 +24,6 @@ const searchInput = document.querySelector('.actions-header__search-input');
 
 //Слушаем собьітие MOUSEOVER на документе
 document.addEventListener("mouseover",function(e){
-	//Добавяем класс для импута по наведению на кнопку SEARCH, поле поиска, блока язьіка
-	if(e.target.closest('.actions-header__search-button') || e.target.closest('.actions-header__search-input')){
-		searchInput.classList.add("_search-active");
-	} 
-	else {
-		searchInput.classList.remove("_search-active");
-	}
 	//Добавяем класс для КНОПКИ ЯЗЬІКА по наведению на кнопку
 	if(e.target.closest('.actions-header__language')){
 		languageButton.classList.add("_search-active");
@@ -39,6 +32,22 @@ document.addEventListener("mouseover",function(e){
 		languageButton.classList.remove("_search-active");
 	}
 });
+
+//========Открьітие - Заккрьітие поля INPUT по нажатию на Кнопку SEARCH
+document.addEventListener("click", buttonClickSearch);
+
+function buttonClickSearch(e){
+	if(e.target.closest(".actions-header__search-button")){
+		searchInput.classList.toggle("_search-active");
+		if(searchInput.value == ""){//=========ЗАПРЕЩАЮ ОТПРАВКУ ЕСЛИ ПОЛЕ ПОИСКА ПУСТОЕ========
+			e.preventDefault(e);
+		}
+	}
+	//=========Закрьіваю поле INPUT Search если кликать не на него и не на кнопку SEARCH===============
+	if(!e.target.closest(".actions-header__search-input") && !e.target.closest(".actions-header__search-button")){
+		searchInput.classList.remove("_search-active");
+	}
+}
 
 
 
@@ -62,7 +71,7 @@ function buttonClickLangSwitch(e){
 
 
 
-//========ПОДМЕНЮ====================
+//========ПОД-МЕНЮ====================
 
 //Обьявляем ПОДМЕНЮ в переменную
 const subMenu = document.querySelector('.header-submenu');
@@ -123,7 +132,6 @@ function subMenuShowClick(e){
 //				langButtonRu.classList.toggle("_language-change");
 //			}
 //		};
-
 
 
 
