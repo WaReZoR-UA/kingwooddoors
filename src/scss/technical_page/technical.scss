@@ -1,0 +1,276 @@
+.technical-info {
+	font-size: rem(30);
+	line-height: math.div(35 ,30 );
+	color: $mainColor;
+	padding-bottom: rem(115);
+	&__container {
+	}
+
+	&__breadcrumbs {
+	}
+
+	&__title {
+		padding-bottom: rem(150);//===========Временно, потом надо взять готовьій тайтл и крошки
+	}
+	&__items{
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(65);
+	}
+	&__features {
+	}
+
+	&__hardware {
+	}
+
+	&__overwiev {
+	}
+
+	&__door-leaf {
+	}
+
+	&__door-frame {
+	}
+
+	&__door-platband {
+	}
+
+	&__door-frame-extension {
+	}
+
+	&__door-infill {
+	}
+
+	&__door-glass {
+	}
+}
+.features {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(35);
+	&__title {
+	}
+
+	&__content {
+		font-weight: 300;
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(35);
+	}
+
+	&__subtitle {
+
+	}
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(35);
+	}
+
+	&__item {
+	}
+}
+.common-technical-title {
+	color:$orange;
+	font-weight: 500;
+	font-variant: small-caps;
+	text-transform: uppercase;
+}
+.hardware {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(35);
+	&__title {
+	}
+
+	&__content {
+		font-weight: 300;
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(35);
+	}
+
+	&__subtitle {
+	}
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(35);
+	}
+
+	&__item {
+	}
+}
+.overwiev {
+	display: flex;
+	&__door-image {
+	}
+
+	&__construction-images {
+		display: grid;
+		grid-template-columns: repeat(2,1fr );
+		column-gap: rem(90);
+	}
+}
+.construction {
+
+	&__image {
+	}
+}
+.door-leaf {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(55);
+	&__title {
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(55);
+	}
+
+	&__images {
+		display: flex;
+		gap: rem(20);
+		flex-wrap: wrap;
+	}
+
+	&__image {
+	}
+
+	&__description {
+	}
+}
+.common-description {
+	font-weight: 300;
+}
+.door-frame {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(55);
+	&__title {
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(55);
+	}
+
+	&__images {
+		display: flex;
+		gap: rem(20);
+		flex-wrap: wrap;
+	}
+
+	&__image {
+	}
+
+	&__description {
+	}
+}
+.door-platband {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(55);
+	&__title {
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(55);
+	}
+
+	&__images {
+		display: flex;
+		gap: rem(20);
+		flex-wrap: wrap;
+	}
+
+	&__image {
+	}
+
+	&__description {
+	}
+}
+.door-frame-extension {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(55);
+	&__title {
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(55);
+	}
+
+	&__images {
+		display: flex;
+		gap: rem(20);
+		flex-wrap: wrap;
+	}
+
+	&__image {
+	}
+
+	&__description {
+	}
+}
+.door-infill {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(55);
+
+	&__title {
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(55);
+	}
+
+	&__images {
+		display: flex;
+		gap: rem(20);
+		flex-wrap: wrap;
+	}
+
+	&__image {
+	}
+
+	&__description {
+	}
+}
+.door-glass {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(55);
+	&__title {
+		font-weight: 300;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(55);
+	}
+
+	&__images {
+		display: flex;
+		gap: rem(20);
+		flex-wrap: wrap;
+	}
+
+	&__image {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(35);
+	}
+}
