@@ -5,6 +5,9 @@
 		&:not(:last-child) {
 			@include adaptiveValue("margin-bottom", 30, 10);
 		}
+		@media (max-width:$mobile){
+			@include adaptiveValue("padding-bottom", 65, 25);
+		}
 	}
 
 	// .about__row
