@@ -145,8 +145,12 @@ body {
 @import "footer";
 
 // Подключение стилей отдельных страниц
-@import "home";
+
+// Стили главной страницы
 @import "main_page/gallery";
 @import "main_page/about";
 @import "main_page/collections";
+//Стили страницы Our-Products
+@import "our_products/title-menu";
+//Стили страницы technical
 @import "technical_page/technical";
