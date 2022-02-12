@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('html/_head.htm',{
+	"title":"Главная"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page">
+				<section class="technical-info">
+					<div class="technical-info__container">
+						<div class="technical-info__breadcrumbs breadcrumbs-technical-info">
+							<a href="" class="breadcrumbs-technical-info__link">Home</a>
+							<span class="breadcrumbs-technical-info__devider _icon-arrow-forward"></span>
+							<a href="" class="breadcrumbs-technical-info__link">Our products</a>
+							<span class="breadcrumbs-technical-info__devider _icon-arrow-forward"></span>
+							<a href="" class="breadcrumbs-technical-info__link">Lyra</a>
+						</div>
+						<h1 class="technical-info__title">Lyra</h1>
+						<span class="technical-info__title-arrow _icon-arrow-down"></span>
+					</div>
+				</section>
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_popup.htm',{})
+		@@include('html/_js.htm',{})
+	</body>
+</html>
