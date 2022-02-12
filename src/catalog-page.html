@@ -9,6 +9,16 @@
 		@@include('html/_header.htm',{})
 		<main class="page">
 			@@include('html/_bradcrumps.htm',{})
+			<div class="title-menu">
+				<form action="#" class="title-menu__form">
+					<select name="form[]" class="form">
+						<option value="1" selected>Verona</option>
+						<option value="2">Gracia</option>
+						<option value="3">Lyra</option>
+						<!-- пункты будут добавляться по мере добавления коллекций -->
+					</select>
+				</form>
+			</div>
 		</main>
 		@@include('html/_footer.htm',{})
 	</div>
