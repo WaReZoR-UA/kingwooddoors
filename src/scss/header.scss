@@ -39,6 +39,22 @@
 		}
 	}
 	&__menu {
+		//========STICKY для HEADER-MENU по скроллу==================
+		transition: all 0.3s ease 0s;
+		&.sticky{
+			position: fixed;
+			top:45px;
+			left: 0;
+			width: 100%;
+			@media (min-width:$mobile){
+				background-color: rgba(255, 255, 255, 0.95);
+				padding-bottom: rem(20);
+			}
+			@media (max-width:$mobile){
+				top: 0px;
+				padding-top: 10px;
+			}
+		}
 		padding-bottom: 50px;
 		background-color: $mainBackground;
 		z-index: 98;
@@ -76,6 +92,12 @@
 	color: $white;
 	display: flex;
 	column-gap: rem(12);
+	&_footer{
+		column-gap: rem(5);
+		@media (max-width:$mobile){
+			column-gap: rem(12);
+		}
+	}
 	//===============СТИЛИ ИКОНОК СОЦ.СЕТЕЙ=======================================================
 	&__icon{
 		position: relative;
@@ -94,6 +116,22 @@
 			background-color:transparent;
 			width: 43px;
 			height: 52px;
+		}
+		&_footer{
+			transition: all 0s ease 0s;
+			@media (max-width:$mobile){
+				width: rem(38);
+				height: rem(38);
+			}
+			&:before{
+				content: '';
+				position: absolute;
+				top: -7px;
+				left: -2px;
+				background-color:transparent;
+				width: 35px;
+				height: 38px;
+			}
 		}
 	}
 	&__subtitle{
@@ -119,11 +157,62 @@
 			transform: rotate(45deg) translate(7px);
 			z-index: -2;
 		}
+		&_footer{
+			top: -27px;
+			transition: all 0.2s ease 0s;
+			&:before{
+				top: 0px;
+			}
+			&:after{
+				position: absolute;
+				content: '';
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 30px;
+				background-color: transparent;
+			}
+		}
 	}
 	//============ХОВЕР НА ИКОНКАХ СОЦ-СЕТЕЙ=============================================================
 	&__item{
 		position: relative;
 		transition: all 0.4s ease 0s;
+		&_footer{
+			transition: all 0.4s ease 0s;
+			@media (any-hover: hover){
+				&:hover{
+					position: relative;
+					transform: translate(0, -7px);
+					.socials-header__subtitle{
+						opacity: 1;
+						left:0;
+						top:-27px;
+						font-size: rem(16);
+						cursor: default;
+						&_footer{
+							&:before{
+								transition: all 0.4s ease 0s;
+								top: 10px;
+							}
+						}
+					}
+					.socials-header__icon{
+						background-color: $mainBackground;
+						&:before{
+							content: '';
+							position: absolute;
+							top: -7px;
+							left: -2px;
+							background-color:transparent;
+							width: 35px;
+							height: 45px;
+						}
+					}
+					color:$orange;
+				}
+			}
+		}
 		@media (any-hover: hover){
 			&:hover{
 				position: relative;
@@ -376,6 +465,7 @@
 
 .menu-header {
 	position: relative;
+	
 	&__icon {
 	}
 
@@ -471,12 +561,7 @@
 	
 		border-bottom: 0px solid transparent;
 		padding-bottom: rem(0);
-		//@media (max-width: em(1023.98)){
-		//	&:hover{
-		//		border-bottom: 8px solid $orange;
-		//		padding-bottom: rem(10);
-		//	}
-		//}
+
 		@media (max-width:$mobile){
 			font-weight: 300;
 			font-size: rem(24);
