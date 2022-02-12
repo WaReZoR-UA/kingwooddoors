@@ -30,10 +30,19 @@ document.addEventListener("mouseover",function(e){
 	//Добавяем класс для КНОПКИ ЯЗЬІКА по наведению на кнопку
 	if(e.target.closest('.actions-header__language')){
 		languageButton.classList.add("_search-active");
+		languageButtonFooter.classList.add("_search-active");
 	}
 	else{
 		languageButton.classList.remove("_search-active");
+		languageButtonFooter.classList.remove("_search-active");
 	}
+	if(e.target.closest('.actions-footer__language')){
+		languageButtonFooter.classList.add("_search-active");
+	}
+	else{
+		languageButtonFooter.classList.remove("_search-active");
+	}
+
 });
 
 //========Открьітие - Заккрьітие поля INPUT по нажатию на Кнопку SEARCH
