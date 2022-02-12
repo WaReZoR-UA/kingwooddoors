@@ -1,0 +1,6 @@
+.title-menu {
+	@include adaptiveValue("padding-bottom", 120, 30);
+	// .title-menu__form
+	&__form {
+	}
+}
