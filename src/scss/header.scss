@@ -39,11 +39,17 @@
 		}
 	}
 	&__menu {
+		//========STICKY для HEADER-MENU по скроллу==================
+		transition: all 0.3s ease 0s;
 		&.sticky{
 			position: fixed;
 			top:45px;
 			left: 0;
 			width: 100%;
+			@media (min-width:$mobile){
+				background-color: rgba(255, 255, 255, 0.95);
+				padding-bottom: rem(20);
+			}
 			@media (max-width:$mobile){
 				top: 0px;
 				padding-top: 10px;

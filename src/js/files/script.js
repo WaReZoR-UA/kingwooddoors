@@ -169,78 +169,40 @@ if (collections.length) {
 
 //==========STICKY HEADER-MENU=======================
 
-//======СОБЬІТИЕ СКРОЛЛ============================
-window.onscroll = function() {myFunction()};
+
+
+//======СОБЬІТИЕ ПО ЗАГРУЗКЕ СТИЛЕЙ СТРАНИЦЬІ============================
+window.addEventListener("load", function (e) {
+
+
 
 
 //=====Обьявляем Хедер-меню в переменную===============
-var header = document.getElementById("myHeader");
+	var header = document.getElementById("myHeader");
+//=====Обьявляем Хедер-ТОП в переменную===============
+	const headerTop = document.querySelector('.header__top');
+//=====Обьявляем ВЬІСОТУ Хедер-ТОП в переменную===============
+	const headerTopHeight = headerTop.offsetHeight;
 //=====Обьявляем переменную с расстоянием от веха страницьі до Хедер-меню
-var sticky = header.offsetTop;
-console.log(sticky);
-
-//=====Присвоение класса при проскроливании расстояния от хедер-меню до верха
-function myFunction() {
-if (window.scrollY > sticky) {
-  header.classList.add("sticky");
-} else {
-  header.classList.remove("sticky");
-}
-}
+var sticky = header.offsetTop - headerTopHeight;
 
 
-
-
-//работа с хедер-меню 
-//const header = document.querySelector('.header__menu');
-//let lastScroll;
-//let body = document.body;
-//lastScroll = window.scrollY;
-//
-//window.addEventListener("scroll", function (e) {
-//    let scrollCurrent = window.scrollY;
-//    if (scrollCurrent > lastScroll) {
-//        body.classList.remove('_scroll-up');
-//        body.classList.add('_scroll-down');
-//    } else if (scrollCurrent < lastScroll) {
-//        body.classList.remove('_scroll-down');
-//        body.classList.add('_scroll-up');
-//    }
-//    lastScroll = scrollCurrent;
-//    setClassListHeader();
-//});
-//function setClassListHeader() {
-//    if (lastScroll >= 20) {
-//        header.classList.add('_scroll');
-//    } else {
-//        header.classList.remove('_scroll');
-//    }
-//    if (lastScroll == 0 && body.classList.contains('_scroll-up')) {
-//        body.classList.remove('_scroll-up');
-//    }
-//}
-//setClassListHeader();
+//======СОБЬІТИЕ СКРОЛЛ============================
+	window.addEventListener("scroll", function (e) {
+		if (window.scrollY > sticky) {
+			header.classList.add("sticky");
+		} else {
+			header.classList.remove("sticky");
+		}
+	});
+});
 
 
 
 
-	//const headerTop = document.querySelector('.header__top');
-	//const headerTopHeight = headerTop.offsetHeight;
-	//
-	//window.addEventListener("scroll", setHeaderMenuStyle);
-	
-//function setHeaderMenuStyle(e){
-//		if(header.getBoundingClientRect().top <= headerTopHeight) {
-//			header.classList.add('_stop-header');
-//			header.style.top = `${headerTop.offsetHeight}px`;
-//}
-//		if(body.classList.contains('_scroll-up')) {
-//			header.classList.remove('_stop-header');
-//		}
-//		
-//		
-//		
-//
+
+
+
 
 
 
