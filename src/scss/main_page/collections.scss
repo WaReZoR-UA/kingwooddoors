@@ -12,6 +12,9 @@
 	flex-direction: row-reverse;
 	justify-content: center;
 	@include adaptiveValue("column-gap", 46, 8);
+	@media (max-width: em(600)){
+		width: 80%;
+	}
 	// .collection__wrapper
 	&__wrapper {
 		display: flex;
@@ -24,6 +27,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
+		width: 100%;
 		*:not(:last-child) {
 			@include adaptiveValue("margin-bottom", 31, 10);
 		}
@@ -49,6 +53,7 @@
 	
 	// .collection__name
 	&__name {
+		width: 100%;
 		position: relative;
 		font-weight: 300;
 		@include adaptiveValue("font-size", 24, 18);
@@ -62,8 +67,12 @@
 			bottom: 0;
 			left: 0;
 			@include adaptiveValue("width", 103, 59);
+			width: 100%;
 			height: 2px;
 			background: $darkGrey;
+			@media (max-width: em(600)) {
+				width: 100%;
+			}
 		}
 		&::after {
 			content: '';
@@ -79,6 +88,9 @@
 		&_tab-active {
 			&::after {
 				@include adaptiveValue("width", 103, 59);
+				@media (max-width: em(600)) {
+					width: 100%;
+				}
 			}
 		}
 	}
