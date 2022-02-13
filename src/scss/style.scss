@@ -26,6 +26,7 @@ $mainBackground: #F2F2F2;
 $orange: #FF8A00;
 $darkGrey: #414141;
 $midGrey: #939393;
+$buttonGray: #737373;
 $lightGrey: #F1F1F1;
 $white: #fff;
 
@@ -152,5 +153,6 @@ body {
 @import "main_page/collections";
 //Стили страницы Our-Products
 @import "our_products/title-menu";
+@import "our_products/door-collections";
 //Стили страницы technical
 @import "technical_page/technical";

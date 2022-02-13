@@ -51,16 +51,16 @@
 	}
 	// .select__options
 	&__options {
-		width: 120%;
+		width: 110%;
 		color: inherit;
 		position: absolute;
 		@include adaptiveValue("font-size", 25, 16);
 		@include adaptiveValue("top", 75, 40);
 		border-radius: 4px;
 		left: 50%;
-		transform: translate(-37%,0px);
-		background-color: $darkGrey;
+		transform: translate(-38%,0px);
 		padding: 10px 0px 5px 0px;
+		z-index: 1;
 	}
 	// .select__scroll
 	&__scroll {
@@ -83,12 +83,15 @@
 		cursor: pointer;
 		padding: 10px 15px;
 		color: inherit;
-		margin: 0px auto;
 		border-radius: 4px;
+		background: $buttonGray;
 		transition: all 0.3s ease 0s;
 		color: $orange;
 		&._select-selected {
 			background-color: $orange;
+		}
+		&:not(:last-child) {
+			margin: 0px 0px 10px 0px;
 		}
 		@media (any-hover: hover) {
 			&:hover {
