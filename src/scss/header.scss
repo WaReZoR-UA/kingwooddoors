@@ -22,13 +22,17 @@
 		padding: rem(50) 0 ;
 		display: flex;
 		justify-content: center;
+		
+		img{
+			max-width: rem(328);
+		}
 		@media (max-width:$mobile){
 			background-color: $white;
 			padding: rem(36) 0 rem(17) 0;
 			z-index: 99;
 			position: relative;
 			img{
-				width: 223px;
+				max-width: 223px;
 			}
 		}
 		@media (max-width:767.98px) and (orientation:landscape){
@@ -566,6 +570,36 @@
 		line-height: math.div(35 ,30);
 		font-variant: small-caps;
 		transition: color 0.3s ease 0s, border-bottom 0.3s ease 0s, padding-bottom 0.3s ease 0s;
+		&_submenu{
+			position: relative;
+			@include adaptiveValue("font-size",30,24,1024,768,1 );
+			white-space: nowrap;
+			line-height: math.div(35 ,30);
+			font-variant: small-caps;
+			transition: all 0.3s ease 0s;
+
+			&:before {
+				display: none;
+				transition: all 0.3s ease 0s;
+				position: absolute;
+				top: 9px;
+				left:135px;
+				@extend %ic;
+				@extend ._icon-arrow-forward;
+				font-size: rem(14);
+				@media (max-width:$mobile){
+						display: inline-block;
+					}
+				.submenu-show &{
+					transform:rotate(90deg) translate(2px, 0px);
+				}
+			}
+			@media (max-width:$mobile){
+				.submenu-show &{
+				padding-bottom: rem(6);
+				}
+			}
+		}
 		@media (max-width:$mobile){
 			font-weight: 300;
 			font-size: rem(24);
@@ -593,6 +627,7 @@
 			font-size: rem(24);
 			line-height: math.div(28 ,24 );
 		}
+		
 	}
 	&__option{
 		
@@ -600,7 +635,10 @@
 }
 
 
-
+._icon-arrow-forward{
+	//font-size: rem(14);
+	//padding-left: rem(10);
+}
 
 
 
@@ -696,66 +734,59 @@
 
 
 .header-submenu {
-	position: relative;
-	
-	&__title {
-		cursor: pointer;
-		transition: all 0.3s ease 0s;
-		span{
-			display: none;
-			transition: all 0.3s ease 0s;
-			@media (max-width:$mobile){
-				display: inline-block;
-				.submenu-show &{
-					transform: rotate(90deg) translate(-3.5px, -7px);
-				}
-			}
-			@extend %ic;
-			@extend ._icon-arrow-forward;
-			font-size: rem(14);
-			padding-left: rem(10);
-		}
-		@media (max-width:$mobile){
-			.submenu-show &{
-				padding-bottom: rem(16);
-			}
-		}
-	}
+	//&__title {
+	//	cursor: pointer;
+	//	transition: all 0.3s ease 0s;
+	//	span{
+	//		display: none;
+	//		transition: all 0.3s ease 0s;
+	//		@media (max-width:$mobile){
+	//			display: inline-block;
+	//			.submenu-show &{
+	//				transform: rotate(90deg) translate(-3.5px, -7px);
+	//			}
+	//		}
+	//		@extend %ic;
+	//		@extend ._icon-arrow-forward;
+	//		font-size: rem(14);
+	//		padding-left: rem(10);
+	//	}
+	//	@media (max-width:$mobile){
+	//		.submenu-show &{
+	//			padding-bottom: rem(16);
+	//		}
+	//	}
+	//}
 
 	&__body {
 		position: absolute;
 		width: 100%;
-		top:rem(40);
+		top:rem(37);
 		font-size: 0px;
 		z-index: 10;
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(0);
+		&::before{
+			content: "";
+			position: absolute;
+			top: -5px;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+		}
 		@media (max-width:$mobile){
 			position: relative;
 			top:rem(0);
 		}
-		&::before{
-			content: "";
-			position: absolute;
-			width: 100%;
-			height: 130%;
-			top: 0;
-			left: 0;
-			background-color: transparent;
-			z-index: -1;
-		}
 		.submenu-show &{
-			//font-size: 30px;
+			row-gap: rem(9);
 			@include adaptiveValue("font-size",30,24,1024,768,1 );
+			font-size: rem(30);
 		}
 	}
 
-	&__list {
-		display: flex;
-		flex-direction: column;
-		row-gap: rem(0);
-		.submenu-show &{
-			row-gap: rem(9);
-		}
-	}
 
 	&__item {
 		background-color: #737373;
