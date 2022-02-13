@@ -1,0 +1,44 @@
+.door-collection {
+
+	// .door-collection__container
+	&__container {}
+
+	// .door-collection__body
+	&__body {
+	}
+	
+	// .door-collection__items
+	&__items {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+	}
+
+	// .door-collection__item
+	&__item {
+		display: flex;
+		justify-content: center;
+		flex: 0 1 33.333%;
+		position: relative;
+	}
+	
+	// .door-collection__picture
+	&__picture {
+		canvas {
+			@include adaptiveValue("width", 263, 80);
+			@include adaptiveValue("height", 765, 226);
+			object-fit: cover;
+		}
+	}
+	// .door-collection__name
+	&__name {
+		position: absolute;
+		bottom: 15%;
+		left: 50%;
+		transform: translate(-50%,0px);
+		height: auto;
+		@include adaptiveValue("font-size", 36, 12);
+		line-height: math.div(42, 36);
+		color: $mainColor;
+	}
+}
