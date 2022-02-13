@@ -15,8 +15,8 @@
 	// .bredcrump__item
 	&__item {
 		display: flex;
-		@include adaptiveValue("font-size", 18, 13);
-		line-height: math.div(15, 13);
+		@include adaptiveValue("font-size", 18, 12);
+		line-height: math.div(15, 12);
 	}
 
 	// .bredcrump__linck
