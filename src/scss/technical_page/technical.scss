@@ -318,6 +318,9 @@
 	@include adaptiveValue("row-gap",55 ,25 );
 	&__title {
 		font-weight: 300;
+		@media (max-width:$mobileSmall){
+			//align-self: center;
+		}
 	}
 
 	&__content {
@@ -328,10 +331,12 @@
 
 	&__images {
 		display: flex;
-		gap: rem(20);
+		column-gap: rem(20);
+		row-gap: rem(30);
 		flex-wrap: wrap;
 	}
 	&__card{
+		flex: 0 1 300px;
 		display: flex;
 		flex-direction: column;
 		row-gap: rem(35);

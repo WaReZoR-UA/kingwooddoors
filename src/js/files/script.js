@@ -94,7 +94,7 @@ const subMenu = document.querySelector('.menu-header__body');
 const subMenuFooter = document.querySelector('.footer-submenu');
 
 //Обьявляем ЗАГОЛОВОК ПОДМЕНЮ в переменную
-const subMenuTitle = document.querySelector('.menu-header__link_submenu');
+const subMenuTitle = document.querySelector('.menu-header__item_submenu');
 const subMenuFooterTitle = document.querySelector('.footer-submenu__title');
 
 //Обьявляем ТЕЛО ПОДМЕНЮ в переменную
@@ -108,7 +108,7 @@ document.addEventListener("click", subMenuShowClick);
 
 //Функция появления саб меню при НАВЕДЕНИИ на тайтл 
 function subMenuShow(e){
-	if(e.target.closest('.menu-header__link_submenu') || e.target.closest('.header-submenu__body')){
+	if(e.target.closest('.menu-header__item_submenu') || e.target.closest('.header-submenu__body')){
 		subMenu.classList.add('submenu-show');
 	}
 	else{
@@ -117,7 +117,7 @@ function subMenuShow(e){
 }
 //Функция появления саб-меню при КЛИКЕ на тайтл
 function subMenuShowClick(e){
-	if(e.target.closest('.menu-header__link_submenu')){
+	if(e.target.closest('.menu-header__item_submenu')){
 		subMenu.classList.toggle('submenu-show');
 	}
 	if(e.target.closest('.footer-submenu__title')){
