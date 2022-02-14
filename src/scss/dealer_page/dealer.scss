@@ -1,0 +1,155 @@
+.dealer {
+
+	&__container {
+	}
+
+	&__title {
+		@include adaptiveValue("padding-top",32 ,20 );
+		@include adaptiveValue("padding-bottom",218 ,0 );
+		font-weight: 300;
+		font-size: rem(36);
+		line-height: math.div(42 ,36 );
+		text-transform: uppercase;
+		color: $mainColor;
+		text-align: center;
+	}
+
+	&__advantages {
+
+		padding-bottom: rem(50);
+		margin-bottom: rem(50);
+		border-bottom:5px solid $orange;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr );
+	}
+
+	&__steps {
+	}
+
+	&__want {
+	}
+}
+.bredcrump {
+
+	&__container {
+	}
+
+	&__body {
+	}
+
+	&__item {
+	}
+
+	&__link {
+	}
+}
+.advanrages {
+
+	&__card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__image-ibg {
+		padding-bottom: 100%;
+		width: 100%;
+		max-width: rem(328);
+	}
+
+	&__tilte {
+		font-size: rem(24);
+		line-height: math.div(28 ,24 );
+	}
+}
+.steps {
+
+	&__title {
+		@include adaptiveValue("padding-bottom",106 ,20 );
+		font-size: rem(36);
+		line-height: math.div(42 ,36 );
+		text-align: center;
+	}
+
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr );
+		padding-bottom: rem(62);
+	}
+
+	&__item {
+	}
+}
+.item-step {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	&:not(:first-child){
+		.item-step__box:before{
+			position: absolute;
+			content: "";
+			top: 50%;
+			left: -85%;
+			transform: translate(0, -50%);
+			background: url("@img/dealer/long-arrow.svg") 0 0 / contain no-repeat;
+			width: 82.5%;
+			height: 30px;
+			z-index: -1;
+		}
+	}
+	&__box{
+		position: relative;
+		margin-bottom: rem(54);
+	}
+	&__image { 
+		border-radius: 50%;
+		border: 3px solid $mainColor;
+		max-width: rem(200);
+		overflow: hidden;
+	}
+
+	&__title {
+		font-weight: 700;
+		font-size: rem(24);
+		line-height: math.div(28 ,24 );
+		padding-bottom: rem(5);
+	}
+
+	&__subtitle {
+		font-size: rem(24);
+		line-height: math.div(28 ,24 );
+		text-align: center;
+	}
+}
+.want {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	&__title {
+		@include adaptiveValue("font-size",48 ,24 );
+		line-height: 150%
+	}
+
+	&__subtitle {
+		font-weight: 300;
+		@include adaptiveValue("font-size",36 ,20 );
+		line-height: 150%;
+		@include adaptiveValue("padding-bottom",46 ,10 );
+	}
+
+	&__button {
+		@include adaptiveValue("margin-bottom",115 ,30 );
+	}
+}
+.common-button {
+	font-size: rem(36);
+	line-height: math.div(42 ,36 );
+	text-align: center;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	background-color: $orange;
+	padding: rem(17) rem(47);
+	border-radius: rem(8);
+}
