@@ -1290,6 +1290,7 @@ body::after {
 }
 
 .menu-word {
+  position: sticky;
   padding-left: 38px;
   font-weight: 700;
   font-size: 1.125rem;
