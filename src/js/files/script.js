@@ -91,11 +91,11 @@ function buttonClickLangSwitch(e){
 
 //Обьявляем ПОДМЕНЮ в переменную
 const subMenu = document.querySelector('.menu-header__body');
-const subMenuFooter = document.querySelector('.footer-submenu');
+const subMenuFooter = document.querySelector('.menu-footer__body');
 
 //Обьявляем ЗАГОЛОВОК ПОДМЕНЮ в переменную
 const subMenuTitle = document.querySelector('.menu-header__item_submenu');
-const subMenuFooterTitle = document.querySelector('.footer-submenu__title');
+const subMenuFooterTitle = document.querySelector('.menu-footer__item_submenu');
 
 //Обьявляем ТЕЛО ПОДМЕНЮ в переменную
 //const subMenuBody = document.querySelector('.header-submenu__body');
@@ -117,11 +117,16 @@ function subMenuShow(e){
 }
 //Функция появления саб-меню при КЛИКЕ на тайтл
 function subMenuShowClick(e){
+	//Хедер саб-меню открьітие-закрьітие
 	if(e.target.closest('.menu-header__item_submenu')){
 		subMenu.classList.toggle('submenu-show');
 	}
-	if(e.target.closest('.footer-submenu__title')){
+	//Футер саб-меню открьітие-закрьітие
+	if(e.target.closest('.menu-footer__item_submenu')){
 		subMenuFooter.classList.toggle('submenu-show');
+	}
+	else{
+		subMenuFooter.classList.remove('submenu-show');
 	}
 }
 
