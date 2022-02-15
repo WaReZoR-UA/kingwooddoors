@@ -205,3 +205,218 @@ body::after {
 		border: 5px solid $orange;
 	}
 }
+
+
+
+
+
+
+//===========================DEALER PAGE POPUP FORM========================================
+
+.popup {
+
+	&_dealer {
+	}
+
+	&__wrapper {
+
+		&_dealer {
+		}
+	}
+
+	&__content {
+		&_dealer {
+			border-radius: 0px;
+			padding: 0px;
+			max-width: rem(1111);
+		}
+	}
+	&__additional-package{
+		border-radius: 0px;
+		max-width: rem(1111);
+		background: #F4F4F4;
+		border: 10px solid #FF8A00;
+		padding-top: rem(52);
+		padding-bottom: rem(106);
+		@media (max-width:$mobile){
+			border: 3px solid #FF8A00;
+			padding-top: rem(17);
+		padding-bottom: rem(30);
+		}
+	}
+	&__close {
+		&_dealer {
+			position: absolute;
+			top:20px;
+			right: 20px;
+		}
+	}
+
+	&__form {
+	}
+}
+.form-dealer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	&__title {
+		font-size: rem(36);
+		line-height: math.div(42 ,36 );
+		text-align: center;
+		text-transform: uppercase;
+		padding-bottom: rem(31);
+		@media (max-width:$mobile){
+			display: none;
+		}
+	}
+
+	&__subtitle {
+		font-size: rem(18);
+		@include adaptiveValue("font-size",18 ,12 );
+		line-height: math.div(21 ,18 );
+		text-align: center;
+		@include adaptiveValue("padding-bottom",41 ,27 );
+		padding-left: rem(20);
+		padding-right: rem(20);
+		@media (max-width:$mobile){
+			font-weight: 300;
+		}
+	}
+	&__form{
+		display: flex;
+		justify-content: center;
+		padding: 0px rem(25);
+		width: 100%;
+		max-width: rem(609);
+	}
+}
+.dealer-form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(38);
+	@media (max-width:$mobile){
+		row-gap: rem(10);
+
+	}
+	&__name,
+	&__company,
+	&__phone,
+	&__email,
+	&__region,
+	&__message{
+		display: flex;
+		flex-direction: column;
+		align-self: stretch;
+	}
+	&__name {
+	
+	}
+
+	&__company {
+		
+	}
+
+	&__phone {
+		
+	}
+
+	&__email {
+		
+	}
+
+	&__region {
+		
+	}
+
+	&__message {
+		
+	}
+
+	&__button {
+		max-width: rem(216);
+		margin: 0 auto;
+		@media (max-width:$mobile){
+			margin-top: rem(20);
+		}
+	}
+}
+
+
+.label-dealer{
+	line-height: math.div(28 ,24 );
+	@include adaptiveValue("font-size",24 ,12 );
+}
+.input-dealer{
+	background: $white;
+	border: 2px solid #FF8A00;
+	padding: rem(21);
+	@include adaptiveValue("font-size",24 ,12 );
+	@media (max-width:$mobile){
+		padding: rem(5);
+	}
+}
+.name-dealer {
+
+	&__label {
+	}
+
+	&__input {
+	}
+}
+.company-dealer {
+
+	&__label {
+	}
+
+	&__input {
+	}
+}
+.phone-dealer {
+
+	&__label {
+	}
+
+	&__input {
+	}
+}
+.email-dealer {
+
+	&__label {
+	}
+
+	&__input {
+	}
+}
+.region-dealer {
+
+	&__label {
+	}
+
+	&__select {
+		
+	}
+	
+	&__option {
+		
+	}
+}
+.message-dealer {
+	display: flex;
+	flex-direction: column;
+	&__label {
+	}
+
+	&__input {
+		resize: none;
+		flex:1 1 rem(265);
+		@media (max-width:$mobile){
+			flex:1 1 rem(172);
+		}
+	}
+}
+.common-button {
+
+	&_dealer {
+	}
+}

@@ -77,6 +77,7 @@
 	}
 	// .select__option
 	&__option {
+
 		width: 90%;
 		display: block;
 		text-align: center;
@@ -125,9 +126,76 @@
 	}
 	&._select-checkbox {
 	}
+
+
 }
 
 // Тег
 ._select-tag {
 	cursor: pointer;
 }
+
+
+//=============================================DEALER SELECT===========================================
+
+.select_region-dealer__select{
+	background-color: $white;
+	border: 2px solid #FF8A00;
+	//color: transparent;
+	@include adaptiveValue("font-size",24 ,12 );
+}
+.select_region-dealer__select .select__body{
+	width: 100%;
+	
+}
+.select_region-dealer__select .select__title{
+	text-align: left;
+	width: 100%;
+}
+.select_region-dealer__select .select__content{
+	@include adaptiveValue("font-size",24 ,12 );
+	width: 100%;
+}
+.select_region-dealer__select .select__option{
+	margin: 0;
+	width: 100%;
+	text-align: left;
+	background-color: $white;
+	@include adaptiveValue("font-size",24 ,12 );
+	padding: rem(23);
+	border-radius: 0;
+	color: $mainColor;
+	@media (max-width:$mobile){
+		padding: rem(5);
+	}
+	transition: all 0.3s ease 0s;
+	@media (any-hover: hover){
+		&:hover{
+			color: $white;
+			background-color: $orange;
+		}
+	}
+}
+.select_region-dealer__select .select__options{
+	border: 2px solid #FF8A00;
+	box-sizing: content-box;
+	width: 100%;
+	left: -2px;
+	transform: translate(0,0);
+	padding: 0;
+	border-radius: 0;
+	
+}
+
+.select_region-dealer__select .select__value{
+	font-size: rem(24);
+	padding: rem(23);
+	width: 100%;
+	@media (max-width:$mobile){
+		padding: rem(5);
+	}
+	&:before{
+		display: none;
+	}
+}
+
