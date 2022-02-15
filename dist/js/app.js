@@ -4774,66 +4774,71 @@
             update
         });
     }
+    const customGallery = document.querySelectorAll(".gallery-slider__images");
+    const tumbsGallery = document.querySelectorAll(".gallery-slider__tumbs");
+    let swiperTumbs;
     function initSliders() {
-        if (document.querySelector(".gallery-slider__tumbs")) var swiperTumbs = new core(".gallery-slider__tumbs", {
-            modules: [ Lazy ],
-            observer: true,
-            observeParents: true,
-            slidesPerView: 5,
-            simulateTouch: true,
-            freeMode: true,
-            loop: true,
-            lazy: true,
-            centeredSlides: true,
-            watchSlidesProgress: true,
-            on: {}
-        });
-        if (document.querySelector(".gallery-slider__images")) new core(".gallery-slider__images", {
-            modules: [ Navigation, Lazy, Thumb ],
-            observer: true,
-            observeParents: true,
-            simulateTouch: true,
-            slidesPerView: "auto",
-            freeMode: true,
-            centeredSlides: true,
-            loop: true,
-            lazy: true,
-            navigation: {
-                prevEl: ".gallery-slider__prev",
-                nextEl: ".gallery-slider__next"
-            },
-            thumbs: {
-                swiper: swiperTumbs
-            },
-            on: {}
-        });
-        if (document.querySelector(".header-slider__images")) new core(".header-slider__images", {
-            modules: [ Navigation, Lazy, Thumb, Pagination, Autoplay ],
-            observer: true,
-            observeParents: true,
-            simulateTouch: true,
-            slidesPerView: "auto",
-            autoplay: {
-                delay: 3e3,
-                disableOnInteraction: false
-            },
-            speed: 2500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-            freeMode: true,
-            centeredSlides: true,
-            loop: true,
-            lazy: true,
-            navigation: {
-                prevEl: ".header-slider__prev",
-                nextEl: ".header-slider__next"
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                type: "bullets"
-            },
-            on: {}
-        });
+        for (let i = 0; i < customGallery.length; i++) {
+            customGallery[i].classList.add("gallery-slider__images_" + i);
+            tumbsGallery[i].classList.add("gallery-slider__tumbs_" + i);
+            if (document.querySelector(".gallery-slider__tumbs_" + i)) swiperTumbs = new core(".gallery-slider__tumbs_" + i, {
+                modules: [ Lazy ],
+                observer: true,
+                observeParents: true,
+                slidesPerView: "auto",
+                simulateTouch: true,
+                freeMode: true,
+                loop: true,
+                lazy: true,
+                centeredSlides: true,
+                watchSlidesProgress: true
+            });
+            if (document.querySelector(".gallery-slider__images_" + i)) new core(".gallery-slider__images_" + i, {
+                modules: [ Navigation, Lazy, Thumb ],
+                observer: true,
+                observeParents: true,
+                simulateTouch: true,
+                slidesPerView: "auto",
+                freeMode: true,
+                centeredSlides: true,
+                loop: true,
+                lazy: true,
+                navigation: {
+                    prevEl: ".gallery-slider__prev",
+                    nextEl: ".gallery-slider__next"
+                },
+                thumbs: {
+                    swiper: swiperTumbs
+                }
+            });
+            if (document.querySelector(".header-slider__images")) new core(".header-slider__images", {
+                modules: [ Navigation, Lazy, Thumb, Pagination, Autoplay ],
+                observer: true,
+                observeParents: true,
+                simulateTouch: true,
+                slidesPerView: "auto",
+                autoplay: {
+                    delay: 3e3,
+                    disableOnInteraction: false
+                },
+                speed: 2500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+                freeMode: true,
+                centeredSlides: true,
+                loop: true,
+                lazy: true,
+                navigation: {
+                    prevEl: ".header-slider__prev",
+                    nextEl: ".header-slider__next"
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "bullets"
+                },
+                on: {}
+            });
+        }
     }
     window.addEventListener("load", (function(e) {
         initSliders();
