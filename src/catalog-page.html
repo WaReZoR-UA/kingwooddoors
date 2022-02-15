@@ -9,7 +9,7 @@
 		@@include('html/_header.htm',{})
 		<main class="page">
 			@@include('html/_bradcrumps.htm',{})
-			<div class="title-menu">
+			<nav class="title-menu">
 				<form action="#" class="title-menu__form">
 					<select name="form[]" class="form">
 						<option value="1" selected>Verona</option>
@@ -18,7 +18,7 @@
 						<!-- пункты будут добавляться по мере добавления коллекций -->
 					</select>
 				</form>
-			</div>
+			</nav>
 			<section class="door-collection">
 				<div class="door-collection__container">
 					<div class="door-collection__body">
@@ -54,6 +54,28 @@
 								</a>
 							</li>
 						</ul>
+					</div>
+				</div>
+			</section>
+			<section class="collection-details">
+				<div class="collection-details__block">
+					<div class="collection-details__piture detail-picture">
+						<div class="detail-picture__box">
+							<img src="@img/main/collections/serial/Optima_Dub_norton_Optima-02_satin.jpg" alt="optima">
+						</div>
+					</div>
+					<div class="collection-details__options door-options">
+						<div class="collection-details__titles">
+							<h2 class="door-options__colletion-name">Verona doors</h2> <!-- тут выводиться имя коллекции -->
+							<strong class="door-options__collection-model">ML-00F</strong> <!-- тут выводиться модель выбранного полотна двери-->
+						</div>
+						<div class="door-options__colors color-list">
+							<ul class="color-list__items">
+								<li class="color-list__item"></li> <!-- тут список цветов с возможностью ддобавления или удалния-->
+								<li class="color-list__item"></li>
+								<li class="color-list__item"></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</section>
