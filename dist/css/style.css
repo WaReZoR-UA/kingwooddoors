@@ -372,12 +372,10 @@ body::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100%;
-  flex: 1 1 auto;
-  width: 100%;
-  display: flex;
   justify-content: center;
-  align-items: center;
+  min-height: 100%;
+  width: 100%;
+  flex: 1 1 auto;
 }
 
 .popup__content {
@@ -2129,6 +2127,18 @@ body::after {
     padding: 0;
   }
 }
+.about__text_reverse::before {
+  width: 3px;
+  height: 100%;
+  top: 0;
+  left: 53px;
+  background-color: #FF8A00;
+}
+@media (max-width: 47.99875em) {
+  .about__text_reverse::before {
+    display: none;
+  }
+}
 .about__title {
   font-weight: 300;
   font-size: 36px;
@@ -2365,6 +2375,16 @@ body::after {
 @supports not (padding-bottom: clamp( 1.875rem , -0.2551775148rem  +  10.650887574vw , 7.5rem )) {
   .title-menu {
     padding-bottom: calc(1.875rem + 5.625 * (100vw - 20rem) / 52.8125);
+  }
+}
+@supports (padding-bottom: clamp( 3.125rem , 1.9415680473rem  +  5.9171597633vw , 6.25rem )) {
+  .door-collection__container {
+    padding-bottom: clamp( 3.125rem , 1.9415680473rem  +  5.9171597633vw , 6.25rem );
+  }
+}
+@supports not (padding-bottom: clamp( 3.125rem , 1.9415680473rem  +  5.9171597633vw , 6.25rem )) {
+  .door-collection__container {
+    padding-bottom: calc(3.125rem + 3.125 * (100vw - 20rem) / 52.8125);
   }
 }
 .door-collection__items {

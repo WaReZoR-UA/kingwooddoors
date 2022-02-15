@@ -19,159 +19,112 @@ EffectFade, Lazy, Manipulation
 // Базовые стили
 import "../../scss/base/swiper.scss";
 // Полный набор стилей из scss/libs/swiper.scss
-//import "../../scss/libs/swiper.scss";
+// import "../../scss/libs/swiper.scss";
 // Полный набор стилей из node_modules
-//import 'swiper/css';
-
+// import 'swiper/css';
+const customGallery = document.querySelectorAll('.gallery-slider__images');
+const tumbsGallery = document.querySelectorAll('.gallery-slider__tumbs');
+let swiperTumbs;
 // Инициализация слайдеров
 function initSliders() {
 	// Перечень слайдеров
 	// Проверяем, есть ли слайдер на стронице
-	if (document.querySelector('.gallery-slider__tumbs')) { // Указываем скласс нужного слайдера
-		// Создаем слайдер
-		var swiperTumbs = new Swiper('.gallery-slider__tumbs', { // Указываем скласс нужного слайдера
-			// Подключаем модули слайдера
-			// для конкретного случая
-			modules: [Lazy],
-			observer: true,
-			observeParents: true,
-			slidesPerView: 5,
-			simulateTouch: true,
-			freeMode: true,
-			loop: true,
-			lazy: true,
-			centeredSlides: true,
-			watchSlidesProgress: true,
-			/*
-			breakpoints: {
-				320: {
-					slidesPerView: 1,
-					spaceBetween: 0,
-					autoHeight: true,
-				},
-				768: {
-					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-				992: {
-					slidesPerView: 3,
-					spaceBetween: 20,
-				},
-				1268: {
-					slidesPerView: 4,
-					spaceBetween: 30,
-				},
-			},
-			*/
-			// События
-			on: {
 
-			}
-		});
+	for (let i = 0; i < customGallery.length; i++) {
+		customGallery[i].classList.add('gallery-slider__images_' + i);
+		tumbsGallery[i].classList.add('gallery-slider__tumbs_' + i);
+		if (document.querySelector('.gallery-slider__tumbs_' + i)) { // Указываем скласс нужного слайдера
+			// Создаем слайдер
+			swiperTumbs = new Swiper('.gallery-slider__tumbs_' + i, { // Указываем скласс нужного слайдера
+				modules: [Lazy],
+				observer: true,
+				observeParents: true,
+				slidesPerView: "auto",
+				simulateTouch: true,
+				freeMode: true,
+				loop: true,
+				lazy: true,
+				centeredSlides: true,
+				watchSlidesProgress: true,
+			});
+		}
+		if (document.querySelector('.gallery-slider__images_' + i)) { // Указываем скласс нужного слайдера
+			// Создаем слайдер
+			new Swiper('.gallery-slider__images_' + i, { // Указываем скласс нужного слайдера
+				modules: [Navigation, Lazy, Thumbs],
+				observer: true,
+				observeParents: true,
+				simulateTouch: true,
+				slidesPerView:'auto',
+				freeMode: true,
+				centeredSlides: true,
+				loop: true,
+				lazy: true,
+				navigation: {
+					prevEl: '.gallery-slider__prev',
+					nextEl: '.gallery-slider__next',
+				},
+				thumbs: {
+					swiper: swiperTumbs,
+				},
+			});
 	}
-	if (document.querySelector('.gallery-slider__images')) { // Указываем скласс нужного слайдера
-		// Создаем слайдер
-		new Swiper('.gallery-slider__images', { // Указываем скласс нужного слайдера
-			// Подключаем модули слайдера
-			// для конкретного случая
-			modules: [Navigation, Lazy, Thumbs],
-			observer: true,
-			observeParents: true,
-			simulateTouch: true,
-			slidesPerView: "auto",
-			freeMode: true,
-			centeredSlides: true,
-			loop: true,
-			lazy: true,
-			navigation: {
-				prevEl: '.gallery-slider__prev',
-				nextEl: '.gallery-slider__next',
-			},
-			thumbs: {
-				swiper: swiperTumbs,
-			},
-			/*
-			breakpoints: {
-				320: {
-					slidesPerView: 1,
-					spaceBetween: 0,
-					autoHeight: true,
+		//Слайдер ХЕДЕРА
+		if (document.querySelector('.header-slider__images')) { // Указываем скласс нужного слайдера
+			// Создаем слайдер
+			new Swiper('.header-slider__images', { // Указываем скласс нужного слайдера
+				// Подключаем модули слайдера
+				// для конкретного случая
+				modules: [Navigation, Lazy, Thumbs, Pagination, Autoplay],
+				observer: true,
+				observeParents: true,
+				simulateTouch: true,
+				slidesPerView: "auto",
+				autoplay: {
+					delay: 3000,
+					disableOnInteraction: false,
 				},
-				768: {
-					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-				992: {
-					slidesPerView: 3,
-					spaceBetween: 20,
-				},
-				1268: {
-					slidesPerView: 4,
-					spaceBetween: 30,
-				},
-			},
-			*/
-			// События
-			on: {
-			}
-		});
-	}
-
-	//Слайдер ХЕДЕРА
-	if (document.querySelector('.header-slider__images')) { // Указываем скласс нужного слайдера
-		// Создаем слайдер
-		new Swiper('.header-slider__images', { // Указываем скласс нужного слайдера
-			// Подключаем модули слайдера
-			// для конкретного случая
-			modules: [Navigation, Lazy, Thumbs, Pagination, Autoplay],
-			observer: true,
-			observeParents: true,
-			simulateTouch: true,
-			slidesPerView: "auto",
-			autoplay: {
-				delay: 3000,
+				speed: 2500,
 				disableOnInteraction: false,
-			},
-			speed: 2500,
-			disableOnInteraction: false,
-			pauseOnMouseEnter: true,
-			freeMode: true,
-			centeredSlides: true,
-			loop: true,
-			lazy: true,
-			navigation: {
-				prevEl: '.header-slider__prev',
-				nextEl: '.header-slider__next',
-			},
-			pagination: {
-				el: '.swiper-pagination',
-				type: 'bullets',
-			},
-			/*
-			breakpoints: {
-				320: {
-					slidesPerView: 1,
-					spaceBetween: 0,
-					autoHeight: true,
+				pauseOnMouseEnter: true,
+				freeMode: true,
+				centeredSlides: true,
+				loop: true,
+				lazy: true,
+				navigation: {
+					prevEl: '.header-slider__prev',
+					nextEl: '.header-slider__next',
 				},
-				768: {
-					slidesPerView: 2,
-					spaceBetween: 20,
+				pagination: {
+					el: '.swiper-pagination',
+					type: 'bullets',
 				},
-				992: {
-					slidesPerView: 3,
-					spaceBetween: 20,
+				/*
+				breakpoints: {
+					320: {
+						slidesPerView: 1,
+						spaceBetween: 0,
+						autoHeight: true,
+					},
+					768: {
+						slidesPerView: 2,
+						spaceBetween: 20,
+					},
+					992: {
+						slidesPerView: 3,
+						spaceBetween: 20,
+					},
+					1268: {
+						slidesPerView: 4,
+						spaceBetween: 30,
+					},
 				},
-				1268: {
-					slidesPerView: 4,
-					spaceBetween: 30,
-				},
-			},
-			*/
-			// События
-			on: {
-			}
-		});
+				*/
+				// События
+				on: {
+				}
+			});
+		}
 	}
 }
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)

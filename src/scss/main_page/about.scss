@@ -60,6 +60,17 @@
 			@media (max-width:$mobile){
 				padding: 0;
 			}
+			&::before {
+				width: 3px;
+				height: 100%;
+				top: 0;
+				left: 53px;
+				background-color: $orange;
+
+				@media (max-width:$mobile) {
+					display: none;
+				}
+			}
 		}
 	}
 
