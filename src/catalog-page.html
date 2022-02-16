@@ -12,9 +12,9 @@
 			<nav class="title-menu">
 				<form action="#" class="title-menu__form">
 					<select name="form[]" class="form">
-						<option value="1" selected>Verona</option>
-						<option value="2">Gracia</option>
-						<option value="3">Lyra</option>
+						<option data-href="#" value="1" selected>Verona</option>
+						<option data-href="#" value="2">Gracia</option>
+						<option data-href="#" value="3">Lyra</option>
 						<!-- пункты будут добавляться по мере добавления коллекций -->
 					</select>
 				</form>
@@ -73,13 +73,52 @@
 							<form action="#" class="filter__form">
 								<div class="filter__colors">
 									<span class="filter__title">CHOOSE COLOR:</span>
-									<label><input type="radio" name="color"></label>
-									<label><input type="radio" name="color"></label>
+									<label class="filter__color color">
+										<input class="color__input" type="radio" name="color">
+										<img class="color__image" src="@img/catalog/shpon/1.jpg" alt="color">
+									</label>
+									<label class="filter__color color">
+										<input class="color__input" type="radio" name="color">
+										<img class="color__image" src="@img/catalog/shpon/2.jpg" alt="color">
+									</label>
+									<label class="filter__color color">
+										<input class="color__input" type="radio" name="color">
+										<img class="color__image" src="@img/catalog/shpon/3.jpg" alt="color">
+									</label>
 								</div>
 								<div class="filter__glasses">
 									<span class="filter__title">CHOOSE GLASS:</span>
-									<input type="radio" name="glass" class="filter__glasses">
-									<input type="radio" name="glass" class="filter__glasses">
+									<label class="filter__glass glass">
+										<input class="glass__input" type="radio" name="glass">
+										<img class="glass__image" src="@img/catalog/glass/1.jpg" alt="glass">
+									</label>
+									<label class="filter__glass glass">
+										<input class="glass__input" type="radio" name="glass">
+										<img class="glass__image" src="@img/catalog/glass/2.jpg" alt="glass">
+									</label>
+									<label class="filter__glass glass">
+										<input class="glass__input" type="radio" name="glass">
+										<img class="glass__image" src="@img/catalog/glass/3.jpg" alt="glass">
+									</label>
+								</div>
+								<div class="filter__sizes">
+									<span class="filter__title">CHOOSE SIZE:</span>
+									<select name="form[size]" class="filter__sizes size">
+										<option data-class="size__option" value="1" selected>28x80 (711х2032)</option>
+										<option data-class="size__option" value="2">28x80 (711х2032)</option>
+										<option data-class="size__option" value="3">28x80 (711х2032)</option>
+									</select>
+								</div>
+								<div class="filter__frames">
+									<span class="filter__title">CHOOSE GLASS:</span>
+									<label class="filter__frame frame">
+										<input class="frame__input" type="radio" name="frame">
+										<span class="frame">One side</span>
+									</label>
+									<label class="filter__frame frame">
+										<input class="frame__input" type="radio" name="frame">
+										<span class="frame__option">Two sides</span>
+									</label>
 								</div>
 							</form>
 						</div>
