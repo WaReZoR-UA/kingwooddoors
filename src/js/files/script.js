@@ -218,7 +218,3 @@ var sticky = header.offsetTop - headerTopHeight;
 
 
 
-
-
-
-
