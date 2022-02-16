@@ -167,6 +167,7 @@
 	color: $mainColor;
 	@media (max-width:$mobile){
 		padding: rem(5);
+		background-color: $midGrey;
 	}
 	transition: all 0.3s ease 0s;
 	@media (any-hover: hover){
@@ -181,10 +182,10 @@
 	box-sizing: content-box;
 	width: 100%;
 	left: -2px;
+	top:0;
 	transform: translate(0,0);
 	padding: 0;
 	border-radius: 0;
-	
 }
 
 .select_region-dealer__select .select__value{
