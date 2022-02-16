@@ -51,13 +51,12 @@
 	}
 	// .select__options
 	&__options {
-		width: 110%;
 		color: inherit;
 		position: absolute;
 		@include adaptiveValue("font-size", 25, 16);
 		@include adaptiveValue("top", 75, 40);
 		border-radius: 4px;
-		left: 50%;
+		left: 27%;
 		transform: translate(-38%,0px);
 		padding: 10px 0px 5px 0px;
 		z-index: 1;
@@ -78,7 +77,7 @@
 	// .select__option
 	&__option {
 
-		width: 90%;
+		min-width: 150px;
 		display: block;
 		text-align: center;
 		cursor: pointer;
@@ -167,6 +166,7 @@
 	color: $mainColor;
 	@media (max-width:$mobile){
 		padding: rem(5);
+		background-color: $midGrey;
 	}
 	transition: all 0.3s ease 0s;
 	@media (any-hover: hover){
@@ -181,10 +181,10 @@
 	box-sizing: content-box;
 	width: 100%;
 	left: -2px;
+	top:0;
 	transform: translate(0,0);
 	padding: 0;
 	border-radius: 0;
-	
 }
 
 .select_region-dealer__select .select__value{
