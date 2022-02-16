@@ -1,7 +1,9 @@
 .door-collection {
 
 	// .door-collection__container
-	&__container {}
+	&__container {
+		@include adaptiveValue("padding-bottom", 100, 50);
+	}
 
 	// .door-collection__body
 	&__body {

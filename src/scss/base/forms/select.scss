@@ -51,9 +51,8 @@
 	}
 	// .select__options
 	&__options {
-		width: 110%;
-		color: inherit;
 		position: absolute;
+		width: 100%;
 		@include adaptiveValue("font-size", 25, 16);
 		@include adaptiveValue("top", 75, 40);
 		border-radius: 4px;
@@ -77,8 +76,7 @@
 	}
 	// .select__option
 	&__option {
-
-		width: 90%;
+		width: 100%;
 		display: block;
 		text-align: center;
 		cursor: pointer;
