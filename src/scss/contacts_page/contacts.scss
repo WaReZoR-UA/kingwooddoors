@@ -1,0 +1,277 @@
+.contacts {
+	@include adaptiveValue("padding-top",32 ,16 );
+	@include adaptiveValue("padding-bottom",115 ,27 );
+	&__container {
+	}
+
+	&__title {
+		font-weight: 300;
+		@include adaptiveValue("font-size",48 ,24 );
+		line-height: math.div(56 ,48 );
+		text-align: center;
+		@include adaptiveValue("padding-bottom",80 ,26 );
+	}
+
+	&__links {
+		@include adaptiveValue("padding-bottom",49 ,20 );
+		display: grid;
+		grid-template-columns: repeat(2, 1fr );
+		grid-template-rows: repeat(3, 1fr);
+		@include adaptiveValue("row-gap",25 ,5 );
+		grid-auto-flow: column;
+		@media (max-width:$mobile){
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(6, 1fr);
+		}
+		
+	}
+//===========================СТИЛИ КАРТЬІ=========================================
+	&__map {
+		border: 5px solid $mainColor;
+		overflow: hidden;
+		@include adaptiveValue("margin-bottom",60 ,27 );
+		@include adaptiveValue("height",374 ,190 );
+		position: relative;
+		@media (max-width:$mobile){
+			border: 1px solid $mainColor;
+		}
+		iframe{
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+
+	&__stores {
+	}
+}
+
+
+//===========================СТИЛИ ИКОНОК С КОНТАКТАМИ=======================================
+.links-items {
+
+	&__item {
+		display: flex;
+		align-items: center;
+		@include adaptiveValue("column-gap",13 ,10 );
+		transition: all 0.3s ease 0s;
+		//@media (any-hover: hover){
+		//	&:hover{
+		//		//color: $orange;
+		//		.links-items__icon{
+		//			background-color: $white;
+		//			color: $orange;
+		//			//border: 1px solid $mainColor;
+		//		}
+		//	}
+		//}
+	}
+
+	&__icon {
+		position: relative;
+		background-color: $orange;
+		width: rem(39);
+		height: rem(39);
+		border-radius: 50%;
+		border: 1px solid transparent;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $white;
+		transition: all 0.3s ease 0s;
+		@media (max-width:$mobile){
+			width: rem(26);
+			height: rem(26);
+		}
+	}
+
+
+
+	&__info {
+		@include adaptiveValue("font-size",36 ,18 );
+		line-height: math.div(42 ,36 );
+	}
+
+
+	&__phone {
+		@extend %ic;
+		@extend ._icon-phone;
+		font-size: rem(25);
+		@media (max-width:$mobile){
+			font-size: rem(17);
+		}
+	}
+	&__viber {
+		@extend %ic;
+		@extend ._icon-viber;
+		font-size: rem(23);
+		@media (max-width:$mobile){
+			font-size: rem(15);
+		}
+	}
+	&__mail {
+		@extend %ic;
+		@extend ._icon-mail;
+		font-size: rem(17);
+		@media (max-width:$mobile){
+			font-size: rem(12);
+		}
+	}
+
+	&__telegram {
+		@extend %ic;
+		@extend ._icon-telegram;
+		font-size: rem(18);
+		@media (max-width:$mobile){
+			font-size: rem(14);
+		}
+	}
+
+	&__facebook {
+		@extend %ic;
+		@extend ._icon-facebook;
+		font-size: rem(26);
+		@media (max-width:$mobile){
+			font-size: rem(20);
+		}
+	}
+
+	&__instagram {
+		@extend %ic;
+		@extend ._icon-instagram;
+		font-size: rem(28);
+		@media (max-width:$mobile){
+			font-size: rem(18);
+		}
+	}
+}
+
+
+.stores-contact {
+
+	&__title {
+		font-weight: 500;
+		@include adaptiveValue("font-size",36 ,24 );
+		@include adaptiveValue("margin-bottom",42 ,12 );
+		line-height: math.div(42 ,36 );
+		@media (max-width:$mobile){
+		font-weight: 300;
+		}
+	}
+
+	&__cities {
+	}
+
+	&__spollers {
+	}
+}
+
+
+//==============================СТИЛИ СПОЛЛЕРА==================================
+.spollers {
+	display: flex;
+	flex-direction: column;
+	@include adaptiveValue("row-gap",60 ,20 );
+	&__item {
+		border-bottom: 2px solid #3D3D3D;
+		@include adaptiveValue("padding-bottom",40 ,15 );
+	}
+
+	&__title {
+	}
+
+	&__body {
+	text-align: center;
+	}
+
+	&__map-marker {
+		@include adaptiveValue("margin-bottom",15 ,10 );
+		img{
+			@media (max-width:$mobile){
+				width: 47px;
+				height: 47px;
+			}
+		}
+	}
+
+	&__adress {
+		@include adaptiveValue("font-size",36 ,24 );
+		line-height: math.div(42 ,36 );
+		@include adaptiveValue("margin-bottom",38 ,18 );
+	}
+
+	&__way-button {
+	}
+}
+.title-spoller {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	&__city {
+		@include adaptiveValue("font-size",36 ,24 );
+		line-height: math.div(42 ,36 );
+	}
+//================СТИЛИ ИКОНКИ с ПЛЮСОМ=======================================
+	&__icon-plus {
+		width: rem(50);
+		height: rem(50);
+		border: 1px solid $mainColor;
+		border-radius: 50%;
+		position: relative;
+		transition: all 0.3s ease 0s;
+		@media (max-width:$mobile){
+			width: rem(24);
+			height: rem(24);
+		}
+		._spoller-active &{
+			transform:rotate(360deg);
+		}
+		&::before{
+			position: absolute;
+			content: "";
+			top:50%;
+			left: 50%;
+			width: rem(25);
+			height: 1px;
+			background-color: $orange;
+			transform: translate(-50%, -50%);
+			@media (max-width:$mobile){
+				width: rem(12);
+			}
+		}
+		&::after{
+			position: absolute;
+			content: "";
+			top:50%;
+			left: 50%;
+			width: rem(25);
+			height: 1px;
+			background-color: $orange;
+			transform: translate(-50%, -50%) rotate(90deg);
+			transition: all 0.3s ease 0s;
+			@media (max-width:$mobile){
+				width: rem(12);
+			}
+			._spoller-active &{
+				transform: translate(-50%, -50%) rotate(180deg);
+			}
+		}
+		//================ХОВЕРА НА ИКОНКАХ ПЛЮСА==================
+	@media (any-hover: hover){
+		&:hover{
+			border: 1px solid transparent;
+			background-color: $orange;
+			&::before{
+				background-color: $white;
+			}
+			&::after{
+				background-color: $white;
+			}
+		}
+	}
+	}
+}
+
