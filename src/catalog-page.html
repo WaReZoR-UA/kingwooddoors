@@ -65,22 +65,18 @@
 						</div>
 					</div>
 					<div class="collection-details__options door-options">
-						<div class="door-options__titles">
+						<div class="collection-details__titles">
 							<h2 class="door-options__colletion-name">Verona doors</h2> <!-- тут выводиться имя коллекции -->
 							<strong class="door-options__collection-model">ML-00F</strong> <!-- тут выводиться модель выбранного полотна двери-->
 						</div>
-						<form action="#" class="door-options__components component">
-							<div class="component__item">
-								<span class="component__title">Choose a color:</span>
-								<input checked type="radio" name="doorColor" class="component__color">
-								<input type="radio" name="doorColor" class="component__color">
-							</div>
-							<div class="component__item">
-								<span class="component__title">CHOOSE GLASS:</span>
-								<input checked type="radio" name="doorGlass" class="component__glass">
-								<input type="radio" name="doorGlass" class="component__glass">
-							</div>
-						</form>
+						<div class="door-options__colors color-list">
+							<div class="color-list__title options-title"></div>
+							<ul class="color-list__doors">
+								<li class="color-list__item"></li> <!-- тут список цветов полотен с возможностью добавления или удалния-->
+								<li class="color-list__item"></li>
+								<li class="color-list__item"></li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</section>
