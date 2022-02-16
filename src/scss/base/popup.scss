@@ -227,19 +227,10 @@ body::after {
 			border-radius: 0px;
 			padding: 0px;
 			max-width: rem(1111);
-		}
-	}
-	&__additional-package{
-		border-radius: 0px;
-		max-width: rem(1111);
-		background: #F4F4F4;
-		border: 10px solid #FF8A00;
-		padding-top: rem(52);
-		padding-bottom: rem(106);
-		@media (max-width:$mobile){
-			border: 3px solid #FF8A00;
-			padding-top: rem(17);
-		padding-bottom: rem(30);
+			background: #F4F4F4;
+			border: 10px solid #FF8A00;
+			padding-top: rem(52);
+			padding-bottom: rem(106);
 		}
 	}
 	&__close {
