@@ -217,4 +217,23 @@ var sticky = header.offsetTop - headerTopHeight;
 
 
 
+//==============Функионал Кнопки с адресом со страницьі HOW TO BUY=================
 
+//Обьявляем Блок с Кратой в переменную
+const storeLocation = document.querySelector('.store-location');
+
+
+//Обьявляем Адрес Магазина в переменную
+const storeLocationAdress = document.querySelector('.store-location__adress');
+
+//Собьітие КЛИК на Адресе Магазина====================
+document.addEventListener("click", storeLocationClick);
+
+//Функция присвоения класса 'map-active' всему блоку с картой при КЛИКЕ на Адресе Магазина
+function storeLocationClick(e){
+	//
+	if(e.target.closest('.store-location__adress')){
+		storeLocation.classList.toggle('map-active');
+	}
+	
+}
