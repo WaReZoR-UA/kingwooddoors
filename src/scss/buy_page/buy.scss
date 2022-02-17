@@ -1,0 +1,177 @@
+.buy {
+	@include adaptiveValue("padding-top",32 ,16 );
+	@include adaptiveValue("padding-bottom",38 ,24 );
+	&__container {
+	}
+
+	&__title {
+		font-weight: 300;
+		@include adaptiveValue("font-size",48 ,24 );
+		line-height: math.div(56 ,48 );
+		text-align: center;
+		@include adaptiveValue("padding-bottom",50 ,27 );
+	}
+
+	&__links {
+	}
+
+	&__store-location {
+	}
+}
+
+//================Стили всех контактов Магазина===================
+.links-items {
+	//слтили заданьі в contacts.scss
+	&_buy{
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(15);
+		@include adaptiveValue("row-gap",70 ,15 );
+		@include adaptiveValue("margin-bottom",70 ,25 );
+	}
+	
+	&__group {
+		display: flex;
+		flex-direction: column;
+		row-gap: rem(15);
+		@media (max-width:$mobile){
+			row-gap: rem(2);
+		}
+	}
+
+	&__phone-title {
+	}
+
+	&__item {
+		//слтили заданьі в contacts.scss
+	}
+
+	&__icon {
+		//слтили заданьі в contacts.scss
+	}
+
+	&__phone {
+		//слтили заданьі в contacts.scss
+	}
+
+	&__info {
+		&_buy{
+			@include adaptiveValue("font-size",36 ,14 );
+			@media (max-width:$mobile){
+				line-height: math.div(16 ,14 );
+			}
+		}
+	}
+
+	&__messengers-title {
+	}
+
+	&__telegram {
+		//слтили заданьі в contacts.scss
+	}
+
+	&__viber {
+		//слтили заданьі в contacts.scss
+	}
+
+	&__mail-title {
+	}
+
+	&__mail {
+		//слтили заданьі в contacts.scss
+	}
+
+	&__socials-title {
+	}
+
+	&__facebook {
+		//слтили заданьі в contacts.scss
+	}
+
+	&__instagram {
+		//слтили заданьі в contacts.scss
+	}
+}
+.buy-title {
+	@include adaptiveValue("font-size",36 ,14 );
+	line-height: math.div(42 ,36 );
+	@media (max-width:$mobile){
+		line-height: math.div(16 ,14 );
+		padding-bottom: rem(15);
+	}
+}
+
+
+//=======Стили Блока с Адресом Магазина и  Картой===============================
+.store-location {
+	display: flex;
+	flex-direction: column;
+	&__title {
+		padding-bottom: rem(14);
+		@media (max-width:$mobile){
+			display: none;
+		}
+	}
+
+	&__adress {
+		padding-bottom: rem(50);
+		@include adaptiveValue("font-size",36 ,18 );
+		line-height: math.div(42 ,36 );
+		color: $orange;
+		text-decoration: underline;
+		text-align: left;
+		&:active{
+			color: $mainColor;
+		}
+		@media (max-width:$mobile){
+			display: none;
+		}
+	}
+
+	&__map {
+		border: 5px solid $mainColor;
+		overflow: hidden;
+		@include adaptiveValue("margin-bottom",60 ,27 );
+		@include adaptiveValue("height",374 ,190 );
+		position: relative;
+		@media (max-width:$mobile){
+			border: 1px solid $mainColor;
+		}
+		iframe{
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+	&__subtitle {
+		display: none;
+		@media (max-width:$mobile){
+			display: block;
+			font-size: rem(14);
+			line-height: math.div(16 ,14 );
+			text-align: center;
+		}
+	}
+	&__way-button {
+		align-self: center;
+		.map-active &{
+			animation: buttonBlink 0.7s linear 0s infinite alternate;
+		}
+		
+		@media (max-width:$mobile){
+			display: none;
+		}
+	}
+}
+
+//================Анимация Мигания Кнопки Маршрута при нажатии на Адрес======================
+@keyframes buttonBlink {
+	100%{
+		background-color: #fff;
+		color: $mainColor;
+		border: 2px solid $orange;
+	}
+}
