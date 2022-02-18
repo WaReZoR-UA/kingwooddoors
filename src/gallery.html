@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.htm',{
+"title":"Gallery"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/_header.htm',{})
+		<main class="page">
+			@@include('html/_bradcrumps.htm',{})
+			<section class="gallery-body">
+				<h1 class="gallery-body__title title">Photo gallery</h1>
+				<div class="gallery">
+					<div class="gallery__container">
+						<div class="gallery__wrapper">
+							<div class="gallery__body lg">
+								<div class="lg__item">
+									<img data-popup="#gallery1" class="lg__tumbnail" src="@img/main/gallery/verona_tumb.jpg" alt="Verona Doors Collection">
+									<div class="lg__name">Verona</div>
+								</div>
+								<div class="lg__item">
+									<img data-popup="#gallery2" class="lg__tumbnail" src="@img/main/gallery/gracia_tumb.jpg" alt="Gracia Doors Collection">
+									<div class="lg__name">Gracia</div>
+								</div>
+								<div class="lg__item">
+									<img data-popup="#gallery3" class="lg__tumbnail" src="@img/main/gallery/lyra_tumb.jpg" alt="Lyra Doors Collection">
+									<div class="lg__name">Lyra</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		@@include('html/_footer.htm',{})
+	</div>
+	@@include('html/_popup.htm',{})
+	@@include('html/_js.htm',{})
+</body>
+
+</html>
