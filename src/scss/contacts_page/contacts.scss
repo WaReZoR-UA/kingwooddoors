@@ -179,6 +179,27 @@
 	&__item {
 		border-bottom: 2px solid #3D3D3D;
 		@include adaptiveValue("padding-bottom",40 ,15 );
+
+		//================ХОВЕРА НА ИКОНКАХ ПЛЮСА==================
+		
+		@media (any-hover: hover) {
+			&:hover {
+				.title-spoller {
+					.title-spoller__icon-plus {
+						border: 1px solid transparent;
+						background-color: $orange;
+	
+						&::before {
+							background-color: $white;
+						}
+	
+						&::after {
+							background-color: $white;
+						}
+					}
+				}
+			}
+		}
 	}
 
 	&__title {
@@ -260,19 +281,6 @@
 				transform: translate(-50%, -50%) rotate(180deg);
 			}
 		}
-		//================ХОВЕРА НА ИКОНКАХ ПЛЮСА==================
-	@media (any-hover: hover){
-		&:hover{
-			border: 1px solid transparent;
-			background-color: $orange;
-			&::before{
-				background-color: $white;
-			}
-			&::after{
-				background-color: $white;
-			}
-		}
-	}
 	}
 }
 
