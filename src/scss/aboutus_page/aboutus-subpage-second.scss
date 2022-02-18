@@ -1,0 +1,32 @@
+.aboutus-second {
+	&__container {
+	}
+	&__body {
+	}
+	&__item {
+		&:nth-child(even){
+			flex-direction: column-reverse;
+			justify-content: flex-end;
+			@media (max-width:$tablet) and (orientation:landscape){
+				flex-direction: column;
+			}
+			@media (max-width:$mobile){
+				flex-direction: column;
+			}
+		}
+	}
+	&__content{
+	}
+	&__title {
+	}
+	&__text {
+	}
+	&__image-ibg {
+		padding-bottom: 80.2177%;
+		@media (max-width: $tablet) and (orientation:landscape){
+			padding-bottom: 40.1090%;
+		}
+	}
+}
+
+//=======Общие стили для под-страниц ABOUT US  находяться в "common.scss"=======================

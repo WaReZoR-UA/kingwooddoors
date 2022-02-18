@@ -1,7 +1,8 @@
 .contacts {
-	@include adaptiveValue("padding-top",32 ,16 );
+	
 	@include adaptiveValue("padding-bottom",115 ,27 );
 	&__container {
+		@include adaptiveValue("padding-top",32 ,16 );
 	}
 
 	&__title {

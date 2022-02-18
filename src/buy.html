@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+	@@include('html/_head.htm',{
+	"title":"How To Buy"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page">
+				<section class="buy">
+					@@include('html/_bradcrumps.htm',{})
+					<div class="buy__container">
+						<h1 class="buy__title">How To Buy</h1>
+						<div class="buy__links links-items links-items_buy">
+							<div class="links-items__group">
+								<h2 class="links-items__phone-title buy-title">You can place an order or get a consultation by phone:</h2>
+								<div class="links-items__item">
+									<div class="links-items__icon">
+										<span class="links-items__phone"></span>
+									</div>
+									<div class="links-items__info links-items__info_buy">+1 (323) xxx-xx-xx</div>
+								</div>
+							</div>
+							<div class="links-items__group">
+								<h2 class="links-items__messengers-title buy-title">You can write to us in one of the messengers:</h2>
+								<div class="links-items__item">
+									<div class="links-items__icon">
+										<span class="links-items__telegram"></span>
+									</div>
+									<div class="links-items__info links-items__info_buy">+1 (323) xxx-xx-xx</div>
+								</div>
+								<div class="links-items__item">
+									<div class="links-items__icon">
+										<span class="links-items__viber"></span>
+									</div>
+									<div class="links-items__info links-items__info_buy">+1 (323) xxx-xx-xx</div>
+								</div>
+							</div>
+							<div class="links-items__group">
+								<h2 class="links-items__mail-title buy-title">You can also send us an email and we will reply to you as soon as possible:</h2>
+								<div class="links-items__item">
+									<div class="links-items__icon">
+										<span class="links-items__mail"></span>
+									</div>
+									<div class="links-items__info links-items__info_buy">kingwooddoors.@gmail.com</div>
+								</div>
+							</div>
+							<div class="links-items__group">
+								<h2 class="links-items__socials-title buy-title">We are on social networks:</h2>
+								<div class="links-items__item">
+									<div class="links-items__icon">
+										<span class="links-items__facebook"></span>
+									</div>
+									<div class="links-items__info links-items__info_buy">- kingwooddoors -</div>
+								</div>
+								<div class="links-items__item">
+									<div class="links-items__icon">
+										<span class="links-items__instagram"></span>
+									</div>
+									<div class="links-items__info links-items__info_buy">- kingwooddoors -</div>
+								</div>
+							</div>
+						</div>
+						<div class="buy__store-location store-location">
+							<h2 class="store-location__title buy-title">Choose the nearest store:</h2>
+
+							<!--По клику на "store-location__adress"  весь блок "store-location" получает класс "map-active"-->
+
+							<button type="button" class="store-location__adress">8700 Tampa Avenue Northridge, CA 91324. </button>
+							<div class="store-location__map">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d918747.4918075412!2d-119.18424011756863!3d34.14928800073239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c29ba3bab81731%3A0xe095471c4065575c!2zODcwMCBUYW1wYSBBdmUsIE5vcnRocmlkZ2UsIENBIDkxMzI0LCDQodC_0L7Qu9GD0YfQtdC90ZYg0KjRgtCw0YLQuCDQkNC80LXRgNC40LrQuA!5e0!3m2!1suk!2sua!4v1645003866755!5m2!1suk!2sua" width="1135" height="375" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+							</div>
+							<a href="https://goo.gl/maps/6C7yNK78ehq2jZuU9" class="store-location__way-button common-button common-button_contacts">suggest a way</a>
+							<div class="store-location__subtitle">We will be glad to see you.</div>
+						</div>
+					</div>
+				</section>
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_popup.htm',{})
+		@@include('html/_js.htm',{})
+	</body>
+</html>
