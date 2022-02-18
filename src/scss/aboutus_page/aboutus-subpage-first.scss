@@ -1,0 +1,23 @@
+.aboutus-first {
+	&__container {
+	}
+	&__body {
+	}
+	&__item {
+	}
+	&__content{
+	}
+	&__title {
+	}
+	&__text {
+	}
+	&__image-ibg {
+		padding-bottom: 70.236%;
+		@media (max-width: $tablet) and (orientation:landscape){
+			padding-bottom: 35.118%;
+		}
+	}
+}
+
+
+//=======Общие стили для под-страниц ABOUT US  находяться в "common.scss"=======================

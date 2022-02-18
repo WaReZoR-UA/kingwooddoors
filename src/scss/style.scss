@@ -151,17 +151,26 @@ body {
 @import "main_page/gallery";
 @import "main_page/about";
 @import "main_page/collections";
+
 //Стили страницы Our-Products
 @import "our_products/title-menu";
 @import "our_products/door-collections";
+
 //Стили страницы technical
 @import "technical_page/technical";
+
 //Стили страницы Become A Dealer
 @import "dealer_page/dealer";
+
 //Стили страницы Contcts
 @import "contacts_page/contacts";
+
 //Стили страницы Buy
 @import "buy_page/buy";
+
 //Стили страницы About Us
 @import "aboutus_page/aboutus";
-
+//Стили под-страницы About Us - first type
+@import "aboutus_page/aboutus-subpage-first";
+//Стили под-страницы About Us - second type
+@import "aboutus_page/aboutus-subpage-second";
