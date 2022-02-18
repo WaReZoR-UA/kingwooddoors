@@ -12,8 +12,11 @@
 			background: #000000;
 			padding: 15px;
 		}
-		// .gallery__body
-		&__body {
+		// .gallery-body
+		&-body {
+			&__title {
+				margin: 0px 0px 0px 0px;
+			}
 		}
 }
 
