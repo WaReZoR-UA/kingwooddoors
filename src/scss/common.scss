@@ -58,3 +58,59 @@
 		text-transform: uppercase;
 	}
 }
+
+
+
+
+
+//=======Общие стили для под-страниц ABOUT US=======================
+.subpages{
+	@include adaptiveValue("padding-bottom",115 ,27 );
+}
+.subpages-container{
+	@include adaptiveValue("padding-top",32 ,16 );
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(32);
+}
+.subpages-body{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr );
+	gap: rem(32);
+	@media (max-width:$mobile){
+		grid-template-columns: 1fr;
+		gap: rem(16);
+	}
+	@media (max-width: $tablet) and (orientation:landscape){
+		grid-template-columns: 1fr;
+		gap: rem(32);
+	}
+}
+.subpages-item{
+	display: flex;
+	flex-direction: column;
+	@include adaptiveValue("row-gap",32 ,16 );
+}
+.subpages-content{
+	display: flex;
+	flex-direction: column;
+	@include adaptiveValue("row-gap",32 ,16 );
+}
+.subpages-title{
+	font-style: italic;
+	font-weight: 300;
+	@include adaptiveValue("font-size",36 ,24 );
+	line-height: math.div(42 ,36 );
+	text-align: justify;
+	color: $orange;
+}
+.subpages-text{
+	font-style: italic;
+	font-weight: 300;
+	@include adaptiveValue("font-size",24 ,18 );
+	line-height: math.div(28 ,24 );
+	@media (max-width:$mobile){
+		line-height: math.div(21 ,18 );
+	}
+	text-align: justify;
+}
