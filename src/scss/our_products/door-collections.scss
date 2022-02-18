@@ -44,3 +44,469 @@
 		color: $mainColor;
 	}
 }
+
+.collection-details {
+	background: $lightGrey;
+	@include adaptiveValue("padding-top", 30, 0);
+	@include adaptiveValue("padding-bottom", 65, 0);
+	@include adaptiveValue("padding-left", 110, 15);
+	@include adaptiveValue("padding-right", 215, 15, 1920, 1700, 1);
+
+	// .collection-details__block
+	&__block {
+		display: flex;
+		@include adaptiveValue("column-gap", 55, 14, 1920, 1040, 1);
+	}
+
+	// .collection-details__piture
+	&__picture {
+		@include adaptiveValue("min-width", 368, 122);
+		@include adaptiveValue("height", 824, 272);
+		@include adaptiveValue("margin-top", -65, -10);
+	}
+
+	// collection-details__image
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	// .collection-details__options
+	&__options {}
+}
+
+
+.door-options {
+	flex: 0 1 338px;
+	display: flex;
+	flex-direction: column;
+	margin-right: auto;
+	@media (max-width: em(975)){
+		flex-basis: 100%;
+	}
+	// .door-options__titles
+	&__titles {
+		@include adaptiveValue("margin-bottom", 33, 7);
+	}
+	// .door-options__colletion-name
+	&__colletion-name {
+		font-weight: 300;
+		@include adaptiveValue("font-size", 36, 14);
+		line-height: math.div(42 , 36);
+		font-variant: small-caps;
+		color: $mainColor;
+		@include adaptiveValue("margin-bottom", 4, 0);
+	}
+	
+	// .door-options__collection-model
+	&__collection-model {
+		font-weight: 500;
+		@include adaptiveValue("font-size", 30, 13);
+		line-height: math.div(35 , 30);
+		color: #000000;
+	}
+	
+	// .door-options__fiters
+	&__fiters {
+		display: flex;
+		flex-direction: column;
+	}
+
+	// .door-options__currency
+	&__currency {
+		color: $mainColor;
+		@include adaptiveValue("font-size", 24, 14);
+		line-height: math.div(28 , 24);
+	}
+
+	// .door-options__info
+	&__btn {
+		&.common-button {
+			display: block;
+			color: $mainColor;
+			background: transparent;
+			@include adaptiveValue("font-size", 18, 12);
+			line-height: math.div(21, 18);
+			letter-spacing: 0.1em;
+			font-variant: small-caps;
+			@include adaptiveValue("border-width", 3, 1);
+			border-style: solid;
+			border-color: $orange;
+			padding: 13px 0px;
+			@include adaptiveValue("margin-top", 14, 10);
+			@include adaptiveValue("margin-bottom", 0, 10);
+
+			@media (any-hover: hover) {
+				&:hover {
+					color: $white;
+					background: $orange;
+				}
+			}
+		}
+	}
+}
+
+.filter {
+	flex: 1 1 100%;
+	// .filter__form
+	&__form {
+		:not(:last-child) + {
+			div {
+				@include adaptiveValue("margin-bottom", 30, 7);
+				.select__body {
+					margin: 0px 0px 0px 0px;
+				}
+			}
+		}
+	}
+
+	// .filter__colors
+	&__colors {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 15px;
+		// flex-direction: column;
+	}
+
+	// .filter__title
+	&__title {
+		display: inline-block;
+		@include adaptiveValue("font-size", 24, 14);
+		line-height: math.div(28 , 24);
+		font-variant: small-caps;
+		color: $mainColor;
+		@include adaptiveValue("margin-bottom", 15, 5);
+	}
+
+	// .filter__color
+	&__color {
+	}
+
+	// .filter__glasses
+	&__glasses {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 15px;
+	}
+
+	// .filter__glass
+	&__glass {
+		position: relative;
+	}
+
+	// .filter__sizes
+	&__sizes {
+
+	}
+
+	// .filter__accessories
+	&__accessories {}
+
+	// .filter__frames
+	&__frames {}
+
+	// .filter__frame
+	&__frame {}
+}
+
+.color {
+	position: relative;
+	@include adaptiveValue("border-width", 4, 1);
+	border-color: $mainColor;
+	border-style: solid;
+	@include adaptiveValue("border-radius", 5, 2);
+	flex-flow: 0;
+	flex-shrink: 1;
+	@include adaptiveValue("flex-basis", 51, 20);
+	@include adaptiveValue("heigth", 51, 20);
+	cursor: pointer;
+	overflow: hidden;
+	.color__input {
+		&:checked {
+			transform: scale(1);
+			&::before {
+				position: absolute;
+				@include adaptiveValue("font-size", 33, 12);
+				color: $orange;
+				@extend %ic;
+				@extend ._icon-check;
+			}
+		}
+	}
+	
+	// .color__input
+	&__input {
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 10%;
+		left: 25%;
+		transition: all 0.3s ease 0s;
+		transform: scale(0);
+	}
+
+	// .color__image
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.glass {
+	position: relative;
+	@include adaptiveValue("border-width", 4, 1);
+	border-color: $mainColor;
+	border-style: solid;
+	flex-flow: 0;
+	flex-shrink: 1;
+	@include adaptiveValue("border-radius", 5, 2);
+	@include adaptiveValue("flex-basis", 51, 20);
+	@include adaptiveValue("height", 51, 20);
+	overflow: hidden;
+	cursor: pointer;
+	.glass__input {
+		&:checked {
+			transform: scale(1);
+			&::before {
+				position: absolute;
+				@include adaptiveValue("font-size", 33, 12);
+				color: $orange;
+				@extend %ic;
+				@extend ._icon-check;
+			}
+		}
+	}
+
+	// .glass__input
+	&__input {
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 10%;
+		left: 25%;
+		transition: all 0.3s ease 0s;
+		transform: scale(0);
+	}
+
+	// .glass__image
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.accessories {
+	button {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row-reverse;
+		align-items: center;
+		&::before {
+			@extend %ic;
+			@extend ._icon-arrow-down;
+			align-self: center;
+			margin: 0px 0px 0px 10px;
+			@include adaptiveValue("font-size", 12, 8);
+			transition: transform 0.5s ease 0s;
+			color: $orange;
+			transform: rotateX(0deg);
+		}
+	}
+	// .accessories__items
+	&__items {
+		opacity: 0;
+		transition: opacity 0.8s ease 0s;
+		:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 8, 4);
+		}
+	}
+	
+	// .accessories__title
+	&__title {
+		display: inline-block;
+		@include adaptiveValue("font-size", 18, 12);
+		line-height: math.div(28, 24);
+		font-variant: small-caps;
+		color: $mainColor;
+		@include adaptiveValue("margin-bottom", 15, 5);
+		@media (any-hover: hover){
+			&:hover{
+				color: $orange;
+			}
+		}
+		&._spoller-active {
+			color: $orange;
+			&::before {
+				transform: rotateX(180deg);
+			}
+		}
+		&._spoller-active ~ {
+			.accessories__items {
+				display: flex;
+				flex-direction: column;
+				opacity: 1;
+			}
+		}
+	}
+
+	// .accessories__item
+	&__item {
+		position: relative;
+		cursor: pointer;
+		.accessories__input {
+			&:checked ~ {
+				.accessories__option {
+					color: $orange;
+				}
+			}
+			&:checked + {
+				.accessories__item_choice {
+					.accessories__title {
+						&::after {
+							transform: scale(1);
+						}
+					}
+				}
+			}
+
+		}
+		// .accessories__item_choice
+		&_choice {
+			.accessories__title {
+				position: relative;
+				display: flex;
+				flex-direction: row-reverse;
+				justify-content: space-between;
+
+				&::before {
+					content: '';
+					align-self: flex-start;
+					@include adaptiveValue("flex-basis", 16, 10);
+					flex-grow: 0;
+					flex-shrink: 0;
+					@include adaptiveValue("height", 16, 10);
+					border: 1px solid #000;
+					background: $white;
+					@include adaptiveValue("margin-top", 4, 2);
+				}
+
+				&::after {
+					content: '';
+					position: absolute;
+					@include adaptiveValue("top", 8, 4.5);
+					@include adaptiveValue("right", 4, 3);
+					@include adaptiveValue("width", 8, 5);
+					@include adaptiveValue("height", 8, 5);
+					background: orange;
+					transform: scale(0);
+					transition: transform 0.5s ease 0s;
+				}
+			}
+			.accessories__input {
+				&:checked +{
+					.accessories__title {
+						&::after{
+							transform: scale(1);
+						}
+					}
+				}
+			}
+			
+		}
+	}
+
+	// 
+	&__input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 0;
+	}
+	
+	// .accessories__option
+	&__option {
+		@include adaptiveValue("font-size", 18, 14);
+		line-height: math.div(21 , 18);
+		margin: 0px 0px 0px 15px;
+		transition: color 0.3s ease 0s;
+	}
+	._spoller-init ~ {
+		button {
+			&::before{
+				@extend %ic;
+				@extend ._icon-arrow-down;
+			}
+		}
+	}
+}
+
+
+.door-option {
+
+	// .door-option__value
+	&__value {
+		margin: 0px 0px 0px 10px;
+	}
+}
+
+.common-button {
+}
+
+.info {
+	justify-self: flex-end;
+	@media (max-width: em(975)){
+		display: none;
+	}
+	// .info__body
+	&__body {
+		max-width: 725px;
+		@include adaptiveValue("font-size", 24, 14, 1920, 881, 1);
+		line-height: math.div(28 , 24);
+		>* {
+			&:not(:last-child) {
+				@include adaptiveValue("margin-bottom", 35, 10);
+			}
+		}
+	}
+	
+	// .info__content
+	&__content {
+	}
+	
+	// .info__title
+	&__title {
+	}
+	
+	// .info__items
+	&__items {
+	}
+
+	// .info__item
+	&__item {
+	}
+}
+.example {
+	&__title {
+		font-weight: 300;
+		@include adaptiveValue("font-size", 32, 14);
+		line-height: math.div(37 , 32);
+		text-transform: uppercase;
+		color: $mainColor;
+		@include adaptiveValue("padding-top", 70, 15);
+		@include adaptiveValue("padding-bottom", 70, 15);
+		padding: inherit 10px;
+		text-align: center;
+	}
+	&__slider {
+		.header-slider{
+			&__image {
+				@include adaptiveValue("heigt", 875	, 206);
+			}	
+		}
+	}
+}

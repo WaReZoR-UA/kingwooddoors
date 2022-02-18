@@ -200,3 +200,67 @@
 
 //=============================================Catalog filter SELECT===========================================
 
+.select {
+	// .select_filter
+	&_filter {
+		// .select_filter__sizes
+		&__sizes {
+			border: 1px solid $mainColor;
+			box-sizing: border-box;
+			border-radius: 3px;
+			max-width: 230px;
+			transition: background 0.3s ease 0s;
+			@media (any-hover: hover){
+				&:hover{
+					background: $orange;
+					.size__option {
+						color: $mainColor;
+					}
+				}
+			}
+
+			.select {
+				&__value {
+					padding: 4px;
+					&::before{
+						display: none;
+					}
+				}
+				&__options {
+					position: static;
+					transform: translate(0px,0px);
+				}
+				&__option {
+					border: 1px solid $orange;
+					background: transparent;
+					transition: background 0.3s ease 0s,
+					color 0.3s ease 0s;
+					@media (any-hover: hover){
+						&:hover{
+							background: $orange;
+							color: $white;
+						}
+					}
+				}
+			}
+			.size__option {
+				transition: color 0.3s ease 0s;
+			}
+		}
+	}
+}
+.size {
+	&__option {
+		@include adaptiveValue("font-size", 24, 14, 1920, 768, 1);
+		line-height: math.div(28 , 24);
+		color: $mainColor;
+	}
+}
+._select-open {
+	@media (any-hover: hover) {
+		:hover &{
+			background: $white;
+			color: $mainColor;
+		}
+	}
+}
