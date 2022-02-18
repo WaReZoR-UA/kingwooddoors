@@ -3,18 +3,19 @@
 		padding-bottom: rem(27);
 	}
 	&__container {
+		@include adaptiveValue("padding-top",32 ,16 );
 	}
 
 	&__title {
-		@include adaptiveValue("padding-top",32 ,16 );
-		@include adaptiveValue("padding-bottom",218 ,27 );
+		
+		@include adaptiveValue("padding-bottom",218 ,27,1920,320,1 );
 		font-weight: 300;
 		@include adaptiveValue("font-size",36 ,24 );
 		line-height: math.div(42 ,36 );
 		text-transform: uppercase;
 		color: $mainColor;
 		text-align: center;
-		@media (orientation:landscape){
+		@media (max-width:$tablet) and (orientation:landscape){
 			padding-bottom: rem(20);
 			padding-top: rem(20);
 		}
