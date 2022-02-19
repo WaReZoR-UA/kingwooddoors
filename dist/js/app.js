@@ -5047,10 +5047,9 @@
         }));
     }));
     const storeLocation = document.querySelector(".store-location");
-    document.querySelector(".store-location__adress");
     document.addEventListener("click", storeLocationClick);
     function storeLocationClick(e) {
-        if (e.target.closest(".store-location__adress")) storeLocation.classList.toggle("map-active");
+        if (e.target.closest(".select__body")) storeLocation.classList.add("map-active");
     }
     var tmp = "Microsoft Internet Explorer" == navigator.appName && navigator.userAgent.indexOf("Opera") < 1 ? 1 : 0;
     if (tmp) var isIE = document.namespaces && (!document.documentMode || document.documentMode < 9) ? 1 : 0;
