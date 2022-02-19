@@ -198,6 +198,115 @@
 	}
 }
 
+
+//=============================================BUY SELECT===========================================
+
+.select_region-buy__select{
+	
+	@include adaptiveValue("font-size",36 ,18 );
+	line-height: math.div(42 ,36 );
+	color: $orange;
+	
+	text-align: left;
+	
+	@media (max-width:$mobile){
+		display: none;
+	}
+
+
+}
+.select_region-buy__select .select__body{
+	width: 100%;
+	
+}
+.select_region-buy__select .select__title{
+	text-align: left;
+	width: 100%;
+	text-decoration: underline;
+}
+.select_region-buy__select .select__content{
+	@include adaptiveValue("font-size",36 ,18 );
+	width: 100%;
+}
+.select_region-buy__select .select__option{
+	margin: 0;
+	width: 100%;
+	text-align: left;
+	background-color: $white;
+	@include adaptiveValue("font-size",24 ,12 );
+	padding: rem(23);
+	border-radius: 0;
+	color: $mainColor;
+	@media (max-width:$mobile){
+		padding: rem(5);
+		background-color: $midGrey;
+	}
+	transition: all 0.3s ease 0s;
+	@media (any-hover: hover){
+		&:hover{
+			color: $white;
+			background-color: $orange;
+		}
+	}
+}
+.select_region-buy__select .select__options{
+	border: 2px solid #FF8A00;
+	width: 100%;
+	left: 0;
+	top:0;
+	transform: translate(0,0);
+	padding: 0;
+	border-radius: 0;
+}
+
+.select_region-buy__select .select__value{
+	font-size: rem(24);
+	padding: rem(23) rem(0) rem(23) rem(0);
+	width: 100%;
+	@media (max-width:$mobile){
+		padding: rem(5);
+	}
+	&:before{
+		display: none;
+	}
+}
+
+.buy-form {
+	
+	&__region {
+		padding-bottom: rem(50);
+		@media (max-width:$mobile){
+			padding-bottom: rem(0);
+		}
+	}
+}
+.region-buy {
+
+	&__label {
+		padding-bottom: rem(14);
+		@media (max-width:$mobile){
+			display: none;
+		}
+	}
+
+	&__select {
+	}
+
+	&__option {
+	}
+}
+.label-buy {
+	@include adaptiveValue("font-size",36 ,14 );
+	line-height: math.div(42 ,36 );
+	@media (max-width:$mobile){
+		line-height: math.div(16 ,14 );
+		padding-bottom: rem(15);
+	}
+
+}
+
+
+
 //=============================================Catalog filter SELECT===========================================
 
 .select {
@@ -264,3 +373,8 @@
 		}
 	}
 }
+
+
+
+
+
