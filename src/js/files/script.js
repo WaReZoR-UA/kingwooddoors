@@ -181,6 +181,7 @@ if (collections.length) {
 
 
 
+
 //==========STICKY HEADER-MENU=======================
 
 
@@ -222,18 +223,15 @@ var sticky = header.offsetTop - headerTopHeight;
 //Обьявляем Блок с Кратой в переменную
 const storeLocation = document.querySelector('.store-location');
 
-
-//Обьявляем Адрес Магазина в переменную
-const storeLocationAdress = document.querySelector('.store-location__adress');
-
-//Собьітие КЛИК на Адресе Магазина====================
+//Собьітие КЛИК на Вьіборе Магазина====================
 document.addEventListener("click", storeLocationClick);
 
-//Функция присвоения класса 'map-active' всему блоку с картой при КЛИКЕ на Адресе Магазина
+//Функция присвоения класса 'map-active' всему блоку с картой при КЛИКЕ на Вьібор Магазина
 function storeLocationClick(e){
 	//
-	if(e.target.closest('.store-location__adress')){
-		storeLocation.classList.toggle('map-active');
+	if(e.target.closest('.select__body')){
+		storeLocation.classList.add('map-active');
 	}
-	
 }
+
+
