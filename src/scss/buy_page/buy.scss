@@ -126,6 +126,7 @@
 		}
 		@media (max-width:$mobile){
 			display: none;
+			
 		}
 	}
 
@@ -146,6 +147,12 @@
 			object-fit: cover;
 			object-position: center;
 		}
+
+
+
+
+
+
 	}
 	&__subtitle {
 		display: none;
@@ -176,3 +183,8 @@
 		border: 2px solid $orange;
 	}
 }
+
+
+
+
+
