@@ -4948,6 +4948,213 @@
     };
     const da = new DynamicAdapt("max");
     da.init();
+    var fastDeepEqual = function equal(a, b) {
+        if (a === b) return true;
+        if (a && b && "object" == typeof a && "object" == typeof b) {
+            if (a.constructor !== b.constructor) return false;
+            var length, i, keys;
+            if (Array.isArray(a)) {
+                length = a.length;
+                if (length != b.length) return false;
+                for (i = length; 0 !== i--; ) if (!equal(a[i], b[i])) return false;
+                return true;
+            }
+            if (a.constructor === RegExp) return a.source === b.source && a.flags === b.flags;
+            if (a.valueOf !== Object.prototype.valueOf) return a.valueOf() === b.valueOf();
+            if (a.toString !== Object.prototype.toString) return a.toString() === b.toString();
+            keys = Object.keys(a);
+            length = keys.length;
+            if (length !== Object.keys(b).length) return false;
+            for (i = length; 0 !== i--; ) if (!Object.prototype.hasOwnProperty.call(b, keys[i])) return false;
+            for (i = length; 0 !== i--; ) {
+                var key = keys[i];
+                if (!equal(a[key], b[key])) return false;
+            }
+            return true;
+        }
+        return a !== a && b !== b;
+    };
+    const DEFAULT_ID = "__googleMapsScriptId";
+    var LoaderStatus;
+    (function(LoaderStatus) {
+        LoaderStatus[LoaderStatus["INITIALIZED"] = 0] = "INITIALIZED";
+        LoaderStatus[LoaderStatus["LOADING"] = 1] = "LOADING";
+        LoaderStatus[LoaderStatus["SUCCESS"] = 2] = "SUCCESS";
+        LoaderStatus[LoaderStatus["FAILURE"] = 3] = "FAILURE";
+    })(LoaderStatus || (LoaderStatus = {}));
+    class Loader {
+        constructor({apiKey, channel, client, id = DEFAULT_ID, libraries = [], language, region, version, mapIds, nonce, retries = 3, url = "https://maps.googleapis.com/maps/api/js"}) {
+            this.CALLBACK = "__googleMapsCallback";
+            this.callbacks = [];
+            this.done = false;
+            this.loading = false;
+            this.errors = [];
+            this.version = version;
+            this.apiKey = apiKey;
+            this.channel = channel;
+            this.client = client;
+            this.id = id || DEFAULT_ID;
+            this.libraries = libraries;
+            this.language = language;
+            this.region = region;
+            this.mapIds = mapIds;
+            this.nonce = nonce;
+            this.retries = retries;
+            this.url = url;
+            if (Loader.instance) {
+                if (!fastDeepEqual(this.options, Loader.instance.options)) throw new Error(`Loader must not be called again with different options. ${JSON.stringify(this.options)} !== ${JSON.stringify(Loader.instance.options)}`);
+                return Loader.instance;
+            }
+            Loader.instance = this;
+        }
+        get options() {
+            return {
+                version: this.version,
+                apiKey: this.apiKey,
+                channel: this.channel,
+                client: this.client,
+                id: this.id,
+                libraries: this.libraries,
+                language: this.language,
+                region: this.region,
+                mapIds: this.mapIds,
+                nonce: this.nonce,
+                url: this.url
+            };
+        }
+        get status() {
+            if (this.errors.length) return LoaderStatus.FAILURE;
+            if (this.done) return LoaderStatus.SUCCESS;
+            if (this.loading) return LoaderStatus.LOADING;
+            return LoaderStatus.INITIALIZED;
+        }
+        get failed() {
+            return this.done && !this.loading && this.errors.length >= this.retries + 1;
+        }
+        createUrl() {
+            let url = this.url;
+            url += `?callback=${this.CALLBACK}`;
+            if (this.apiKey) url += `&key=${this.apiKey}`;
+            if (this.channel) url += `&channel=${this.channel}`;
+            if (this.client) url += `&client=${this.client}`;
+            if (this.libraries.length > 0) url += `&libraries=${this.libraries.join(",")}`;
+            if (this.language) url += `&language=${this.language}`;
+            if (this.region) url += `&region=${this.region}`;
+            if (this.version) url += `&v=${this.version}`;
+            if (this.mapIds) url += `&map_ids=${this.mapIds.join(",")}`;
+            return url;
+        }
+        deleteScript() {
+            const script = document.getElementById(this.id);
+            if (script) script.remove();
+        }
+        load() {
+            return this.loadPromise();
+        }
+        loadPromise() {
+            return new Promise(((resolve, reject) => {
+                this.loadCallback((err => {
+                    if (!err) resolve(window.google); else reject(err.error);
+                }));
+            }));
+        }
+        loadCallback(fn) {
+            this.callbacks.push(fn);
+            this.execute();
+        }
+        setScript() {
+            if (document.getElementById(this.id)) {
+                this.callback();
+                return;
+            }
+            const url = this.createUrl();
+            const script = document.createElement("script");
+            script.id = this.id;
+            script.type = "text/javascript";
+            script.src = url;
+            script.onerror = this.loadErrorCallback.bind(this);
+            script.defer = true;
+            script.async = true;
+            if (this.nonce) script.nonce = this.nonce;
+            document.head.appendChild(script);
+        }
+        reset() {
+            this.deleteScript();
+            this.done = false;
+            this.loading = false;
+            this.errors = [];
+            this.onerrorEvent = null;
+        }
+        resetIfRetryingFailed() {
+            if (this.failed) this.reset();
+        }
+        loadErrorCallback(e) {
+            this.errors.push(e);
+            if (this.errors.length <= this.retries) {
+                const delay = this.errors.length * Math.pow(2, this.errors.length);
+                console.log(`Failed to load Google Maps script, retrying in ${delay} ms.`);
+                setTimeout((() => {
+                    this.deleteScript();
+                    this.setScript();
+                }), delay);
+            } else {
+                this.onerrorEvent = e;
+                this.callback();
+            }
+        }
+        setCallback() {
+            window.__googleMapsCallback = this.callback.bind(this);
+        }
+        callback() {
+            this.done = true;
+            this.loading = false;
+            this.callbacks.forEach((cb => {
+                cb(this.onerrorEvent);
+            }));
+            this.callbacks = [];
+        }
+        execute() {
+            this.resetIfRetryingFailed();
+            if (this.done) this.callback(); else {
+                if (window.google && window.google.maps && window.google.maps.version) {
+                    console.warn("Google Maps already loaded outside @googlemaps/js-api-loader." + "This may result in undesirable behavior as options and script parameters may not match.");
+                    this.callback();
+                    return;
+                }
+                if (this.loading) ; else {
+                    this.loading = true;
+                    this.setCallback();
+                    this.setScript();
+                }
+            }
+        }
+    }
+    const getLocations = document.querySelectorAll("[data-spollers] [data-spoller]");
+    getLocations.forEach((getLocation => getLocation.addEventListener("click", (function() {
+        if (this.getAttribute("data-latitude") && this.getAttribute("data-longitude")) {
+            script_location.lat = +this.getAttribute("data-latitude");
+            script_location.lng = +this.getAttribute("data-longitude");
+            zoomState = 14;
+        }
+        loadMap();
+    }))));
+    document.addEventListener("selectCallback", (function(e) {
+        const currentSelect = e.detail.select;
+        const optionsList = currentSelect.querySelectorAll("option");
+        const pseudoOptions = document.querySelectorAll(".select__option");
+        for (let index = 0; index < pseudoOptions.length; index++) if (pseudoOptions[index].hasAttribute("hidden")) {
+            const curentPseudoOption = pseudoOptions[index].getAttribute("data-value");
+            if (curentPseudoOption === currentSelect.value) {
+                const curentOption = optionsList[index];
+                if (curentOption.getAttribute("data-latitude") && curentOption.getAttribute("data-longitude")) {
+                    script_location.lng = +curentOption.getAttribute("data-latitude");
+                    script_location.lat = +curentOption.getAttribute("data-longitude");
+                    zoomState = 14;
+                }
+                loadMap();
+            }
+        }
+    }));
     document.querySelector(".actions-header__search-button");
     const languageButton = document.querySelector(".actions-header__language");
     const languageButtonFooter = document.querySelector(".actions-footer__language");
@@ -5051,6 +5258,28 @@
     function storeLocationClick(e) {
         if (e.target.closest(".select__body")) storeLocation.classList.add("map-active");
     }
+    const script_location = {
+        lat: 39.97077982835153,
+        lng: -101.9679369497046
+    };
+    let zoomState = 5;
+    function loadMap() {
+        const loader = new Loader({
+            apiKey: "AIzaSyAINCif2uQXqQO47ySLAjm1Xhv-u602rbo",
+            version: "weekly"
+        });
+        loader.load().then((() => {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: script_location,
+                zoom: zoomState
+            });
+            new google.maps.Marker({
+                position: script_location,
+                map
+            });
+        }));
+    }
+    loadMap();
     var tmp = "Microsoft Internet Explorer" == navigator.appName && navigator.userAgent.indexOf("Opera") < 1 ? 1 : 0;
     if (tmp) var isIE = document.namespaces && (!document.documentMode || document.documentMode < 9) ? 1 : 0;
     if (isIE) if (null == document.namespaces["v"]) {

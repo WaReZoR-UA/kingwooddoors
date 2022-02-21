@@ -808,12 +808,13 @@
 // =========HEADER-SLIDER=========================================
 
 .header-slider {
-
+	
 	
 	&__images {
 		position: relative;
 		border-top: 7px solid #4D4D4D;
 		border-bottom: 7px solid #4D4D4D;
+		margin: 0px 0px 60px 0px;
 		//margin-bottom: 70px;
 		@media (max-width:$tablet){
 			border-top: none;
@@ -831,7 +832,7 @@
 			}
 		}
 	}
-
+	
 	// .header-slider__wrapper
 	&__wrapper {
 		
