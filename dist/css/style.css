@@ -2198,7 +2198,7 @@ body::after {
 }
 @media (max-width: 29.99875em) {
   .footer__logo {
-    display: block;
+    display: none;
     position: absolute;
     top: 0;
     right: 0;
