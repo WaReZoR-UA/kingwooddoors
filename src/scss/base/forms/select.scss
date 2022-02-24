@@ -163,10 +163,10 @@
 	padding: rem(23);
 	border-radius: 0;
 	color: $mainColor;
-	@media (max-width:$mobile){
-		padding: rem(5);
-		background-color: $midGrey;
-	}
+	// @media (max-width:$mobile){
+	// 	padding: rem(5);
+	// 	background-color: $midGrey;
+	// }
 	transition: all 0.3s ease 0s;
 	@media (any-hover: hover){
 		&:hover{
@@ -209,9 +209,6 @@
 	
 	text-align: left;
 	
-	@media (max-width:$mobile){
-		display: none;
-	}
 
 
 }
@@ -237,10 +234,7 @@
 	padding: rem(23);
 	border-radius: 0;
 	color: $mainColor;
-	@media (max-width:$mobile){
-		padding: rem(5);
-		background-color: $midGrey;
-	}
+	// 
 	transition: all 0.3s ease 0s;
 	@media (any-hover: hover){
 		&:hover{
@@ -275,18 +269,12 @@
 	
 	&__region {
 		padding-bottom: rem(50);
-		@media (max-width:$mobile){
-			padding-bottom: rem(0);
-		}
 	}
 }
 .region-buy {
 
 	&__label {
 		padding-bottom: rem(14);
-		@media (max-width:$mobile){
-			display: none;
-		}
 	}
 
 	&__select {
