@@ -4783,23 +4783,16 @@
             tumbsGallery[i].classList.add("gallery-slider__tumbs_" + i);
             if (document.querySelector(".gallery-slider__tumbs_" + i)) swiperTumbs = new core(".gallery-slider__tumbs_" + i, {
                 modules: [ Lazy ],
-                observer: true,
-                observeParents: true,
                 slidesPerView: "auto",
                 simulateTouch: true,
-                freeMode: true,
                 loop: true,
                 lazy: true,
-                centeredSlides: true,
                 watchSlidesProgress: true
             });
             if (document.querySelector(".gallery-slider__images_" + i)) new core(".gallery-slider__images_" + i, {
                 modules: [ Navigation, Lazy, Thumb ],
-                observer: true,
-                observeParents: true,
                 simulateTouch: true,
                 slidesPerView: "auto",
-                freeMode: true,
                 centeredSlides: true,
                 loop: true,
                 lazy: true,
@@ -4811,34 +4804,34 @@
                     swiper: swiperTumbs
                 }
             });
-            if (document.querySelector(".header-slider__images")) new core(".header-slider__images", {
-                modules: [ Navigation, Lazy, Thumb, Pagination, Autoplay ],
-                observer: true,
-                observeParents: true,
-                simulateTouch: true,
-                slidesPerView: "auto",
-                autoplay: {
-                    delay: 3e3,
-                    disableOnInteraction: false
-                },
-                speed: 2500,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-                freeMode: true,
-                centeredSlides: true,
-                loop: true,
-                lazy: true,
-                navigation: {
-                    prevEl: ".header-slider__prev",
-                    nextEl: ".header-slider__next"
-                },
-                pagination: {
-                    el: ".swiper-pagination",
-                    type: "bullets"
-                },
-                on: {}
-            });
         }
+        if (document.querySelector(".header-slider__images")) new core(".header-slider__images", {
+            modules: [ Navigation, Lazy, Thumb, Pagination, Autoplay ],
+            observer: true,
+            observeParents: true,
+            simulateTouch: true,
+            slidesPerView: "auto",
+            autoplay: {
+                delay: 3e3,
+                disableOnInteraction: false
+            },
+            speed: 2500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+            freeMode: true,
+            centeredSlides: true,
+            loop: true,
+            lazy: true,
+            navigation: {
+                prevEl: ".header-slider__prev",
+                nextEl: ".header-slider__next"
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                type: "bullets"
+            },
+            on: {}
+        });
     }
     window.addEventListener("load", (function(e) {
         initSliders();
@@ -5129,32 +5122,56 @@
             }
         }
     }
-    const getLocations = document.querySelectorAll("[data-spollers] [data-spoller]");
-    getLocations.forEach((getLocation => getLocation.addEventListener("click", (function() {
-        if (this.getAttribute("data-latitude") && this.getAttribute("data-longitude")) {
-            script_location.lat = +this.getAttribute("data-latitude");
-            script_location.lng = +this.getAttribute("data-longitude");
-            zoomState = 14;
+    if (document.getElementById("map")) {
+        const getLocations = document.querySelectorAll("[data-spollers] [data-spoller]");
+        getLocations.forEach((getLocation => getLocation.addEventListener("click", (function() {
+            if (this.getAttribute("data-latitude") && this.getAttribute("data-longitude")) {
+                location.lng = +this.getAttribute("data-latitude");
+                location.lat = +this.getAttribute("data-longitude");
+                zoomState = 14;
+            }
+            loadMap();
+        }))));
+        document.addEventListener("selectCallback", (function(e) {
+            const currentSelect = e.detail.select;
+            const optionsList = currentSelect.querySelectorAll("option");
+            const pseudoOptions = document.querySelectorAll(".select__option");
+            for (let index = 0; index < pseudoOptions.length; index++) if (pseudoOptions[index].hasAttribute("hidden")) {
+                const curentPseudoOption = pseudoOptions[index].getAttribute("data-value");
+                if (curentPseudoOption === currentSelect.value) {
+                    const curentOption = optionsList[index];
+                    if (curentOption.getAttribute("data-latitude") && curentOption.getAttribute("data-longitude")) {
+                        location.lng = +curentOption.getAttribute("data-latitude");
+                        location.lat = +curentOption.getAttribute("data-longitude");
+                        zoomState = 14;
+                    }
+                    loadMap();
+                }
+            }
+        }));
+        const location = {
+            lat: 39.97077982835153,
+            lng: -101.9679369497046
+        };
+        let zoomState = 5;
+        function loadMap() {
+            const loader = new Loader({
+                apiKey: "AIzaSyAINCif2uQXqQO47ySLAjm1Xhv-u602rbo",
+                version: "weekly"
+            });
+            loader.load().then((() => {
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    center: location,
+                    zoom: zoomState
+                });
+                new google.maps.Marker({
+                    position: location,
+                    map
+                });
+            }));
         }
         loadMap();
-    }))));
-    document.addEventListener("selectCallback", (function(e) {
-        const currentSelect = e.detail.select;
-        const optionsList = currentSelect.querySelectorAll("option");
-        const pseudoOptions = document.querySelectorAll(".select__option");
-        for (let index = 0; index < pseudoOptions.length; index++) if (pseudoOptions[index].hasAttribute("hidden")) {
-            const curentPseudoOption = pseudoOptions[index].getAttribute("data-value");
-            if (curentPseudoOption === currentSelect.value) {
-                const curentOption = optionsList[index];
-                if (curentOption.getAttribute("data-latitude") && curentOption.getAttribute("data-longitude")) {
-                    script_location.lng = +curentOption.getAttribute("data-latitude");
-                    script_location.lat = +curentOption.getAttribute("data-longitude");
-                    zoomState = 14;
-                }
-                loadMap();
-            }
-        }
-    }));
+    }
     document.querySelector(".actions-header__search-button");
     const languageButton = document.querySelector(".actions-header__language");
     const languageButtonFooter = document.querySelector(".actions-footer__language");
@@ -5258,28 +5275,6 @@
     function storeLocationClick(e) {
         if (e.target.closest(".select__body")) storeLocation.classList.add("map-active");
     }
-    const script_location = {
-        lat: 39.97077982835153,
-        lng: -101.9679369497046
-    };
-    let zoomState = 5;
-    function loadMap() {
-        const loader = new Loader({
-            apiKey: "AIzaSyAINCif2uQXqQO47ySLAjm1Xhv-u602rbo",
-            version: "weekly"
-        });
-        loader.load().then((() => {
-            const map = new google.maps.Map(document.getElementById("map"), {
-                center: script_location,
-                zoom: zoomState
-            });
-            new google.maps.Marker({
-                position: script_location,
-                map
-            });
-        }));
-    }
-    loadMap();
     var tmp = "Microsoft Internet Explorer" == navigator.appName && navigator.userAgent.indexOf("Opera") < 1 ? 1 : 0;
     if (tmp) var isIE = document.namespaces && (!document.documentMode || document.documentMode < 9) ? 1 : 0;
     if (isIE) if (null == document.namespaces["v"]) {
