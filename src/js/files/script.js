@@ -11,12 +11,12 @@ import { Loader } from "@googlemaps/js-api-loader"
 
 //====================google maps renew====================================================================================================================================
 
-
-const getLocations = document.querySelectorAll('[data-spollers] [data-spoller]');
+if (document.getElementById('map')) {
+	const getLocations = document.querySelectorAll('[data-spollers] [data-spoller]');
 getLocations.forEach(getLocation => getLocation.addEventListener('click', function () {
 	if (this.getAttribute('data-latitude') && this.getAttribute('data-longitude')) {
-		location.lat = +this.getAttribute('data-latitude');
-		location.lng = +this.getAttribute('data-longitude');
+		location.lng = +this.getAttribute('data-latitude');
+		location.lat = +this.getAttribute('data-longitude');
 		zoomState = 14;
 	}
 	loadMap();
@@ -41,6 +41,30 @@ document.addEventListener("selectCallback", function (e) {
 		}
 	}
 });
+	//================================GOOGLE MAPS========================================================================================================================
+const location = { lat: 39.97077982835153, lng: -101.9679369497046 };
+let zoomState = 5;
+function loadMap() {
+	const loader = new Loader({
+	apiKey: "AIzaSyAINCif2uQXqQO47ySLAjm1Xhv-u602rbo",
+	version: "weekly",
+	});
+
+	loader.load().then(() => {
+		const map = new google.maps.Map(document.getElementById("map"), {
+		center: location,
+		zoom: zoomState,
+		});
+		const marker = new google.maps.Marker({
+			position: location,
+			map: map,
+		});
+	});
+}
+loadMap();
+}
+
+
 
 
 //===============Search Bar and Search Button Functioning=================================
@@ -270,25 +294,3 @@ function storeLocationClick(e) {
 		storeLocation.classList.add('map-active');
 	}
 }
-
-//================================GOOGLE MAPS========================================================================================================================
-const location = { lat: 39.97077982835153, lng: -101.9679369497046 };
-let zoomState = 5;
-function loadMap() {
-	const loader = new Loader({
-	apiKey: "AIzaSyAINCif2uQXqQO47ySLAjm1Xhv-u602rbo",
-	version: "weekly",
-	});
-
-	loader.load().then(() => {
-		const map = new google.maps.Map(document.getElementById("map"), {
-		center: location,
-		zoom: zoomState,
-		});
-		const marker = new google.maps.Marker({
-			position: location,
-			map: map,
-		});
-	});
-}
-loadMap();
