@@ -403,6 +403,7 @@ function addReflex() {
 		}
 	}
 }
-
-if(window.addEventListener) window.addEventListener("load",addReflex,false);
-else window.attachEvent("onload",addIEReflex);
+addReflex();
+addIEReflex();
+// if(window.addEventListener) window.addEventListener("load",addReflex,false);
+// else window.attachEvent("onload",addIEReflex);

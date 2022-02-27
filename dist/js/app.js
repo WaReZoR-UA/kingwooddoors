@@ -5229,38 +5229,41 @@
         if (e.target.closest(".menu-header__item_submenu")) subMenu.classList.toggle("submenu-show");
         if (e.target.closest(".menu-footer__item_submenu")) subMenuFooter.classList.toggle("submenu-show"); else subMenuFooter.classList.remove("submenu-show");
     }
-    const collections = document.querySelectorAll(".collection");
-    if (collections.length) collections.forEach((collection => {
-        if (collection) {
-            const collectionTabs = collection.querySelectorAll(".collection__name");
-            const collectionContent = collection.querySelectorAll(".collection__body");
-            const collectionTabsParent = collection.querySelector(".collection__navigation");
-            function hideCollectionContent() {
-                collectionContent.forEach((item => {
-                    item.classList.add("collection__body_hide");
-                }));
-                collectionTabs.forEach((item => {
-                    item.classList.remove("collection__name_tab-active");
+    function startTabs() {
+        const collections = document.querySelectorAll(".collection");
+        if (collections.length) collections.forEach((collection => {
+            if (collection) {
+                const collectionTabs = collection.querySelectorAll(".collection__name");
+                const collectionContent = collection.querySelectorAll(".collection__body");
+                const collectionTabsParent = collection.querySelector(".collection__navigation");
+                function hideCollectionContent() {
+                    collectionContent.forEach((item => {
+                        item.classList.add("collection__body_hide");
+                    }));
+                    collectionTabs.forEach((item => {
+                        item.classList.remove("collection__name_tab-active");
+                    }));
+                }
+                function showCollectionContent(i = 0) {
+                    collectionContent[i].classList.add("collection__body_show");
+                    collectionContent[i].classList.remove("collection__body_hide");
+                    collectionTabs[i].classList.add("collection__name_tab-active");
+                }
+                hideCollectionContent();
+                showCollectionContent();
+                collectionTabsParent.addEventListener("mouseover", (e => {
+                    const target = e.target;
+                    if (target && target.classList.contains("collection__name")) collectionTabs.forEach(((item, index) => {
+                        if (target == item) {
+                            hideCollectionContent();
+                            showCollectionContent(index);
+                        }
+                    }));
                 }));
             }
-            function showCollectionContent(i = 0) {
-                collectionContent[i].classList.add("collection__body_show");
-                collectionContent[i].classList.remove("collection__body_hide");
-                collectionTabs[i].classList.add("collection__name_tab-active");
-            }
-            hideCollectionContent();
-            showCollectionContent();
-            collectionTabsParent.addEventListener("mouseover", (e => {
-                const target = e.target;
-                if (target && target.classList.contains("collection__name")) collectionTabs.forEach(((item, index) => {
-                    if (target == item) {
-                        hideCollectionContent();
-                        showCollectionContent(index);
-                    }
-                }));
-            }));
-        }
-    }));
+        }));
+    }
+    startTabs();
     window.addEventListener("load", (function(e) {
         var header = document.getElementById("myHeader");
         const headerTop = document.querySelector(".header__top");
@@ -5716,7 +5719,8 @@
             }
         }
     }
-    if (window.addEventListener) window.addEventListener("load", addReflex, false); else window.attachEvent("onload", addIEReflex);
+    addReflex();
+    addIEReflex();
     window["FLS"] = true;
     isWebp();
     menuInit();
