@@ -7,7 +7,7 @@
   font-weight: 400;
   font-style: normal;
 }
-.cat-card-aboutus__button span, .card-aboutus__button span, .links-items__instagram, .links-items__facebook, .links-items__telegram, .links-items__mail, .links-items__viber, .links-items__phone, .accessories ._spoller-init ~ button::before, .accessories button::before, .glass .glass__input:checked::before, .color .color__input:checked::before, .actions-footer__search-button, .actions-footer__english span.arrow-down, .menu-footer__item_submenu:before, .menu-header__item_submenu:before, .actions-header__english span.arrow-down, .actions-header__search-button span, .actions-header__search-button, .socials-header__instagram, .socials-header__facebook, .socials-header__telegram, .socials-header__mail, .socials-header__viber, .socials-header__phone, .select__value:before, [class*=_icon-]:before {
+.cat-card-aboutus__button span, .card-aboutus__button span, .links-items__instagram, .links-items__facebook, .links-items__telegram, .links-items__mail, .links-items__viber, .links-items__phone, .accessories ._spoller-init ~ button::before, .accessories button::before, .glass .glass__input:checked::before, .color .color__input:checked::before, .actions-footer__search-button, .actions-footer__english span.arrow-down, .menu-footer__item_submenu:before, .menu-header__item_submenu:before, .actions-header__english span.arrow-down, .actions-header__search-button span, .actions-header__search-button, .socials-header__instagram, .socials-header__facebook, .socials-header__telegram, .socials-header__mail, .socials-header__viber, .socials-header__phone, .select__icon, [class*=_icon-]:before {
   font-family: "icons";
   font-style: normal;
   font-weight: normal;
@@ -30,7 +30,7 @@
   content: "\e901";
 }
 
-._icon-arrow-down:before, .accessories ._spoller-init ~ button:before, .accessories button:before, .actions-footer__english span.arrow-down:before, .actions-header__english span.arrow-down:before, .actions-header__search-button span:before, .select__value:before {
+._icon-arrow-down:before, .accessories ._spoller-init ~ button:before, .accessories button:before, .actions-footer__english span.arrow-down:before, .actions-header__english span.arrow-down:before, .actions-header__search-button span:before, .select__icon:before {
   content: "\e902";
 }
 
@@ -254,29 +254,30 @@ textarea.input {
     padding-right: calc(0.625rem + 1.25 * (100vw - 20rem) / 52.8125);
   }
 }
-.select__value:before {
+.select__value._select-pseudo-label::before {
+  content: attr(data-pseudo-label);
+  opacity: 0.5;
+}
+.select__icon {
   position: absolute;
   left: 100%;
   color: #FF8A00;
   align-self: center;
   transition: all 0.3s ease 0s;
+  margin: 7px 0px 0px 0px;
 }
 @supports (font-size: clamp( 0.8125rem , 0.5758136095rem  +  1.1834319527vw , 1.4375rem )) {
-  .select__value:before {
+  .select__icon {
     font-size: clamp( 0.8125rem , 0.5758136095rem  +  1.1834319527vw , 1.4375rem );
   }
 }
 @supports not (font-size: clamp( 0.8125rem , 0.5758136095rem  +  1.1834319527vw , 1.4375rem )) {
-  .select__value:before {
+  .select__icon {
     font-size: calc(0.8125rem + 0.625 * (100vw - 20rem) / 52.8125);
   }
 }
-._select-open .select__value:before {
+.select__icon_open {
   transform: rotateX(180deg);
-}
-.select__value._select-pseudo-label::before {
-  content: attr(data-pseudo-label);
-  opacity: 0.5;
 }
 .select__text {
   flex: 1 1 auto;

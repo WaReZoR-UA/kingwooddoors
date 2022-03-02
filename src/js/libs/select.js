@@ -42,7 +42,7 @@ data-href-blank - откроет ссылку в новом окне
 // Возможные доработки:
 попап на мобилке
 */
-function selectOne() {
+
 // Класс построения Select
 class SelectConstructor {
 	constructor(props, data = null) {
@@ -494,5 +494,4 @@ class SelectConstructor {
 // Запускаем и добавляем в объект модулей
 flsModules.select = new SelectConstructor({});
 
-}
-selectOne()
+
