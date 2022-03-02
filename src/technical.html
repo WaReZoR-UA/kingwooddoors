@@ -11,16 +11,20 @@
 			@@include('html/_bradcrumps.htm',{})
 				<section class="technical-info">
 					<div class="technical-info__container">
-						<div class="title-menu">
-							<form action="#" class="title-menu__form">
-								<select name="form[]" class="form">
-									<option value="1 selected">Lyra</option>
-									<option value="2">Gracia</option>
-									<option value="3">Verona</option>
-									<!-- пункты будут добавляться по мере добавления коллекций -->
-								</select>
-							</form>
-						</div>
+						<nav class="title-menu">
+							<div class="select__body">
+								<button type="button" class="select__title">
+									<span class="select__value">
+										<span class="select__content">Verona</span>
+									</span>
+								</button>
+								<div class="select__options">
+									<a href="#" class="select__option">Verona</a>
+									<a href="#" class="select__option">Gracia</a>
+									<a href="#" class="select__option">Lyra</a>
+								</div>
+							</div>
+						</nav>
 						<div class="technical-info__items">
 							<div class="technical-info__features features">
 								<h2 class="features__title common-technical-title">Features</h2>

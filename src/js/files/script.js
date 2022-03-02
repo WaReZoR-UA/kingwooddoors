@@ -9,6 +9,25 @@ import {
 
 import { Loader } from "@googlemaps/js-api-loader"
 
+//====================custom select====================================================================================================================================
+let titleMenuSelect = function () {
+	const titleMenuBlock = document.querySelector('.title-menu');
+	const selectOptions = titleMenuBlock.querySelector('.select__options');
+	const selectOption = selectOptions.querySelectorAll('.select__option');
+	
+	document.addEventListener('click', function (e) {
+		if (e.target.closest('.select__title')) {
+			selectOptions.classList.toggle('select__options_open');
+		} else {
+			selectOptions.classList.remove('select__options_open');
+		}
+	})
+
+}
+titleMenuSelect();
+
+
+
 //====================google maps renew====================================================================================================================================
 
 if (document.getElementById('map')) {
@@ -286,14 +305,15 @@ window.addEventListener("load", function (e) {
 
 //Обьявляем Блок с Кратой в переменную
 const storeLocation = document.querySelector('.store-location');
+if (storeLocation) {
+	//Собьітие КЛИК на Вьіборе Магазина====================
+	document.addEventListener("click", storeLocationClick);
 
-//Собьітие КЛИК на Вьіборе Магазина====================
-document.addEventListener("click", storeLocationClick);
-
-//Функция присвоения класса 'map-active' всему блоку с картой при КЛИКЕ на Вьібор Магазина
-function storeLocationClick(e) {
-	//
-	if (e.target.closest('.select__body')) {
-		storeLocation.classList.add('map-active');
+	//Функция присвоения класса 'map-active' всему блоку с картой при КЛИКЕ на Вьібор Магазина
+	function storeLocationClick(e) {
+		//
+		if (e.target.closest('.select__body')) {
+			storeLocation.classList.add('map-active');
+		}
 	}
 }

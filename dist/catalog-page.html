@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220227141956">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220302232742">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -137,14 +137,18 @@
 				</div>
 			</nav>
 			<nav class="title-menu">
-				<form action="#" class="title-menu__form">
-					<select name="form[title-menu__form]" class="form">
-						<option data-href="#" value="1" selected>Verona</option>
-						<option data-href="#" value="2">Gracia</option>
-						<option data-href="#" value="3">Lyra</option>
-						<!-- пункты будут добавляться по мере добавления коллекций -->
-					</select>
-				</form>
+				<div class="select__body">
+					<button type="button" class="select__title">
+						<span class="select__value">
+							<span class="select__content">Verona</span>
+						</span>
+					</button>
+					<div class="select__options">
+						<a href="#" class="select__option">Verona</a>
+						<a href="# class=" select__option">Gracia</a>
+						<a href="#" class="select__option">Lyra</a>
+					</div>
+				</div>
 			</nav>
 			<section class="door-collection">
 				<div class="door-collection__container">
@@ -646,8 +650,8 @@
 		</div>
 	</div>
 
-	<script src="js/app.min.js?_v=20220227141956"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?_v=20220227141956"></script>
+	<script src="js/app.min.js?_v=20220302232742"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?_v=20220302232742"></script>
 	<script>
 		$(document).ready(function() {
 			var style = 'easeOutExpo';
