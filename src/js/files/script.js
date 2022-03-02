@@ -9,6 +9,7 @@ import {
 
 import { Loader } from "@googlemaps/js-api-loader"
 
+
 //====================custom select====================================================================================================================================
 let titleMenuSelect = function () {
 	const titleMenuBlock = document.querySelector('.title-menu');
@@ -25,8 +26,6 @@ let titleMenuSelect = function () {
 
 }
 titleMenuSelect();
-
-
 
 //====================google maps renew====================================================================================================================================
 
