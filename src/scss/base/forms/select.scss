@@ -3,15 +3,19 @@
 .select {
 	position: relative;
 	text-align: center;
+	overflow: hidden;
 	// .select__body
 	&__body {
 		position: relative;
-		display: inline-block;
+		display: block;
+		max-width: 250px;
+		margin: 0px auto;
 	}
 	// .select__title
 	&__title {
 		color: inherit;
 		cursor: pointer;
+		margin: 0px auto;
 	}
 	// .select__value
 	&__value {
@@ -51,15 +55,21 @@
 	}
 	// .select__options
 	&__options {
+		display: none;
 		position: absolute;
 		width: 100%;
 		@include adaptiveValue("font-size", 25, 16);
 		@include adaptiveValue("top", 75, 40);
 		border-radius: 4px;
 		left: 50%;
-		transform: translate(-38%,0px);
+		transform: translate(-38%,0%);
 		padding: 10px 0px 5px 0px;
 		z-index: 1;
+		overflow: hidden;
+		// .select__options_open
+		&_open {
+			display: block;
+		}
 	}
 	// .select__scroll
 	&__scroll {
@@ -76,6 +86,7 @@
 	}
 	// .select__option
 	&__option {
+
 		width: 100%;
 		display: block;
 		text-align: center;

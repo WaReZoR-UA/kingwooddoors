@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220224145606">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220302232742">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -128,26 +128,28 @@
 			<nav class="bredcrump">
 				<div class="bredcrump__container">
 					<ul class="bredcrump__body">
-						<li class="bredcrump__item">
-							<a href="#" class="bredcrump__link">Home</a>
-							<a href="#" class="bredcrump__link">Our products</a>
-							<a href="#" class="bredcrump__link">Verona</a>
-						</li>
+						<li class="bredcrump__item"><a href="#" class="bredcrump__link">Home</a></li>
+            <li class="bredcrump__item"><a href="#" class="bredcrump__link">Our products</a></li>
+            <li class="bredcrump__item"><a href="#" class="bredcrump__link">Verona</a></li>
 					</ul>
 				</div>
 			</nav>
 			<section class="technical-info">
 				<div class="technical-info__container">
-					<div class="title-menu">
-						<form action="#" class="title-menu__form">
-							<select name="form[]" class="form">
-								<option value="1 selected">Lyra</option>
-								<option value="2">Gracia</option>
-								<option value="3">Verona</option>
-								<!-- пункты будут добавляться по мере добавления коллекций -->
-							</select>
-						</form>
-					</div>
+					<nav class="title-menu">
+						<div class="select__body">
+							<button type="button" class="select__title">
+								<span class="select__value">
+									<span class="select__content">Verona</span>
+								</span>
+							</button>
+							<div class="select__options">
+								<a href="#" class="select__option">Verona</a>
+								<a href="#" class="select__option">Gracia</a>
+								<a href="#" class="select__option">Lyra</a>
+							</div>
+						</div>
+					</nav>
 					<div class="technical-info__items">
 						<div class="technical-info__features features">
 							<h2 class="features__title common-technical-title">Features</h2>
@@ -345,7 +347,7 @@
 		<footer class="footer">
 			<div class="footer__container">
 				<div class="footer__top">
-					<a data-da=".footer__top,424.98,last" href="" class="footer__logo">
+					<a href="" class="footer__logo">
 						<img src="img/header/cat-brand-logo.png" alt="cat-logo">
 					</a>
 					<div class="footer__menu menu-footer">
@@ -417,7 +419,7 @@
 					</div>
 				</div>
 				<div class="footer__bottom">
-					<p class="footer__copyright">© 2021 King Wood doors. All rights reserved.</p>
+					<p class="footer__copyright">© 2022 King Wood doors. All rights reserved.</p>
 				</div>
 			</div>
 		</footer>
@@ -672,8 +674,8 @@
 		</div>
 	</div>
 
-	<script src="js/app.min.js?_v=20220224145606"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?_v=20220224145606"></script>
+	<script src="js/app.min.js?_v=20220302232742"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?_v=20220302232742"></script>
 	<script>
 		$(document).ready(function() {
 			var style = 'easeOutExpo';

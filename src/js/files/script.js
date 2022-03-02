@@ -9,6 +9,24 @@ import {
 
 import { Loader } from "@googlemaps/js-api-loader"
 
+
+//====================custom select====================================================================================================================================
+let titleMenuSelect = function () {
+	const titleMenuBlock = document.querySelector('.title-menu');
+	const selectOptions = titleMenuBlock.querySelector('.select__options');
+	const selectOption = selectOptions.querySelectorAll('.select__option');
+	
+	document.addEventListener('click', function (e) {
+		if (e.target.closest('.select__title')) {
+			selectOptions.classList.toggle('select__options_open');
+		} else {
+			selectOptions.classList.remove('select__options_open');
+		}
+	})
+
+}
+titleMenuSelect();
+
 //====================google maps renew====================================================================================================================================
 
 if (document.getElementById('map')) {
@@ -192,50 +210,53 @@ function subMenuShowClick(e) {
 
 // ТАБЫ КОЛЛЕКЦИИ НА ГЛАВНОЙ
 
-const collections = document.querySelectorAll('.collection');
+function startTabs() {
+	const collections = document.querySelectorAll('.collection');
 
-if (collections.length) {
-	collections.forEach(collection => {
+	if (collections.length) {
+		collections.forEach(collection => {
 
-		if (collection) {
+			if (collection) {
 
-			const collectionTabs = collection.querySelectorAll('.collection__name');
-			const collectionContent = collection.querySelectorAll('.collection__body');
-			const collectionTabsParent = collection.querySelector('.collection__navigation');
+				const collectionTabs = collection.querySelectorAll('.collection__name');
+				const collectionContent = collection.querySelectorAll('.collection__body');
+				const collectionTabsParent = collection.querySelector('.collection__navigation');
 
-			function hideCollectionContent() {
-				collectionContent.forEach(item => {
-					item.classList.add('collection__body_hide');
-				});
-				collectionTabs.forEach(item => {
-					item.classList.remove('collection__name_tab-active');
-				});
-			}
-
-			function showCollectionContent(i = 0) {
-				collectionContent[i].classList.add('collection__body_show');
-				collectionContent[i].classList.remove('collection__body_hide');
-				collectionTabs[i].classList.add('collection__name_tab-active');
-			}
-
-			hideCollectionContent();
-			showCollectionContent();
-
-
-			collectionTabsParent.addEventListener('mouseover', (e) => {
-				const target = e.target;
-				if (target && target.classList.contains('collection__name')) {
-					collectionTabs.forEach((item, index) => {
-						if (target == item) {
-							hideCollectionContent();
-							showCollectionContent(index);
-						}
+				function hideCollectionContent() {
+					collectionContent.forEach(item => {
+						item.classList.add('collection__body_hide');
+					});
+					collectionTabs.forEach(item => {
+						item.classList.remove('collection__name_tab-active');
 					});
 				}
-			});
-		}
-	});
+
+				function showCollectionContent(i = 0) {
+					collectionContent[i].classList.add('collection__body_show');
+					collectionContent[i].classList.remove('collection__body_hide');
+					collectionTabs[i].classList.add('collection__name_tab-active');
+				}
+
+				hideCollectionContent();
+				showCollectionContent();
+
+
+				collectionTabsParent.addEventListener('mouseover', (e) => {
+					const target = e.target;
+					if (target && target.classList.contains('collection__name')) {
+						collectionTabs.forEach((item, index) => {
+							if (target == item) {
+								hideCollectionContent();
+								showCollectionContent(index);
+							}
+						});
+					}
+				});
+			}
+		});
+	}
 }
+startTabs();
 
 
 
@@ -283,14 +304,15 @@ window.addEventListener("load", function (e) {
 
 //Обьявляем Блок с Кратой в переменную
 const storeLocation = document.querySelector('.store-location');
+if (storeLocation) {
+	//Собьітие КЛИК на Вьіборе Магазина====================
+	document.addEventListener("click", storeLocationClick);
 
-//Собьітие КЛИК на Вьіборе Магазина====================
-document.addEventListener("click", storeLocationClick);
-
-//Функция присвоения класса 'map-active' всему блоку с картой при КЛИКЕ на Вьібор Магазина
-function storeLocationClick(e) {
-	//
-	if (e.target.closest('.select__body')) {
-		storeLocation.classList.add('map-active');
+	//Функция присвоения класса 'map-active' всему блоку с картой при КЛИКЕ на Вьібор Магазина
+	function storeLocationClick(e) {
+		//
+		if (e.target.closest('.select__body')) {
+			storeLocation.classList.add('map-active');
+		}
 	}
 }

@@ -10,14 +10,18 @@
 		<main class="page">
 			@@include('html/_bradcrumps.htm',{})
 			<nav class="title-menu">
-				<form action="#" class="title-menu__form">
-					<select name="form[title-menu__form]" class="form">
-						<option data-href="#" value="1" selected>Verona</option>
-						<option data-href="#" value="2">Gracia</option>
-						<option data-href="#" value="3">Lyra</option>
-						<!-- пункты будут добавляться по мере добавления коллекций -->
-					</select>
-				</form>
+				<div class="select__body">
+					<button type="button" class="select__title">
+						<span class="select__value">
+							<span class="select__content">Verona</span>
+						</span>
+					</button>
+					<div class="select__options">
+						<a href="#" class="select__option">Verona</a>
+						<a href="# class="select__option">Gracia</a>
+						<a href="#" class="select__option">Lyra</a>
+					</div>
+				</div>
 			</nav>
 			<section class="door-collection">
 				<div class="door-collection__container">
@@ -108,7 +112,7 @@
 									</select>
 								</div>
 								<span class="filter__title">CHOOSE ACCESSORIES</span>
-								<div  data-spollers class="filter__accessories accessories">
+								<div data-spollers class="filter__accessories accessories">
 									<button data-spoller type="button" class="accessories__title">CHOOSE FRAME</button>
 									<div class="accessories__items">
 										<label class="accessories__item">
@@ -141,13 +145,13 @@
 								Rough opening can be calculated: door width" + 2 1/2"; door height" + 2".
 							</p>
 							<span class="info__title">Set includes:</span>
-								<ul class="info__items">
-									<li class="info__item">- door slab;</li>
-									<li class="info__item">- trims (2.95" wide);</li>
-									<li class="info__item">- frames (for wall thickness from 4" to 5 1/2");</li>
-									<li class="info__item">- passage lever/knob;</li>
-									<li class="info__item">- non-mortise hinges;</li>
-								</ul>
+							<ul class="info__items">
+								<li class="info__item">- door slab;</li>
+								<li class="info__item">- trims (2.95" wide);</li>
+								<li class="info__item">- frames (for wall thickness from 4" to 5 1/2");</li>
+								<li class="info__item">- passage lever/knob;</li>
+								<li class="info__item">- non-mortise hinges;</li>
+							</ul>
 							<p class="info__content">NO FORMALDEHYDE</p>
 						</div>
 					</div>

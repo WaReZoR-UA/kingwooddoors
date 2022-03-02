@@ -207,14 +207,18 @@ textarea.input {
 .select {
   position: relative;
   text-align: center;
+  overflow: hidden;
 }
 .select__body {
   position: relative;
-  display: inline-block;
+  display: block;
+  max-width: 250px;
+  margin: 0px auto;
 }
 .select__title {
   color: inherit;
   cursor: pointer;
+  margin: 0px auto;
 }
 .select__value {
   display: flex;
@@ -283,13 +287,15 @@ textarea.input {
   height: 100%;
 }
 .select__options {
+  display: none;
   position: absolute;
   width: 100%;
   border-radius: 4px;
   left: 50%;
-  transform: translate(-38%, 0px);
+  transform: translate(-38%, 0%);
   padding: 10px 0px 5px 0px;
   z-index: 1;
+  overflow: hidden;
 }
 @supports (font-size: clamp( 1rem , 0.7869822485rem  +  1.0650887574vw , 1.5625rem )) {
   .select__options {
@@ -310,6 +316,9 @@ textarea.input {
   .select__options {
     top: calc(2.5rem + 2.1875 * (100vw - 20rem) / 52.8125);
   }
+}
+.select__options_open {
+  display: block;
 }
 .select__scroll {
   overflow-y: auto;
@@ -2198,7 +2207,7 @@ body::after {
 }
 @media (max-width: 29.99875em) {
   .footer__logo {
-    display: block;
+    display: none;
     position: absolute;
     top: 0;
     right: 0;
