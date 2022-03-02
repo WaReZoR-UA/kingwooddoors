@@ -4,6 +4,7 @@
 	position: relative;
 	text-align: center;
 	overflow: hidden;
+
 	// .select__body
 	&__body {
 		position: relative;
@@ -11,32 +12,22 @@
 		max-width: 250px;
 		margin: 0px auto;
 	}
+
 	// .select__title
 	&__title {
 		color: inherit;
 		cursor: pointer;
 		margin: 0px auto;
 	}
+
 	// .select__value
 	&__value {
 		display: flex;
 		@include adaptiveValue("font-size", 63, 24);
-		line-height: math.div(75 , 63);
+		line-height: math.div(75, 63);
 		@include adaptiveValue("padding-left", 30, 10);
 		@include adaptiveValue("padding-right", 30, 10);
-		&:before {
-			position: absolute;
-			left: 100%;
-			@extend %ic;
-			@extend ._icon-arrow-down;
-			@include adaptiveValue("font-size", 23, 13);
-			color: $orange;
-			align-self: center;
-			transition: all 0.3s ease 0s;
-			._select-open & {
-				transform: rotateX(180deg);
-			}
-		}
+
 		&._select-pseudo-label {
 			&::before {
 				content: attr(data-pseudo-label);
@@ -44,15 +35,34 @@
 			}
 		}
 	}
+	// .select__icon
+	&__icon {
+		position: absolute;
+		left: 100%;
+		@extend %ic;
+		@extend ._icon-arrow-down;
+		@include adaptiveValue("font-size", 23, 13);
+		color: $orange;
+		align-self: center;
+		transition: all 0.3s ease 0s;
+		margin: 7px 0px 0px 0px;
+		// .select__icon_open
+		&_open {
+			transform: rotateX(180deg);
+		}
+	}
+
 	// .select__text
 	&__text {
 		flex: 1 1 auto;
 	}
+
 	&__input {
 		width: 100%;
 		background-color: transparent;
 		height: 100%;
 	}
+
 	// .select__options
 	&__options {
 		display: none;
@@ -62,21 +72,24 @@
 		@include adaptiveValue("top", 75, 40);
 		border-radius: 4px;
 		left: 50%;
-		transform: translate(-38%,0%);
+		transform: translate(-38%, 0%);
 		padding: 10px 0px 5px 0px;
 		z-index: 1;
 		overflow: hidden;
+		
 		// .select__options_open
 		&_open {
 			display: block;
 		}
 	}
+
 	// .select__scroll
 	&__scroll {
 		overflow-y: auto;
 		overflow-x: hidden;
 		// Максимальная высота
 		max-height: 200px;
+
 		// Стили скроллбара
 		.simplebar-scrollbar {
 			&::before {
@@ -84,6 +97,7 @@
 			}
 		}
 	}
+
 	// .select__option
 	&__option {
 
@@ -97,12 +111,15 @@
 		background: $buttonGray;
 		transition: all 0.3s ease 0s;
 		color: $orange;
+
 		&._select-selected {
 			background-color: $orange;
 		}
+
 		&:not(:last-child) {
 			margin: 0px 0px 10px 0px;
 		}
+
 		@media (any-hover: hover) {
 			&:hover {
 				background: $orange;
@@ -116,25 +133,25 @@
 		display: inline-flex;
 		align-items: center;
 	}
-	&__asset {
-	}
-	&__text {
-	}
+
+	&__asset {}
+
+	&__text {}
 
 	// Состояния селекта
 	&._select-open {
 		z-index: 5;
 	}
-	&._select-disabled {
-	}
-	&._select-active {
-	}
-	&._select-focus {
-	}
-	&._select-multiple {
-	}
-	&._select-checkbox {
-	}
+
+	&._select-disabled {}
+
+	&._select-active {}
+
+	&._select-focus {}
+
+	&._select-multiple {}
+
+	&._select-checkbox {}
 
 
 }
@@ -147,30 +164,34 @@
 
 //=============================================DEALER SELECT===========================================
 
-.select_region-dealer__select{
+.select_region-dealer__select {
 	background-color: $white;
 	border: 2px solid #FF8A00;
 	//color: transparent;
-	@include adaptiveValue("font-size",24 ,12 );
+	@include adaptiveValue("font-size", 24, 12);
 }
-.select_region-dealer__select .select__body{
+
+.select_region-dealer__select .select__body {
 	width: 100%;
-	
+
 }
-.select_region-dealer__select .select__title{
+
+.select_region-dealer__select .select__title {
 	text-align: left;
 	width: 100%;
 }
-.select_region-dealer__select .select__content{
-	@include adaptiveValue("font-size",24 ,12 );
+
+.select_region-dealer__select .select__content {
+	@include adaptiveValue("font-size", 24, 12);
 	width: 100%;
 }
-.select_region-dealer__select .select__option{
+
+.select_region-dealer__select .select__option {
 	margin: 0;
 	width: 100%;
 	text-align: left;
 	background-color: $white;
-	@include adaptiveValue("font-size",24 ,12 );
+	@include adaptiveValue("font-size", 24, 12);
 	padding: rem(23);
 	border-radius: 0;
 	color: $mainColor;
@@ -179,32 +200,36 @@
 	// 	background-color: $midGrey;
 	// }
 	transition: all 0.3s ease 0s;
-	@media (any-hover: hover){
-		&:hover{
+
+	@media (any-hover: hover) {
+		&:hover {
 			color: $white;
 			background-color: $orange;
 		}
 	}
 }
-.select_region-dealer__select .select__options{
+
+.select_region-dealer__select .select__options {
 	border: 2px solid #FF8A00;
 	box-sizing: content-box;
 	width: 100%;
 	left: -2px;
-	top:0;
-	transform: translate(0,0);
+	top: 0;
+	transform: translate(0, 0);
 	padding: 0;
 	border-radius: 0;
 }
 
-.select_region-dealer__select .select__value{
+.select_region-dealer__select .select__value {
 	font-size: rem(24);
 	padding: rem(23);
 	width: 100%;
-	@media (max-width:$mobile){
+
+	@media (max-width:$mobile) {
 		padding: rem(5);
 	}
-	&:before{
+
+	&:before {
 		display: none;
 	}
 }
@@ -212,93 +237,102 @@
 
 //=============================================BUY SELECT===========================================
 
-.select_region-buy__select{
-	
-	@include adaptiveValue("font-size",36 ,18 );
-	line-height: math.div(42 ,36 );
+.select_region-buy__select {
+
+	@include adaptiveValue("font-size", 36, 18);
+	line-height: math.div(42, 36);
 	color: $orange;
-	
+
 	text-align: left;
-	
+
 
 
 }
-.select_region-buy__select .select__body{
+
+.select_region-buy__select .select__body {
 	width: 100%;
-	
+
 }
-.select_region-buy__select .select__title{
+
+.select_region-buy__select .select__title {
 	text-align: left;
 	width: 100%;
 	text-decoration: underline;
 }
-.select_region-buy__select .select__content{
-	@include adaptiveValue("font-size",36 ,18 );
+
+.select_region-buy__select .select__content {
+	@include adaptiveValue("font-size", 36, 18);
 	width: 100%;
 }
-.select_region-buy__select .select__option{
+
+.select_region-buy__select .select__option {
 	margin: 0;
 	width: 100%;
 	text-align: left;
 	background-color: $white;
-	@include adaptiveValue("font-size",24 ,12 );
+	@include adaptiveValue("font-size", 24, 12);
 	padding: rem(23);
 	border-radius: 0;
 	color: $mainColor;
 	// 
 	transition: all 0.3s ease 0s;
-	@media (any-hover: hover){
-		&:hover{
+
+	@media (any-hover: hover) {
+		&:hover {
 			color: $white;
 			background-color: $orange;
 		}
 	}
 }
-.select_region-buy__select .select__options{
+
+.select_region-buy__select .select__options {
 	border: 2px solid #FF8A00;
 	width: 100%;
 	left: 0;
-	top:0;
-	transform: translate(0,0);
+	top: 0;
+	transform: translate(0, 0);
 	padding: 0;
 	border-radius: 0;
 }
 
-.select_region-buy__select .select__value{
+.select_region-buy__select .select__value {
 	font-size: rem(24);
 	padding: rem(23) rem(0) rem(23) rem(0);
 	width: 100%;
-	@media (max-width:$mobile){
+
+	@media (max-width:$mobile) {
 		padding: rem(5);
 	}
-	&:before{
+
+	&:before {
 		display: none;
 	}
 }
 
 .buy-form {
-	
+
 	&__region {
 		padding-bottom: rem(50);
 	}
 }
+
 .region-buy {
 
 	&__label {
 		padding-bottom: rem(14);
 	}
 
-	&__select {
-	}
+	&__select {}
 
-	&__option {
-	}
+	&__option {}
 }
+
 .label-buy {
-	@include adaptiveValue("font-size",36 ,14 );
-	line-height: math.div(42 ,36 );
-	@media (max-width:$mobile){
-		line-height: math.div(16 ,14 );
+	@include adaptiveValue("font-size", 36, 14);
+	line-height: math.div(42, 36);
+
+	@media (max-width:$mobile) {
+		line-height: math.div(16, 14);
 		padding-bottom: rem(15);
 	}
 
@@ -309,8 +343,10 @@
 //=============================================Catalog filter SELECT===========================================
 
 .select {
+
 	// .select_filter
 	&_filter {
+
 		// .select_filter__sizes
 		&__sizes {
 			border: 1px solid $mainColor;
@@ -318,9 +354,11 @@
 			border-radius: 3px;
 			max-width: 230px;
 			transition: background 0.3s ease 0s;
-			@media (any-hover: hover){
-				&:hover{
+
+			@media (any-hover: hover) {
+				&:hover {
 					background: $orange;
+
 					.size__option {
 						color: $mainColor;
 					}
@@ -330,50 +368,52 @@
 			.select {
 				&__value {
 					padding: 4px;
-					&::before{
+
+					&::before {
 						display: none;
 					}
 				}
+
 				&__options {
 					position: static;
-					transform: translate(0px,0px);
+					transform: translate(0px, 0px);
 				}
+
 				&__option {
 					border: 1px solid $orange;
 					background: transparent;
 					transition: background 0.3s ease 0s,
-					color 0.3s ease 0s;
-					@media (any-hover: hover){
-						&:hover{
+						color 0.3s ease 0s;
+
+					@media (any-hover: hover) {
+						&:hover {
 							background: $orange;
 							color: $white;
 						}
 					}
 				}
 			}
+
 			.size__option {
 				transition: color 0.3s ease 0s;
 			}
 		}
 	}
 }
+
 .size {
 	&__option {
 		@include adaptiveValue("font-size", 24, 14, 1920, 768, 1);
-		line-height: math.div(28 , 24);
+		line-height: math.div(28, 24);
 		color: $mainColor;
 	}
 }
+
 ._select-open {
 	@media (any-hover: hover) {
-		:hover &{
+		:hover & {
 			background: $white;
 			color: $mainColor;
 		}
 	}
 }
-
-
-
-
-

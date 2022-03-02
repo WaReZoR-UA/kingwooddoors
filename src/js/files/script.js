@@ -1,29 +1,27 @@
 // Подключение функционала "Чертогов Фрилансера"
-import {
-	isMobile
-} from "./functions.js";
+import {isMobile} from "./functions.js";
 // Подключение списка активных модулей
-import {
-	flsModules
-} from "./modules.js";
+import {flsModules} from "./modules.js";
 
 import { Loader } from "@googlemaps/js-api-loader"
-
 
 //====================custom select====================================================================================================================================
 let titleMenuSelect = function () {
 	const titleMenuBlock = document.querySelector('.title-menu');
 	const selectOptions = titleMenuBlock.querySelector('.select__options');
-	const selectOption = selectOptions.querySelectorAll('.select__option');
+	const selectIcon = titleMenuBlock.querySelector('.select__icon');
+	console.log(selectIcon);
+	
 	
 	document.addEventListener('click', function (e) {
 		if (e.target.closest('.select__title')) {
 			selectOptions.classList.toggle('select__options_open');
+			selectIcon.classList.toggle('select__icon_open');
 		} else {
 			selectOptions.classList.remove('select__options_open');
+			selectIcon.classList.remove('select__icon_open');
 		}
 	})
-
 }
 titleMenuSelect();
 
@@ -307,7 +305,7 @@ const storeLocation = document.querySelector('.store-location');
 if (storeLocation) {
 	//Собьітие КЛИК на Вьіборе Магазина====================
 	document.addEventListener("click", storeLocationClick);
-
+	
 	//Функция присвоения класса 'map-active' всему блоку с картой при КЛИКЕ на Вьібор Магазина
 	function storeLocationClick(e) {
 		//

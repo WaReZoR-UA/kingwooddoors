@@ -1,4 +1,3 @@
-function reflexOn() {
 var tmp = navigator.appName == 'Microsoft Internet Explorer' && navigator.userAgent.indexOf('Opera') < 1 ? 1 : 0;
 if(tmp) var isIE = document.namespaces && ( !document.documentMode || document.documentMode < 9 ) ? 1 : 0;
 
@@ -404,7 +403,7 @@ function addReflex() {
 		}
 	}
 }
-if(window.addEventListener) window.addEventListener("load",addReflex,false);
-else window.attachEvent("onload", addIEReflex);
-}
-reflexOn();
+addReflex();
+addIEReflex();
+// if(window.addEventListener) window.addEventListener("load",addReflex,false);
+// else window.attachEvent("onload",addIEReflex);
