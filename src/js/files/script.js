@@ -6,24 +6,23 @@ import {flsModules} from "./modules.js";
 import { Loader } from "@googlemaps/js-api-loader"
 
 //====================custom select====================================================================================================================================
+const titleMenuBlock = document.querySelector('.title-menu');
+if (titleMenuBlock) {
+const selOptions = titleMenuBlock.querySelector('.select__options');
+const selIcon = titleMenuBlock.querySelector('.select__icon');
 let titleMenuSelect = function () {
-	const titleMenuBlock = document.querySelector('.title-menu');
-	const selectOptions = titleMenuBlock.querySelector('.select__options');
-	const selectIcon = titleMenuBlock.querySelector('.select__icon');
-	console.log(selectIcon);
-	
-	
-	document.addEventListener('click', function (e) {
-		if (e.target.closest('.select__title')) {
-			selectOptions.classList.toggle('select__options_open');
-			selectIcon.classList.toggle('select__icon_open');
-		} else {
-			selectOptions.classList.remove('select__options_open');
-			selectIcon.classList.remove('select__icon_open');
-		}
-	})
+		document.addEventListener('click', function (e) {
+			if (e.target.closest('.select__title')) {
+				selOptions.classList.toggle('select__options_open');
+				selIcon.classList.toggle('select__icon_open');
+			} else {
+				selOptions.classList.remove('select__options_open');
+				selIcon.classList.remove('select__icon_open');
+			}
+		})
+	}
+	titleMenuSelect();
 }
-titleMenuSelect();
 
 //====================google maps renew====================================================================================================================================
 

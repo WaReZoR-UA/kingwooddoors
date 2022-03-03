@@ -1,6 +1,6 @@
 // <SELECT>
 // Снипет (HTML): sel
-.select {
+.title-menu .select {
 	position: relative;
 	text-align: center;
 	overflow: hidden;
@@ -179,6 +179,7 @@
 .select_region-dealer__select .select__title {
 	text-align: left;
 	width: 100%;
+	@include adaptiveValue("padding", 23, 5);
 }
 
 .select_region-dealer__select .select__content {
@@ -354,6 +355,11 @@
 			border-radius: 3px;
 			max-width: 230px;
 			transition: background 0.3s ease 0s;
+			text-align: center;
+
+			.select__title {
+				margin: 10px 0px 10px 0px;
+			}
 
 			@media (any-hover: hover) {
 				&:hover {
@@ -368,6 +374,7 @@
 			.select {
 				&__value {
 					padding: 4px;
+					margin: 0px 0px 15px 0px;
 
 					&::before {
 						display: none;
@@ -390,6 +397,9 @@
 							background: $orange;
 							color: $white;
 						}
+					}
+					&:not(:last-child) {
+						margin: 0px 0px 15px 0px;
 					}
 				}
 			}
