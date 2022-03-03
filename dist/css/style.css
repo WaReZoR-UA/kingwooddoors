@@ -7,7 +7,7 @@
   font-weight: 400;
   font-style: normal;
 }
-.cat-card-aboutus__button span, .card-aboutus__button span, .links-items__instagram, .links-items__facebook, .links-items__telegram, .links-items__mail, .links-items__viber, .links-items__phone, .accessories ._spoller-init ~ button::before, .accessories button::before, .glass .glass__input:checked::before, .color .color__input:checked::before, .actions-footer__search-button, .actions-footer__english span.arrow-down, .menu-footer__item_submenu:before, .menu-header__item_submenu:before, .actions-header__english span.arrow-down, .actions-header__search-button span, .actions-header__search-button, .socials-header__instagram, .socials-header__facebook, .socials-header__telegram, .socials-header__mail, .socials-header__viber, .socials-header__phone, .select__icon, [class*=_icon-]:before {
+.cat-card-aboutus__button span, .card-aboutus__button span, .links-items__instagram, .links-items__facebook, .links-items__telegram, .links-items__mail, .links-items__viber, .links-items__phone, .accessories ._spoller-init ~ button::before, .accessories button::before, .glass .glass__input:checked::before, .color .color__input:checked::before, .actions-footer__search-button, .actions-footer__english span.arrow-down, .menu-footer__item_submenu:before, .menu-header__item_submenu:before, .actions-header__english span.arrow-down, .actions-header__search-button span, .actions-header__search-button, .socials-header__instagram, .socials-header__facebook, .socials-header__telegram, .socials-header__mail, .socials-header__viber, .socials-header__phone, .title-menu .select__icon, [class*=_icon-]:before {
   font-family: "icons";
   font-style: normal;
   font-weight: normal;
@@ -30,7 +30,7 @@
   content: "\e901";
 }
 
-._icon-arrow-down:before, .accessories ._spoller-init ~ button:before, .accessories button:before, .actions-footer__english span.arrow-down:before, .actions-header__english span.arrow-down:before, .actions-header__search-button span:before, .select__icon:before {
+._icon-arrow-down:before, .accessories ._spoller-init ~ button:before, .accessories button:before, .actions-footer__english span.arrow-down:before, .actions-header__english span.arrow-down:before, .actions-header__search-button span:before, .title-menu .select__icon:before {
   content: "\e902";
 }
 
@@ -204,61 +204,61 @@ textarea.input {
   padding: 0px 0px;
 }
 
-.select {
+.title-menu .select {
   position: relative;
   text-align: center;
   overflow: hidden;
 }
-.select__body {
+.title-menu .select__body {
   position: relative;
   display: block;
   max-width: 250px;
   margin: 0px auto;
 }
-.select__title {
+.title-menu .select__title {
   color: inherit;
   cursor: pointer;
   margin: 0px auto;
 }
-.select__value {
+.title-menu .select__value {
   display: flex;
   line-height: 1.1904761905;
 }
 @supports (font-size: clamp( 1.5rem , 0.5769230769rem  +  4.6153846154vw , 3.9375rem )) {
-  .select__value {
+  .title-menu .select__value {
     font-size: clamp( 1.5rem , 0.5769230769rem  +  4.6153846154vw , 3.9375rem );
   }
 }
 @supports not (font-size: clamp( 1.5rem , 0.5769230769rem  +  4.6153846154vw , 3.9375rem )) {
-  .select__value {
+  .title-menu .select__value {
     font-size: calc(1.5rem + 2.4375 * (100vw - 20rem) / 52.8125);
   }
 }
 @supports (padding-left: clamp( 0.625rem , 0.1516272189rem  +  2.3668639053vw , 1.875rem )) {
-  .select__value {
+  .title-menu .select__value {
     padding-left: clamp( 0.625rem , 0.1516272189rem  +  2.3668639053vw , 1.875rem );
   }
 }
 @supports not (padding-left: clamp( 0.625rem , 0.1516272189rem  +  2.3668639053vw , 1.875rem )) {
-  .select__value {
+  .title-menu .select__value {
     padding-left: calc(0.625rem + 1.25 * (100vw - 20rem) / 52.8125);
   }
 }
 @supports (padding-right: clamp( 0.625rem , 0.1516272189rem  +  2.3668639053vw , 1.875rem )) {
-  .select__value {
+  .title-menu .select__value {
     padding-right: clamp( 0.625rem , 0.1516272189rem  +  2.3668639053vw , 1.875rem );
   }
 }
 @supports not (padding-right: clamp( 0.625rem , 0.1516272189rem  +  2.3668639053vw , 1.875rem )) {
-  .select__value {
+  .title-menu .select__value {
     padding-right: calc(0.625rem + 1.25 * (100vw - 20rem) / 52.8125);
   }
 }
-.select__value._select-pseudo-label::before {
+.title-menu .select__value._select-pseudo-label::before {
   content: attr(data-pseudo-label);
   opacity: 0.5;
 }
-.select__icon {
+.title-menu .select__icon {
   position: absolute;
   left: 100%;
   color: #FF8A00;
@@ -267,27 +267,27 @@ textarea.input {
   margin: 7px 0px 0px 0px;
 }
 @supports (font-size: clamp( 0.8125rem , 0.5758136095rem  +  1.1834319527vw , 1.4375rem )) {
-  .select__icon {
+  .title-menu .select__icon {
     font-size: clamp( 0.8125rem , 0.5758136095rem  +  1.1834319527vw , 1.4375rem );
   }
 }
 @supports not (font-size: clamp( 0.8125rem , 0.5758136095rem  +  1.1834319527vw , 1.4375rem )) {
-  .select__icon {
+  .title-menu .select__icon {
     font-size: calc(0.8125rem + 0.625 * (100vw - 20rem) / 52.8125);
   }
 }
-.select__icon_open {
+.title-menu .select__icon_open {
   transform: rotateX(180deg);
 }
-.select__text {
+.title-menu .select__text {
   flex: 1 1 auto;
 }
-.select__input {
+.title-menu .select__input {
   width: 100%;
   background-color: transparent;
   height: 100%;
 }
-.select__options {
+.title-menu .select__options {
   display: none;
   position: absolute;
   width: 100%;
@@ -299,34 +299,34 @@ textarea.input {
   overflow: hidden;
 }
 @supports (font-size: clamp( 1rem , 0.7869822485rem  +  1.0650887574vw , 1.5625rem )) {
-  .select__options {
+  .title-menu .select__options {
     font-size: clamp( 1rem , 0.7869822485rem  +  1.0650887574vw , 1.5625rem );
   }
 }
 @supports not (font-size: clamp( 1rem , 0.7869822485rem  +  1.0650887574vw , 1.5625rem )) {
-  .select__options {
+  .title-menu .select__options {
     font-size: calc(1rem + 0.5625 * (100vw - 20rem) / 52.8125);
   }
 }
 @supports (top: clamp( 2.5rem , 1.6715976331rem  +  4.1420118343vw , 4.6875rem )) {
-  .select__options {
+  .title-menu .select__options {
     top: clamp( 2.5rem , 1.6715976331rem  +  4.1420118343vw , 4.6875rem );
   }
 }
 @supports not (top: clamp( 2.5rem , 1.6715976331rem  +  4.1420118343vw , 4.6875rem )) {
-  .select__options {
+  .title-menu .select__options {
     top: calc(2.5rem + 2.1875 * (100vw - 20rem) / 52.8125);
   }
 }
-.select__options_open {
+.title-menu .select__options_open {
   display: block;
 }
-.select__scroll {
+.title-menu .select__scroll {
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 200px;
 }
-.select__option {
+.title-menu .select__option {
   width: 100%;
   display: block;
   text-align: center;
@@ -338,23 +338,23 @@ textarea.input {
   transition: all 0.3s ease 0s;
   color: #FF8A00;
 }
-.select__option._select-selected {
+.title-menu .select__option._select-selected {
   background-color: #FF8A00;
 }
-.select__option:not(:last-child) {
+.title-menu .select__option:not(:last-child) {
   margin: 0px 0px 10px 0px;
 }
 @media (any-hover: hover) {
-  .select__option:hover {
+  .title-menu .select__option:hover {
     background: #FF8A00;
     color: #fff;
   }
 }
-.select__row {
+.title-menu .select__row {
   display: inline-flex;
   align-items: center;
 }
-.select._select-open {
+.title-menu .select._select-open {
   z-index: 5;
 }
 ._select-tag {
@@ -383,6 +383,16 @@ textarea.input {
 .select_region-dealer__select .select__title {
   text-align: left;
   width: 100%;
+}
+@supports (padding: clamp( 0.3125rem , -0.113535503rem  +  2.1301775148vw , 1.4375rem )) {
+  .select_region-dealer__select .select__title {
+    padding: clamp( 0.3125rem , -0.113535503rem  +  2.1301775148vw , 1.4375rem );
+  }
+}
+@supports not (padding: clamp( 0.3125rem , -0.113535503rem  +  2.1301775148vw , 1.4375rem )) {
+  .select_region-dealer__select .select__title {
+    padding: calc(0.3125rem + 1.125 * (100vw - 20rem) / 52.8125);
+  }
 }
 
 .select_region-dealer__select .select__content {
@@ -575,6 +585,10 @@ textarea.input {
   border-radius: 3px;
   max-width: 230px;
   transition: background 0.3s ease 0s;
+  text-align: center;
+}
+.select_filter__sizes .select__title {
+  margin: 10px 0px 10px 0px;
 }
 @media (any-hover: hover) {
   .select_filter__sizes:hover {
@@ -586,6 +600,7 @@ textarea.input {
 }
 .select_filter__sizes .select__value {
   padding: 4px;
+  margin: 0px 0px 15px 0px;
 }
 .select_filter__sizes .select__value::before {
   display: none;
@@ -604,6 +619,9 @@ textarea.input {
     background: #FF8A00;
     color: #fff;
   }
+}
+.select_filter__sizes .select__option:not(:last-child) {
+  margin: 0px 0px 15px 0px;
 }
 .select_filter__sizes .size__option {
   transition: color 0.3s ease 0s;

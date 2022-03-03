@@ -5122,22 +5122,23 @@
             }
         }
     }
-    let titleMenuSelect = function() {
-        const titleMenuBlock = document.querySelector(".title-menu");
-        const selectOptions = titleMenuBlock.querySelector(".select__options");
-        const selectIcon = titleMenuBlock.querySelector(".select__icon");
-        console.log(selectIcon);
-        document.addEventListener("click", (function(e) {
-            if (e.target.closest(".select__title")) {
-                selectOptions.classList.toggle("select__options_open");
-                selectIcon.classList.toggle("select__icon_open");
-            } else {
-                selectOptions.classList.remove("select__options_open");
-                selectIcon.classList.remove("select__icon_open");
-            }
-        }));
-    };
-    titleMenuSelect();
+    const titleMenuBlock = document.querySelector(".title-menu");
+    if (titleMenuBlock) {
+        const selOptions = titleMenuBlock.querySelector(".select__options");
+        const selIcon = titleMenuBlock.querySelector(".select__icon");
+        let titleMenuSelect = function() {
+            document.addEventListener("click", (function(e) {
+                if (e.target.closest(".select__title")) {
+                    selOptions.classList.toggle("select__options_open");
+                    selIcon.classList.toggle("select__icon_open");
+                } else {
+                    selOptions.classList.remove("select__options_open");
+                    selIcon.classList.remove("select__icon_open");
+                }
+            }));
+        };
+        titleMenuSelect();
+    }
     if (document.getElementById("map")) {
         const getLocations = document.querySelectorAll("[data-spollers] [data-spoller]");
         getLocations.forEach((getLocation => getLocation.addEventListener("click", (function() {
