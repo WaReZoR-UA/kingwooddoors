@@ -11,6 +11,7 @@
 		display: block;
 		max-width: 250px;
 		margin: 0px auto;
+		text-align: center;
 	}
 
 	// .select__title
@@ -37,15 +38,13 @@
 	}
 	// .select__icon
 	&__icon {
-		position: absolute;
-		left: 100%;
 		@extend %ic;
 		@extend ._icon-arrow-down;
 		@include adaptiveValue("font-size", 23, 13);
 		color: $orange;
 		align-self: center;
 		transition: all 0.3s ease 0s;
-		margin: 7px 0px 0px 0px;
+		margin: 7px 0px 0px 10px;
 		// .select__icon_open
 		&_open {
 			transform: rotateX(180deg);
@@ -67,12 +66,12 @@
 	&__options {
 		display: none;
 		position: absolute;
-		width: 100%;
+		width: 70%;
 		@include adaptiveValue("font-size", 25, 16);
 		@include adaptiveValue("top", 75, 40);
 		border-radius: 4px;
 		left: 50%;
-		transform: translate(-38%, 0%);
+		transform: translate(-50%, 0%);
 		padding: 10px 0px 5px 0px;
 		z-index: 1;
 		overflow: hidden;

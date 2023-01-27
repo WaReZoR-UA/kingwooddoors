@@ -35,7 +35,7 @@
 	// .door-collection__name
 	&__name {
 		position: absolute;
-		bottom: 15%;
+		bottom: 10%;
 		left: 50%;
 		transform: translate(-50%,0px);
 		height: auto;
@@ -61,7 +61,7 @@
 	// .collection-details__piture
 	&__picture {
 		@include adaptiveValue("min-width", 368, 122);
-		@include adaptiveValue("height", 824, 272);
+		@include adaptiveValue("height", 824, 372);
 		@include adaptiveValue("margin-top", -65, -10);
 	}
 
@@ -397,10 +397,10 @@
 				&::after {
 					content: '';
 					position: absolute;
-					@include adaptiveValue("top", 8, 4.5);
-					@include adaptiveValue("right", 4, 3);
-					@include adaptiveValue("width", 8, 5);
-					@include adaptiveValue("height", 8, 5);
+					@include adaptiveValue("top", 5, 3.5);
+					right: 1px;
+					@include adaptiveValue("width", 14, 8);
+					@include adaptiveValue("height", 14, 8);
 					background: orange;
 					transform: scale(0);
 					transition: transform 0.5s ease 0s;

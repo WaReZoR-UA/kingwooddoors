@@ -70,46 +70,47 @@
 					<div class="collection-details__options door-options">
 						<div class="door-options__titles">
 							<h2 class="door-options__colletion-name">Verona doors</h2> <!-- тут выводиться имя коллекции -->
-							<strong class="door-options__collection-model">ML-00F</strong> <!-- тут выводиться модель выбранного полотна двери-->
+							<strong data-price="500" class="door-options__collection-model">ML-00F</strong> <!-- тут выводиться модель выбранного полотна двери-->
 						</div>
 						<div class="door-options__fiters filter">
 							<form action="#" class="filter__form">
 								<span class="filter__title">CHOOSE COLOR:</span>
 								<div class="filter__colors">
 									<label class="filter__color color">
-										<input checked class="color__input" type="radio" name="color">
+										<input data-price="50" class="color__input" type="radio" name="color">
 										<img class="color__image" src="@img/catalog/shpon/1.jpg" alt="color">
 									</label>
 									<label class="filter__color color">
-										<input class="color__input" type="radio" name="color">
+										<input data-price="30" class="color__input" type="radio" name="color">
 										<img class="color__image" src="@img/catalog/shpon/2.jpg" alt="color">
 									</label>
 									<label class="filter__color color">
-										<input class="color__input" type="radio" name="color">
+										<input data-price="20" class="color__input" type="radio" name="color">
 										<img class="color__image" src="@img/catalog/shpon/3.jpg" alt="color">
 									</label>
 								</div>
 								<span class="filter__title">CHOOSE GLASS:</span>
 								<div class="filter__glasses">
 									<label class="filter__glass glass">
-										<input checked class="glass__input" type="radio" name="glass">
+										<input data-price="50"  class="glass__input" type="radio" name="glass">
 										<img class="glass__image" src="@img/catalog/glass/1.jpg" alt="glass">
 									</label>
 									<label class="filter__glass glass">
-										<input class="glass__input" type="radio" name="glass">
+										<input data-price="30" class="glass__input" type="radio" name="glass">
 										<img class="glass__image" src="@img/catalog/glass/2.jpg" alt="glass">
 									</label>
 									<label class="filter__glass glass">
-										<input class="glass__input" type="radio" name="glass">
+										<input data-price="10" class="glass__input" type="radio" name="glass">
 										<img class="glass__image" src="@img/catalog/glass/3.jpg" alt="glass">
 									</label>
 								</div>
 								<span class="filter__title">CHOOSE SIZE:</span>
 								<div class="filter__sizes">
 									<select name="form[]" class="filter__sizes">
-										<option data-class="size__option" value="1">28x80 (711х2032)</option>
-										<option data-class="size__option" value="2">28x80 (711х2032)</option>
-										<option data-class="size__option" value="3">28x80 (711х2032)</option>
+										<option data-class="size__option" value="">Door box size</option>
+										<option data-price="50" data-class="size__option" value="1">28x50 (711х2032)</option>
+										<option data-price="100" data-class="size__option" value="2">28x100 (711х2032)</option>
+										<option data-price="150" data-class="size__option" value="3">28x150 (711х2032)</option>
 									</select>
 								</div>
 								<span class="filter__title">CHOOSE ACCESSORIES</span>
@@ -117,22 +118,26 @@
 									<button data-spoller type="button" class="accessories__title">CHOOSE FRAME</button>
 									<div class="accessories__items">
 										<label class="accessories__item">
-											<input checked class="accessories__input" type="radio" name="frame">
+											<input data-price="50" class="accessories__input" type="radio" name="frame">
 											<span class="accessories__option">One side</span>
 										</label>
 										<label class="accessories__item">
-											<input class="accessories__input" type="radio" name="frame">
+											<input data-price="70" class="accessories__input" type="radio" name="frame">
 											<span class="accessories__option">Two sides</span>
 										</label>
 									</div>
 									<label class="accessories__item accessories__item_choice">
-										<input class="accessories__input" type="checkbox" name="itemCheckbox">
+										<input data-price="90" class="accessories__input" type="checkbox" name="itemCheckbox">
 										<span class="accessories__title">CHOOSE SOME OPTION</span>
+									</label>
+									<label class="accessories__item accessories__item_choice">
+										<input data-price="1" class="accessories__input" type="checkbox" name="itemCheckbox">
+										<span class="accessories__title">CHOOSE SOME OPTION 2</span>
 									</label>
 								</div>
 							</form>
 						</div>
-						<div class="door-options__currency">Price:<span class="door-option__value">500</span>$</div>
+						<div class="door-options__currency">Price:<span class="door-option__value">0</span>$</div>
 						<a data-da=".collection-details, 767.98, last" href="technical.html" class="door-options__btn common-button">Technical information</a>
 					</div>
 					<div class="door-options__info info">

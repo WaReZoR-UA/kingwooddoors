@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220303171246">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230127175442">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -158,7 +158,7 @@
 							<li class="door-collection__item">
 								<a href="#" class="door-collection__picture">
 									<img class="reflex itiltnone" src="img/main/collections/serial/Optima_Dub_norton_Optima-02_satin.jpg" alt="Door MSM-02">
-									<h3 class="door-collection__name">MSM-02</h3>
+									<h3 class="door-collection__name">MSM-02 dsfsdff</h3>
 								</a>
 							</li>
 							<li class="door-collection__item">
@@ -197,46 +197,47 @@
 					<div class="collection-details__options door-options">
 						<div class="door-options__titles">
 							<h2 class="door-options__colletion-name">Verona doors</h2> <!-- тут выводиться имя коллекции -->
-							<strong class="door-options__collection-model">ML-00F</strong> <!-- тут выводиться модель выбранного полотна двери-->
+							<strong data-price="500" class="door-options__collection-model">ML-00F</strong> <!-- тут выводиться модель выбранного полотна двери-->
 						</div>
 						<div class="door-options__fiters filter">
 							<form action="#" class="filter__form">
 								<span class="filter__title">CHOOSE COLOR:</span>
 								<div class="filter__colors">
 									<label class="filter__color color">
-										<input checked class="color__input" type="radio" name="color">
+										<input data-price="50" class="color__input" type="radio" name="color">
 										<img class="color__image" src="img/catalog/shpon/1.jpg" alt="color">
 									</label>
 									<label class="filter__color color">
-										<input class="color__input" type="radio" name="color">
+										<input data-price="30" class="color__input" type="radio" name="color">
 										<img class="color__image" src="img/catalog/shpon/2.jpg" alt="color">
 									</label>
 									<label class="filter__color color">
-										<input class="color__input" type="radio" name="color">
+										<input data-price="20" class="color__input" type="radio" name="color">
 										<img class="color__image" src="img/catalog/shpon/3.jpg" alt="color">
 									</label>
 								</div>
 								<span class="filter__title">CHOOSE GLASS:</span>
 								<div class="filter__glasses">
 									<label class="filter__glass glass">
-										<input checked class="glass__input" type="radio" name="glass">
+										<input data-price="50" class="glass__input" type="radio" name="glass">
 										<img class="glass__image" src="img/catalog/glass/1.jpg" alt="glass">
 									</label>
 									<label class="filter__glass glass">
-										<input class="glass__input" type="radio" name="glass">
+										<input data-price="30" class="glass__input" type="radio" name="glass">
 										<img class="glass__image" src="img/catalog/glass/2.jpg" alt="glass">
 									</label>
 									<label class="filter__glass glass">
-										<input class="glass__input" type="radio" name="glass">
+										<input data-price="10" class="glass__input" type="radio" name="glass">
 										<img class="glass__image" src="img/catalog/glass/3.jpg" alt="glass">
 									</label>
 								</div>
 								<span class="filter__title">CHOOSE SIZE:</span>
 								<div class="filter__sizes">
 									<select name="form[]" class="filter__sizes">
-										<option data-class="size__option" value="1">28x80 (711х2032)</option>
-										<option data-class="size__option" value="2">28x80 (711х2032)</option>
-										<option data-class="size__option" value="3">28x80 (711х2032)</option>
+										<option data-class="size__option" value="">Door box size</option>
+										<option data-price="50" data-class="size__option" value="1">28x50 (711х2032)</option>
+										<option data-price="100" data-class="size__option" value="2">28x100 (711х2032)</option>
+										<option data-price="150" data-class="size__option" value="3">28x150 (711х2032)</option>
 									</select>
 								</div>
 								<span class="filter__title">CHOOSE ACCESSORIES</span>
@@ -244,22 +245,26 @@
 									<button data-spoller type="button" class="accessories__title">CHOOSE FRAME</button>
 									<div class="accessories__items">
 										<label class="accessories__item">
-											<input checked class="accessories__input" type="radio" name="frame">
+											<input data-price="50" class="accessories__input" type="radio" name="frame">
 											<span class="accessories__option">One side</span>
 										</label>
 										<label class="accessories__item">
-											<input class="accessories__input" type="radio" name="frame">
+											<input data-price="70" class="accessories__input" type="radio" name="frame">
 											<span class="accessories__option">Two sides</span>
 										</label>
 									</div>
 									<label class="accessories__item accessories__item_choice">
-										<input class="accessories__input" type="checkbox" name="itemCheckbox">
+										<input data-price="90" class="accessories__input" type="checkbox" name="itemCheckbox">
 										<span class="accessories__title">CHOOSE SOME OPTION</span>
+									</label>
+									<label class="accessories__item accessories__item_choice">
+										<input data-price="1" class="accessories__input" type="checkbox" name="itemCheckbox">
+										<span class="accessories__title">CHOOSE SOME OPTION 2</span>
 									</label>
 								</div>
 							</form>
 						</div>
-						<div class="door-options__currency">Price:<span class="door-option__value">500</span>$</div>
+						<div class="door-options__currency">Price:<span class="door-option__value">0</span>$</div>
 						<a data-da=".collection-details, 767.98, last" href="technical.html" class="door-options__btn common-button">Technical information</a>
 					</div>
 					<div class="door-options__info info">
@@ -651,51 +656,53 @@
 		</div>
 	</div>
 
-	<script src="js/app.min.js?_v=20220303171246"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?_v=20220303171246"></script>
+	<script src="js/app.min.js?_v=20230127175442"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?_v=20230127175442"></script>
 	<script>
-		$(document).ready(function() {
-			var style = 'easeOutExpo';
-			var default_left = Math.round($('.menu-header ul li.active-link').offset().left - $('.menu-header ul').offset().left);
-			var default_top = $('.menu-header__container').height() - 2; /* 18 - отступ от пункта меню */
-			var default_width = $('.menu-header ul li.active-link').outerWidth();
-			$('#border').css({
-				left: default_left,
-				bottom: default_top,
-				width: default_width
-			});
-			$('.menu-header ul li').hover(function() {
-				left = Math.round($(this).offset().left - $('.menu-header ul').offset().left);
-				width = $(this).width();
-				$('#border').stop(false, true).animate({
-					left: left,
-					width: width
-				}, {
-					duration: 500,
-					easing: style
-				});
-			}).click(function() {
-				$('.menu-header ul li').removeClass('active-link');
-				$(this).addClass('active-link');
-			});
-			$('.menu-header ul').mouseleave(function() {
-				default_left = Math.round($('.menu-header ul li.active-link').offset().left - $('.menu-header ul').offset().left);
-				default_width = $('.menu-header ul li.active-link').outerWidth();
-				$('#border').stop(false, true).animate({
+		if ($('.menu-header')) {
+			$(document).ready(function() {
+				var style = 'easeOutExpo';
+				var default_left = Math.round(($('.menu-header ul li.active-link').offset().left) - ($('.menu-header ul').offset().left));
+				var default_top = $('.menu-header__container').height() - 2; /* 18 - отступ от пункта меню */
+				var default_width = $('.menu-header ul li.active-link').outerWidth();
+				$('#border').css({
 					left: default_left,
+					bottom: default_top,
 					width: default_width
-				}, {
-					duration: 1500,
-					easing: style
+				});
+				$('.menu-header ul li').hover(function() {
+					left = Math.round($(this).offset().left - $('.menu-header ul').offset().left);
+					width = $(this).width();
+					$('#border').stop(false, true).animate({
+						left: left,
+						width: width
+					}, {
+						duration: 500,
+						easing: style
+					});
+				}).click(function() {
+					$('.menu-header ul li').removeClass('active-link');
+					$(this).addClass('active-link');
+				});
+				$('.menu-header ul').mouseleave(function() {
+					default_left = Math.round($('.menu-header ul li.active-link').offset().left - $('.menu-header ul').offset().left);
+					default_width = $('.menu-header ul li.active-link').outerWidth();
+					$('#border').stop(false, true).animate({
+						left: default_left,
+						width: default_width
+					}, {
+						duration: 1500,
+						easing: style
+					});
 				});
 			});
-		});
-		//==========ФУНКЦИЯ ПЛАВНОГО СКОЛЬЖЕНИЯ ПОЛЗУНКА=========================
-		jQuery.extend(jQuery.easing, {
-			easeOutExpo: function(x, t, b, c, d) {
-				return (t == d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
-			},
-		});
+			//==========ФУНКЦИЯ ПЛАВНОГО СКОЛЬЖЕНИЯ ПОЛЗУНКА=========================
+			jQuery.extend(jQuery.easing, {
+				easeOutExpo: function(x, t, b, c, d) {
+					return (t == d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
+				},
+			});
+		}
 		//==========ФУНКЦИЯ ПЛАВНОГО СКОЛЬЖЕНИЯ ПОЛЗУНКА=========================
 	</script>
 

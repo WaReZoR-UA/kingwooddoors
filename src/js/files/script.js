@@ -5,6 +5,7 @@ import {flsModules} from "./modules.js";
 
 import { Loader } from "@googlemaps/js-api-loader"
 
+
 //====================custom select====================================================================================================================================
 const titleMenuBlock = document.querySelector('.title-menu');
 if (titleMenuBlock) {
@@ -28,55 +29,55 @@ let titleMenuSelect = function () {
 
 if (document.getElementById('map')) {
 	const getLocations = document.querySelectorAll('[data-spollers] [data-spoller]');
-getLocations.forEach(getLocation => getLocation.addEventListener('click', function () {
-	if (this.getAttribute('data-latitude') && this.getAttribute('data-longitude')) {
-		location.lng = +this.getAttribute('data-latitude');
-		location.lat = +this.getAttribute('data-longitude');
-		zoomState = 14;
-	}
-	loadMap();
-}));
+	getLocations.forEach(getLocation => getLocation.addEventListener('click', function () {
+		if (this.getAttribute('data-latitude') && this.getAttribute('data-longitude')) {
+			location.lng = +this.getAttribute('data-latitude');
+			location.lat = +this.getAttribute('data-longitude');
+			zoomState = 14;
+		}
+		loadMap();
+	}));
 
-document.addEventListener("selectCallback", function (e) {
-	const currentSelect = e.detail.select;
-	const optionsList = currentSelect.querySelectorAll('option');
-	const pseudoOptions = document.querySelectorAll('.select__option');
-	for (let index = 0; index < pseudoOptions.length; index++) {
-		if (pseudoOptions[index].hasAttribute('hidden')) {
-			const curentPseudoOption = pseudoOptions[index].getAttribute('data-value');
-			if (curentPseudoOption === currentSelect.value) {
-				const curentOption = optionsList[index];
-				if (curentOption.getAttribute('data-latitude') && curentOption.getAttribute('data-longitude')) {
-					location.lng = +curentOption.getAttribute('data-latitude');
-					location.lat = +curentOption.getAttribute('data-longitude');
-					zoomState = 14;
+	document.addEventListener("selectCallback", function (e) {
+		const currentSelect = e.detail.select;
+		const optionsList = currentSelect.querySelectorAll('option');
+		const pseudoOptions = document.querySelectorAll('.select__option');
+		for (let index = 0; index < pseudoOptions.length; index++) {
+			if (pseudoOptions[index].hasAttribute('hidden')) {
+				const curentPseudoOption = pseudoOptions[index].getAttribute('data-value');
+				if (curentPseudoOption === currentSelect.value) {
+					const curentOption = optionsList[index];
+					if (curentOption.getAttribute('data-latitude') && curentOption.getAttribute('data-longitude')) {
+						location.lng = +curentOption.getAttribute('data-latitude');
+						location.lat = +curentOption.getAttribute('data-longitude');
+						zoomState = 14;
+					}
+					loadMap();
 				}
-				loadMap();
 			}
 		}
-	}
-});
+	});
 	//================================GOOGLE MAPS========================================================================================================================
-const location = { lat: 39.97077982835153, lng: -101.9679369497046 };
-let zoomState = 5;
-function loadMap() {
-	const loader = new Loader({
-	apiKey: "AIzaSyAINCif2uQXqQO47ySLAjm1Xhv-u602rbo",
-	version: "weekly",
-	});
+	const location = { lat: 39.97077982835153, lng: -101.9679369497046 };
+	let zoomState = 5;
+	function loadMap() {
+		const loader = new Loader({
+		apiKey: "AIzaSyAINCif2uQXqQO47ySLAjm1Xhv-u602rbo",
+		version: "weekly",
+		});
 
-	loader.load().then(() => {
-		const map = new google.maps.Map(document.getElementById("map"), {
-		center: location,
-		zoom: zoomState,
+		loader.load().then(() => {
+			const map = new google.maps.Map(document.getElementById("map"), {
+			center: location,
+			zoom: zoomState,
+			});
+			const marker = new google.maps.Marker({
+				position: location,
+				map: map,
+			});
 		});
-		const marker = new google.maps.Marker({
-			position: location,
-			map: map,
-		});
-	});
-}
-loadMap();
+	}
+	loadMap();
 }
 
 
@@ -137,32 +138,6 @@ function buttonClickSearch(e) {
 	}
 }
 
-
-
-//Смена язьіка по клику в Хедере и в Футере
-document.addEventListener("click", buttonClickLangSwitch);
-
-function buttonClickLangSwitch(e) {
-	if (e.target.closest(".actions-header__language") || e.target.closest(".actions-footer__language")) {
-		languageButton.classList.toggle("_language-change");
-		languageButtonFooter.classList.toggle("_language-change");
-	}
-	if (languageButton.classList.contains("_language-change") || languageButtonFooter.classList.contains("_language-change")) {
-		englishButton.innerHTML = `<span>RU</span><span class="arrow-down"></span>`;
-		russianButton.innerHTML = `<span>ENG</span>`;
-		englishButtonFooter.innerHTML = `<span>RU</span><span class="arrow-down"></span>`;
-		russianButtonFooter.innerHTML = `<span>ENG</span>`;
-	} else {
-		englishButton.innerHTML = `<span>ENG</span><span class="arrow-down"></span>`;
-		russianButton.innerHTML = `<span>RU</span>`;
-		englishButtonFooter.innerHTML = `<span>ENG</span><span class="arrow-down"></span>`;
-		russianButtonFooter.innerHTML = `<span>RU</span>`;
-	}
-};
-
-
-
-
 //========ПОД-МЕНЮ====================
 
 //Обьявляем ПОДМЕНЮ в переменную
@@ -177,7 +152,7 @@ const subMenuFooterTitle = document.querySelector('.menu-footer__item_submenu');
 //const subMenuBody = document.querySelector('.header-submenu__body');
 
 //Собьітие наведение мьішью на саб-меню====================
-document.addEventListener("mouseover", subMenuShow);
+// document.addEventListener("mouseover", subMenuShow);
 //Собьітие КЛИК на саб-меню====================
 document.addEventListener("click", subMenuShowClick);
 
@@ -195,6 +170,8 @@ function subMenuShowClick(e) {
 	//Хедер саб-меню открьітие-закрьітие
 	if (e.target.closest('.menu-header__item_submenu')) {
 		subMenu.classList.toggle('submenu-show');
+	} else {
+		subMenu.classList.remove('submenu-show');
 	}
 	//Футер саб-меню открьітие-закрьітие
 	if (e.target.closest('.menu-footer__item_submenu')) {
@@ -301,15 +278,15 @@ window.addEventListener("load", function (e) {
 
 //Обьявляем Блок с Кратой в переменную
 const storeLocation = document.querySelector('.store-location');
-if (storeLocation) {
-	//Собьітие КЛИК на Вьіборе Магазина====================
-	document.addEventListener("click", storeLocationClick);
+	if (storeLocation) {
+		//Собьітие КЛИК на Вьіборе Магазина====================
+		document.addEventListener("click", storeLocationClick);
 	
-	//Функция присвоения класса 'map-active' всему блоку с картой при КЛИКЕ на Вьібор Магазина
-	function storeLocationClick(e) {
-		//
-		if (e.target.closest('.select__body')) {
-			storeLocation.classList.add('map-active');
+		//Функция присвоения класса 'map-active' всему блоку с картой при КЛИКЕ на Вьібор Магазина
+		function storeLocationClick(e) {
+			//
+			if (e.target.closest('.select__body')) {
+				storeLocation.classList.add('map-active');
+			}
 		}
 	}
-}

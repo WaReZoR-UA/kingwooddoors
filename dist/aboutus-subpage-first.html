@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20220303171246">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230127175442">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -481,51 +481,53 @@
 		</div>
 	</div>
 
-	<script src="js/app.min.js?_v=20220303171246"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?_v=20220303171246"></script>
+	<script src="js/app.min.js?_v=20230127175442"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js?_v=20230127175442"></script>
 	<script>
-		$(document).ready(function() {
-			var style = 'easeOutExpo';
-			var default_left = Math.round($('.menu-header ul li.active-link').offset().left - $('.menu-header ul').offset().left);
-			var default_top = $('.menu-header__container').height() - 2; /* 18 - отступ от пункта меню */
-			var default_width = $('.menu-header ul li.active-link').outerWidth();
-			$('#border').css({
-				left: default_left,
-				bottom: default_top,
-				width: default_width
-			});
-			$('.menu-header ul li').hover(function() {
-				left = Math.round($(this).offset().left - $('.menu-header ul').offset().left);
-				width = $(this).width();
-				$('#border').stop(false, true).animate({
-					left: left,
-					width: width
-				}, {
-					duration: 500,
-					easing: style
-				});
-			}).click(function() {
-				$('.menu-header ul li').removeClass('active-link');
-				$(this).addClass('active-link');
-			});
-			$('.menu-header ul').mouseleave(function() {
-				default_left = Math.round($('.menu-header ul li.active-link').offset().left - $('.menu-header ul').offset().left);
-				default_width = $('.menu-header ul li.active-link').outerWidth();
-				$('#border').stop(false, true).animate({
+		if ($('.menu-header')) {
+			$(document).ready(function() {
+				var style = 'easeOutExpo';
+				var default_left = Math.round(($('.menu-header ul li.active-link').offset().left) - ($('.menu-header ul').offset().left));
+				var default_top = $('.menu-header__container').height() - 2; /* 18 - отступ от пункта меню */
+				var default_width = $('.menu-header ul li.active-link').outerWidth();
+				$('#border').css({
 					left: default_left,
+					bottom: default_top,
 					width: default_width
-				}, {
-					duration: 1500,
-					easing: style
+				});
+				$('.menu-header ul li').hover(function() {
+					left = Math.round($(this).offset().left - $('.menu-header ul').offset().left);
+					width = $(this).width();
+					$('#border').stop(false, true).animate({
+						left: left,
+						width: width
+					}, {
+						duration: 500,
+						easing: style
+					});
+				}).click(function() {
+					$('.menu-header ul li').removeClass('active-link');
+					$(this).addClass('active-link');
+				});
+				$('.menu-header ul').mouseleave(function() {
+					default_left = Math.round($('.menu-header ul li.active-link').offset().left - $('.menu-header ul').offset().left);
+					default_width = $('.menu-header ul li.active-link').outerWidth();
+					$('#border').stop(false, true).animate({
+						left: default_left,
+						width: default_width
+					}, {
+						duration: 1500,
+						easing: style
+					});
 				});
 			});
-		});
-		//==========ФУНКЦИЯ ПЛАВНОГО СКОЛЬЖЕНИЯ ПОЛЗУНКА=========================
-		jQuery.extend(jQuery.easing, {
-			easeOutExpo: function(x, t, b, c, d) {
-				return (t == d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
-			},
-		});
+			//==========ФУНКЦИЯ ПЛАВНОГО СКОЛЬЖЕНИЯ ПОЛЗУНКА=========================
+			jQuery.extend(jQuery.easing, {
+				easeOutExpo: function(x, t, b, c, d) {
+					return (t == d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
+				},
+			});
+		}
 		//==========ФУНКЦИЯ ПЛАВНОГО СКОЛЬЖЕНИЯ ПОЛЗУНКА=========================
 	</script>
 

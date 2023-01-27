@@ -2,6 +2,7 @@
 
 .header {
 	@media (min-width:$mobile){
+		background: $darkGrey;
 		padding-top: 50px;
 	}
 	
@@ -18,11 +19,10 @@
 		}
 	}
 	&__logo {
-		background-color: $mainBackground;
 		padding: rem(50) 0 ;
 		display: flex;
 		justify-content: center;
-		
+		background: $darkGrey;
 		img{
 			max-width: rem(328);
 		}
@@ -45,11 +45,23 @@
 	&__menu {
 		//========STICKY для HEADER-MENU по скроллу==================
 		transition: all 0.3s ease 0s;
+		background: $darkGrey;
+		padding-bottom: 50px;
+		z-index: 98;
+		position: relative;
 		&.sticky{
 			position: fixed;
 			top:45px;
 			left: 0;
 			width: 100%;
+			.menu-header__item {
+				color: $mainColor;
+				@media (any-hover: hover){
+					&:hover{
+						color: $orange;
+					}
+				}
+			}
 			@media (min-width:$mobile){
 				background-color: rgba(255, 255, 255, 0.95);
 				padding-bottom: rem(20);
@@ -59,10 +71,6 @@
 				padding-top: 10px;
 			}
 		}
-		padding-bottom: 50px;
-		background-color: $mainBackground;
-		z-index: 98;
-		position: relative;
 		@media (max-width:$mobile){
 			background-color: $white;
 			padding-bottom: 0;
@@ -580,6 +588,7 @@
 		line-height: math.div(35 ,30);
 		font-variant: small-caps;
 		transition: color 0.3s ease 0s, border-bottom 0.3s ease 0s, padding-bottom 0.3s ease 0s;
+		color: $white;
 		&_submenu{
 			position: relative;
 			@include adaptiveValue("font-size",30,24,1024,768,1 );
@@ -587,7 +596,7 @@
 			line-height: math.div(35 ,30);
 			font-variant: small-caps;
 			transition: all 0.3s ease 0s;
-
+			cursor: pointer;
 			&:before {
 				display: none;
 				transition: all 0.3s ease 0s;
@@ -614,6 +623,7 @@
 			font-weight: 300;
 			font-size: rem(24);
 			line-height: math.div(28 ,24 );
+			color: $mainColor;
 		}
 		&.active-link{
 			color:$orange;
@@ -628,7 +638,6 @@
 	&__link {
 		position: relative;
 
-	
 		border-bottom: 0px solid transparent;
 		padding-bottom: rem(0);
 
