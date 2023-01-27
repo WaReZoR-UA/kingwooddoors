@@ -5194,9 +5194,7 @@
                 on: {}
             });
         }
-        window.addEventListener("load", (function(e) {
-            initSliders();
-        }));
+        initSliders();
         var lazyload_min = __webpack_require__(732);
         new lazyload_min({
             elements_selector: "[data-src],[data-srcset]",
